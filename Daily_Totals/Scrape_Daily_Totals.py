@@ -32,16 +32,17 @@ opponent = "NULL"
 starting_dates = {
     #        [First Date on stats page | Start date  | End date    ]
     "2020" : ["Wednesday, January 13",  "2021-01-13", "2021-05-19"],
-    "2021" : ["Tuesday, October 12",    "2021-10-12", "2022-04-29"]
+    "2021" : ["Tuesday, October 12",    "2021-10-12", "2022-04-29"],
+    "2022" : ["Tuesday, October 12",    "2022-10-07", "2023-04-02"]
 }
 
 # Webpage of today's top 50 skater by fpoints earned
 #daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311"
 #daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=singleScoringPeriod&scoringPeriodId=29"
 
-position = "G" # "S" for Skater or "G" for Goalies
+position = "S" # "S" for Skater or "G" for Goalies
 
-starting_year = "2021"  # Only 2021 is selectable for now. Need to implement scraping from other years
+starting_year = "2022"  # Only 2021 is selectable for now. Need to implement scraping from other years
 
 if (position == "G"):
     daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=singleScoringPeriod&lineupSlot=5&scoringPeriodId="
@@ -55,10 +56,10 @@ else:
     # scoring: GP, G, A,   +/-, PIM,  PPG, PPA,  SHG, SHA,  GWG, FOW, FOL,  HAT, SOG, HIT, BLK
     scoring = [ 0, 2, 1.5, 0.5, -0.1, 0.5, 0.25, 1  , 0.75, 1,   0.1, -0.1, 2,   0.1, 0.3, 0.5]
     csvHeader = "Name, Health, NHL Team, Position, GFHL Team, Opponent, Score, GP, G, A, +/-, PIM, PPG, PPA, SHG, SHA, GWG, FOW, FOL, HAT, SOG, HIT, BLK, FPTS"
-    MAX_PAGE = 28
+    MAX_PAGE = 29
 
 scoringPeriodIdMin = 1
-scoringPeriodIdMax = 198 # 201
+scoringPeriodIdMax = 179 # 201 or maybe 203
 
 #Set up colour class
 class bcolors:
@@ -316,9 +317,9 @@ def main():
 
             if (position == "G"):
 #                selectGoalies(driver)
-                fileName = "2021-22//Goalies//Goalies-" + str(scoring_period_to_date(scoringPeriodId)) + ".csv"
+                fileName = "2022-23//Goalies//Goalies-" + str(scoring_period_to_date(scoringPeriodId)) + ".csv"
             else:
-                fileName = "2021-22//Skaters//Skaters-" + str(scoring_period_to_date(scoringPeriodId)) + ".csv"
+                fileName = "2022-23//Skaters//Skaters-" + str(scoring_period_to_date(scoringPeriodId)) + ".csv"
 
             try:
                 with open(fileName, "a") as file:
