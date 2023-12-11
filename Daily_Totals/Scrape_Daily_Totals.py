@@ -40,7 +40,7 @@ starting_dates = {
 #daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311"
 #daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=singleScoringPeriod&scoringPeriodId=29"
 
-position = "S" # "S" for Skater or "G" for Goalies
+position = "G" # "S" for Skater or "G" for Goalies
 
 starting_year = "2022"  # Only 2021 is selectable for now. Need to implement scraping from other years
 
@@ -60,6 +60,12 @@ else:
 
 scoringPeriodIdMin = 1
 scoringPeriodIdMax = 179 # 201 or maybe 203
+
+#  force for now
+daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=currSeason&scoringPeriodId=0"
+scoringPeriodIdMin = 1
+scoringPeriodIdMax = 2
+MAX_PAGE = 5
 
 #Set up colour class
 class bcolors:
@@ -107,18 +113,16 @@ def scrape_page(driver, position):
     i = 0
     for name in names:
         # if there is no mention of 'DTD'/'IR'/'O'/'SSPD' in the health column, add 'Healthy'
-        if ((i%7 - 1) == 0):
+        if ((i%5 - 1) == 0):
             if ((name != 'DTD') and (name != 'IR') and (name != 'O') and (name != 'SSPD')):
                 temp_list.append('Healthy')
+                #
                 i = i + 1
-        # if we see '--' in the opponnent column we better add an extra '--' for the score column
-        if ((i%7 - 5) == 0):
-            if (name == '--'):
-                temp_list.append('--')
-                i = i + 1
+
+
         temp_list.append(name)
         i = i + 1
-        if (i%7 == 0):
+        if (i%5 == 0):
             #push append the temp_list to the names_list and clear the temp list
             names_list.append(temp_list)
             temp_list = []
@@ -154,6 +158,10 @@ def scrape_page(driver, position):
         temp_list = []
 
     combined = []
+    print("PRINTPRINTPRINT")
+    print(len(names_list))
+    print(len(stats_list))
+    print(len(fpts_list))
     for i in range(len(names_list)):
         print(names_list[i] + stats_list[i] + fpts_list[i])
         combined.append(names_list[i] + stats_list[i] + fpts_list[i])             
@@ -308,18 +316,20 @@ def main():
 
         for scoringPeriodId in range(scoringPeriodIdMin, scoringPeriodIdMax):
             # Open the browser
-            driver.get(daily_leader + str(scoringPeriodId))
+            driver.get(daily_leader) # + str(scoringPeriodId))
 
             # Wait for page to load 
 #            time.sleep(3)
 #            TODO("Replace with better method of waiting for page load")
             wait_until_page_is_loaded(driver)
 
+            time.sleep(60)
+
             if (position == "G"):
 #                selectGoalies(driver)
-                fileName = "2022-23//Goalies//Goalies-" + str(scoring_period_to_date(scoringPeriodId)) + ".csv"
+                fileName = "temp//Goalies-" + str(scoring_period_to_date(scoringPeriodId)) + ".csv"
             else:
-                fileName = "2022-23//Skaters//Skaters-" + str(scoring_period_to_date(scoringPeriodId)) + ".csv"
+                fileName = "temp//Skaters-" + str(scoring_period_to_date(scoringPeriodId)) + ".csv"
 
             try:
                 with open(fileName, "a") as file:
@@ -347,10 +357,10 @@ def main():
                     # If the player has played today, print the stats. Otherwise, stop scraping.
                     if check_if_played_today(item):
                         # if the calculated fpts does not match the value given by ESPN print discrepancy, and correct the error
-                        calculated = calculate_fpts(item, position)
-                        if (calculated != item[-1]) and (item[-1] != '--'):
-                            log_discrepancy(str(item) + " != " + str(calculated))
-                            item[-1] = calculated
+                        #calculated = calculate_fpts(item, position)
+                        #if (calculated != item[-1]) and (item[-1] != '--'):
+                        #    log_discrepancy(str(item) + " != " + str(calculated))
+                        #    item[-1] = calculated
                         printFA(item)
                         writeFA(item, scoringPeriodId, fileName)
                     
