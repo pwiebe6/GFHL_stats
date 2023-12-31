@@ -18,54 +18,59 @@ import datetime
 stub = True
 stub_variable = 0
 
-
+############################ EDIT ME #############################
 # just to prevent from going all the way to the end for now
 #MAX_PAGE = 10
 
-# Add opponent n
-# ame to show opposing players in yellow
+# Add my teams name to show in blue
+my_team = "CLB"
+# Add opponent name to show opposing players in yellow
 opponent = "ME"
 # skip showing opposing players in yellow
 opponent = "NULL"
+
+position = "S" # "S" for Skater or "G" for Goalies
+
+starting_year = "2023"  # Only 2021 is selectable for now. Need to implement scraping from other years
+
+scoringPeriodIdMin = 1
+scoringPeriodIdMax = 179 # 201 or maybe 203
+
+############################# END EDIT ME ##################################
 
 # create dictionary with season and starting dates
 starting_dates = {
     #        [First Date on stats page | Start date  | End date    ]
     "2020" : ["Wednesday, January 13",  "2021-01-13", "2021-05-19"],
     "2021" : ["Tuesday, October 12",    "2021-10-12", "2022-04-29"],
-    "2022" : ["Tuesday, October 12",    "2022-10-07", "2023-04-02"]
+    "2022" : ["Tuesday, October 7",     "2022-10-07", "2023-04-02"],
+    "2023" : ["Tuesday, October 10",    "2023-10-10", "2023-04-04"]
 }
 
 # Webpage of today's top 50 skater by fpoints earned
 #daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311"
 #daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=singleScoringPeriod&scoringPeriodId=29"
 
-position = "G" # "S" for Skater or "G" for Goalies
-
-starting_year = "2022"  # Only 2021 is selectable for now. Need to implement scraping from other years
 
 if (position == "G"):
     daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=singleScoringPeriod&lineupSlot=5&scoringPeriodId="
     # scoring: GS, W,  L,   GA, SV, SO
     scoring = [ 0, 4, -1, -0.5, 0.1, 2]
     csvHeader = "Name, Health, NHL Team, Position, GFHL Team, Opponent, Score, GS, W, L, GA, SV, SO, FPTS"
-    MAX_PAGE = 5
+    MAX_PAGE = 4
 
 else:
     daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=singleScoringPeriod&scoringPeriodId="
     # scoring: GP, G, A,   +/-, PIM,  PPG, PPA,  SHG, SHA,  GWG, FOW, FOL,  HAT, SOG, HIT, BLK
     scoring = [ 0, 2, 1.5, 0.5, -0.1, 0.5, 0.25, 1  , 0.75, 1,   0.1, -0.1, 2,   0.1, 0.3, 0.5]
     csvHeader = "Name, Health, NHL Team, Position, GFHL Team, Opponent, Score, GP, G, A, +/-, PIM, PPG, PPA, SHG, SHA, GWG, FOW, FOL, HAT, SOG, HIT, BLK, FPTS"
-    MAX_PAGE = 29
-
-scoringPeriodIdMin = 1
-scoringPeriodIdMax = 179 # 201 or maybe 203
+    MAX_PAGE = 28
 
 #  force for now
-daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=currSeason&scoringPeriodId=0"
-scoringPeriodIdMin = 1
-scoringPeriodIdMax = 2
-MAX_PAGE = 5
+#daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=currSeason&scoringPeriodId=0"
+#scoringPeriodIdMin = 1
+#scoringPeriodIdMax = 2
+#MAX_PAGE = 5
 
 #Set up colour class
 class bcolors:
@@ -113,19 +118,27 @@ def scrape_page(driver, position):
     i = 0
     for name in names:
         # if there is no mention of 'DTD'/'IR'/'O'/'SSPD' in the health column, add 'Healthy'
-        if ((i%5 - 1) == 0):
+        if ((i%7 - 1) == 0):
             if ((name != 'DTD') and (name != 'IR') and (name != 'O') and (name != 'SSPD')):
                 temp_list.append('Healthy')
                 #
                 i = i + 1
 
+        # if the game opponent column indicates '--', add  '--' for the gametime/score
+        if ((i%7 - 5) == 0):
+            if ((name == '--')):
+                temp_list.append('--')
+                #
+                i = i + 1
 
         temp_list.append(name)
         i = i + 1
-        if (i%5 == 0):
+        if (i%7 == 0):
             #push append the temp_list to the names_list and clear the temp list
             names_list.append(temp_list)
             temp_list = []
+
+    print("PRINTING NAMES LIST" + str(names_list))
 
     stats = stats.split("\n")
     stats_list = []
@@ -143,6 +156,8 @@ def scrape_page(driver, position):
             stats_list.append(temp_list)
             temp_list = []
 
+    print("PRINTING TEMP LIST" + str(temp_list))
+
     fpts = fpts.split("\n")
     fpts_list = []
     temp_list = []
@@ -156,6 +171,8 @@ def scrape_page(driver, position):
         #push appended the temp_list to the stat_list and clear the temp list
         fpts_list.append(temp_list)
         temp_list = []
+
+    print("PRINTING FPTS LIST" + str(fpts_list))
 
     combined = []
     print("PRINTPRINTPRINT")
@@ -265,9 +282,10 @@ def check_database(name, date):
 
 def printFA(item):
     '''Print in Green if player is a Free Agent'''
+    print(item[4])
     if item[4] == 'FA':
         print(Fore.GREEN + str(item) + Style.RESET_ALL)
-    elif item[4] == "CLB":
+    elif item[4] == my_team:
         print(Fore.CYAN + str(item) + Style.RESET_ALL)
     elif item[4] == opponent:
         print(Fore.YELLOW + str(item) + Style.RESET_ALL)
@@ -300,7 +318,7 @@ def selectGoalies(driver):
 
 
 def wait_until_page_is_loaded(driver):
-    time.sleep(1)
+    time.sleep(3)
     try:
         checkElement = expected_conditions.presence_of_element_located(By.XPATH, "//li[@class='Pagination__list__item pointer inline-flex justify-center items-center Pagination__list__item--active']")
         WebDriverWait(driver, 3).until(checkElement)      
@@ -315,6 +333,7 @@ def main():
         driver = setup()
 
         for scoringPeriodId in range(scoringPeriodIdMin, scoringPeriodIdMax):
+            print("scoring Period = " + str(scoringPeriodId))
             # Open the browser
             driver.get(daily_leader) # + str(scoringPeriodId))
 
@@ -323,7 +342,7 @@ def main():
 #            TODO("Replace with better method of waiting for page load")
             wait_until_page_is_loaded(driver)
 
-            time.sleep(60)
+#            time.sleep(1)
 
             if (position == "G"):
 #                selectGoalies(driver)
