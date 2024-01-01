@@ -26,14 +26,14 @@ stub_variable = 0
 # Add my teams name to show in blue
 my_team = "CLB"
 # Add opponent name to show opposing players in yellow
-opponent = "ME"
+opponent = "BBS"
 # skip showing opposing players in yellow
-opponent = "NULL"
+# opponent = "NULL"
 
 # Show Free Agents in Green
 free_agents = "FA"
 # skip showing opponents in Green
-free_agents = "NULL"
+# free_agents = "NULL"
 
 position = "S" # "S" for Skater or "G" for Goalies
 
@@ -55,26 +55,30 @@ starting_dates = {
     "2024" : ["Tuesday, October 10",    "2023-10-10", "2024-04-04", 179]
 }
 
+GFHL_teams = ["FA", "DINK", "BOWS", "LKR", "OXP", "NBUS", "CLB", "HERB", "SALT", "ME", "BBS", "SLC"]
+
 # Webpage of today's top 50 skater by fpoints earned
 #daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311"
 #daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=singleScoringPeriod&scoringPeriodId=29"
 
 # https://fantasy.espn.com/hockey/leaders?leagueId=59311&seasonId=2019&statSplit=singleScoringPeriod&scoringPeriodId=1
+url = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&seasonId=2024&statSplit=singleScoringPeriod"
 # leagueId = 59311
 # seasonId = 2019
 # statSplit = singleScoringPeriod
 # scoringPeriodId = 1
+# For Goalie stats
+# lineupSlot = 5
 
 
 if (position == "G"):
-    daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=singleScoringPeriod&lineupSlot=5&scoringPeriodId="
+    url = url + "&lineupSlot=5"
     # scoring: GS, W,  L,   GA, SV, SO
     scoring = [ 0, 4, -1, -0.5, 0.1, 2]
     csvHeader = "Name, Health, NHL Team, Position, GFHL Team, Opponent, Score, GS, W, L, GA, SV, SO, FPTS"
     MAX_PAGE = 4
 
 else:
-    daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=singleScoringPeriod&scoringPeriodId="
     # scoring: GP, G, A,   +/-, PIM,  PPG, PPA,  SHG, SHA,  GWG, FOW, FOL,  HAT, SOG, HIT, BLK
     scoring = [ 0, 2, 1.5, 0.5, -0.1, 0.5, 0.25, 1  , 0.75, 1,   0.1, -0.1, 2,   0.1, 0.3, 0.5]
     csvHeader = "Name, Health, NHL Team, Position, GFHL Team, Opponent, Score, GP, G, A, +/-, PIM, PPG, PPA, SHG, SHA, GWG, FOW, FOL, HAT, SOG, HIT, BLK, FPTS"
@@ -131,6 +135,13 @@ def scrape_page(driver, position):
 
     i = 0
     for name in names:
+        # if the game opponent column indicates '--', add  '--' for the gametime/score
+        if ((i%7 - 4) == 0):
+            if ((name not in GFHL_teams)):
+                temp_list.append('--')
+                #
+                i = i + 1
+
         # if there is no mention of 'DTD'/'IR'/'O'/'SSPD' in the health column, add 'Healthy'
         if ((i%7 - 1) == 0):
             if ((name != 'DTD') and (name != 'IR') and (name != 'O') and (name != 'SSPD')):
@@ -152,7 +163,7 @@ def scrape_page(driver, position):
             names_list.append(temp_list)
             temp_list = []
 
-    print("PRINTING NAMES LIST" + str(names_list))
+    #print("PRINTING NAMES LIST" + str(names_list))
 
     stats = stats.split("\n")
     stats_list = []
@@ -170,7 +181,7 @@ def scrape_page(driver, position):
             stats_list.append(temp_list)
             temp_list = []
 
-    print("PRINTING TEMP LIST" + str(temp_list))
+    #print("PRINTING STATS LIST" + str(stats_list))
 
     fpts = fpts.split("\n")
     fpts_list = []
@@ -186,15 +197,15 @@ def scrape_page(driver, position):
         fpts_list.append(temp_list)
         temp_list = []
 
-    print("PRINTING FPTS LIST" + str(fpts_list))
+    #print("PRINTING FPTS LIST" + str(fpts_list))
 
     combined = []
-    print("PRINTPRINTPRINT")
-    print(len(names_list))
-    print(len(stats_list))
-    print(len(fpts_list))
+    #print("PRINTPRINTPRINT")
+    #print(len(names_list))
+    #print(len(stats_list))
+    #print(len(fpts_list))
     for i in range(len(names_list)):
-        print(names_list[i] + stats_list[i] + fpts_list[i])
+        #print(names_list[i] + stats_list[i] + fpts_list[i])
         combined.append(names_list[i] + stats_list[i] + fpts_list[i])             
     return(combined)
 
@@ -227,10 +238,10 @@ def go_to_page(page):
 def date_to_scoring_period():
     print("temp")
 
-def scoring_period_to_date(scoringPeriodId):
+def scoring_period_to_date(year, scoringPeriodId):
     days_offset = scoringPeriodId - 1
 
-    date_string = starting_dates[starting_year][1]
+    date_string = starting_dates[year][1]
     date = datetime.datetime.strptime(date_string, "%Y-%m-%d")
     new_date = date + datetime.timedelta(days=days_offset)
 
@@ -296,7 +307,7 @@ def check_database(name, date):
 
 def printFA(item):
     '''Print in Green if player is a Free Agent'''
-    print(item[4])
+    #print(item[4])
     if item[4] == free_agents:
         print(Fore.GREEN + str(item) + Style.RESET_ALL)
     elif item[4] == my_team:
@@ -348,20 +359,21 @@ def main():
     
     parser.add_argument('-v', '--verbose', action='count', default=0, help="Used for debug prints at the moment")
     parser.add_argument('-r', '--run', action='store_true', default=False, help="Used for testing purposes. Required to scrape.")
-    parser.add_argument('-s', '--startdate', default='today', help="Enter YYYY-MM-DD to manually select date. Defaults to today.")
-    parser.add_argument('-e', '--enddate', default='today', help="Enter YYYY-MM-DD to manually select last date of range. Defaults to today.")
+    parser.add_argument('-s', '--startdate', default='NULL', help="Enter YYYY-MM-DD to manually select date. Defaults to today.")
+    parser.add_argument('-e', '--enddate', default='NULL', help="Enter YYYY-MM-DD to manually select last date of range. Defaults to today.")
     parser.add_argument('-b', '--blueteam', default="NULL", help="Select team to highlight in blue")
     parser.add_argument('-y', '--yellowteam', default="NULL", help="Select team to highlight in yellow")
     parser.add_argument('-g', '--greenteam', default="NULL", help="Select team to highlight in green")
     parser.add_argument('-G', '--goalie', action='store_true', default=False, help="Used to scrape Goalie stats instead of Skater stats.")
     parser.add_argument('-Y', '--year', default="NUll", help="Provide the year that the season started in if using scoringId")
-    parser.add_argument('-S', '--startscoringperiod', default=0, help="Provide starting scoring period. Must also provide Year with -Y")
-    parser.add_argument('-E', '--endscoringperiod', default=0, help="Provide ending scoring period. Must also provide Year with -Y")
+    parser.add_argument('-S', '--startscoringperiod', type=int, default=0, help="Provide starting scoring period. Must also provide Year with -Y")
+    parser.add_argument('-E', '--endscoringperiod', type=int, default=0, help="Provide ending scoring period. Must also provide Year with -Y")
+    parser.add_argument('-M', '--maxpage', type=int, default=5, help="Provide number of pages to scrape per day. Default 5")
 
 
     args = parser.parse_args()
     
-    if (args.verbose > 0):
+    if (args.verbose > -1):
         print("Run: " + str(args.run))
         print("Verbosity: " + str(args.verbose))
         print("Start Date: " + str(args.startdate))
@@ -370,6 +382,10 @@ def main():
         print("Yellow Team: " + str(args.yellowteam))
         print("Green Team: " + str(args.greenteam))
         print("Goalie scraping? " + str(args.goalie))
+        print("Year: " + str(args.year))
+        print("Start Scoring Period: " + str(args.startscoringperiod))
+        print("End Scoring Period: " + str(args.endscoringperiod))
+        print("Max Page: " + str(args.maxpage))
 
     # Early exit for testing purposes
     if (args.run == False):
@@ -382,11 +398,12 @@ def main():
     # try to load today's top 50 skaters by fpoints earned
     try:
         driver = setup()
+        print("ASDKF:DA")
 
-        for scoringPeriodId in range(scoringPeriodIdMin, scoringPeriodIdMax):
+        for scoringPeriodId in range(args.startscoringperiod, args.endscoringperiod):
             print("scoring Period = " + str(scoringPeriodId))
             # Open the browser
-            driver.get(daily_leader) # + str(scoringPeriodId))
+            driver.get(url + "&scoringPeriodId=" + str(scoringPeriodId))
 
             # Wait for page to load 
 #            time.sleep(3)
@@ -397,9 +414,9 @@ def main():
 
             if (position == "G"):
 #                selectGoalies(driver)
-                fileName = "temp//Goalies-" + str(scoring_period_to_date(scoringPeriodId)) + ".csv"
+                fileName = "temp//Goalies-" + str(scoring_period_to_date(args.year, scoringPeriodId)) + ".csv"
             else:
-                fileName = "temp//Skaters-" + str(scoring_period_to_date(scoringPeriodId)) + ".csv"
+                fileName = "temp//Skaters-" + str(scoring_period_to_date(args.year, scoringPeriodId)) + ".csv"
 
             try:
                 with open(fileName, "a") as file:
@@ -419,7 +436,7 @@ def main():
             stop_scrape = False
             # Get all stats for all playing players
             print("MAX_PAGE: " + str(MAX_PAGE))
-            for i in range(1, MAX_PAGE):
+            for i in range(1, min(MAX_PAGE,args.maxpage)):
                 # Get all stats for page
                 list = scrape_page(driver, position)
                 # Iterate through list from page
@@ -454,7 +471,7 @@ def main():
 
                 
                 # If we are not on the final page
-                if (i+1) != MAX_PAGE:
+                if ((i+1) != min(MAX_PAGE, args.maxpage)):
                     # Get updated page number and print the start of page message
                     current_page = get_page_number(driver)
                     print("Start of Page: "+ str(current_page))
