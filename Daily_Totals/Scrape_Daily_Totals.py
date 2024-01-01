@@ -14,6 +14,7 @@ from colorama import Fore
 from colorama import Style
 import traceback
 import datetime
+import argparse
 
 stub = True
 stub_variable = 0
@@ -29,6 +30,11 @@ opponent = "ME"
 # skip showing opposing players in yellow
 opponent = "NULL"
 
+# Show Free Agents in Green
+free_agents = "FA"
+# skip showing opponents in Green
+free_agents = "NULL"
+
 position = "S" # "S" for Skater or "G" for Goalies
 
 starting_year = "2023"  # Only 2021 is selectable for now. Need to implement scraping from other years
@@ -41,15 +47,23 @@ scoringPeriodIdMax = 179 # 201 or maybe 203
 # create dictionary with season and starting dates
 starting_dates = {
     #        [First Date on stats page | Start date  | End date    |scoring period Max]
-    "2020" : ["Wednesday, January 13",  "2021-01-13", "2021-05-19", 179],
-    "2021" : ["Tuesday, October 12",    "2021-10-12", "2022-04-29", 179],
-    "2022" : ["Tuesday, October 7",     "2022-10-07", "2023-04-02", 179],
-    "2023" : ["Tuesday, October 10",    "2023-10-10", "2023-04-04", 179]
+    "2019" : ["Wednesday, October 3",   "2018-10-03", "2019-04-06", 186],
+    "2020" : ["Wednesday, October 2",   "2019-10-02", "2020-06-21", 264], #Shortened year
+    "2021" : ["Wednesday, January 13",  "2021-01-13", "2021-05-19", 110], #Shortened year
+    "2022" : ["Tuesday, October 12",    "2021-10-12", "2022-04-29", 200],
+    "2023" : ["Tuesday, October 7",     "2022-10-07", "2023-04-02", 178],
+    "2024" : ["Tuesday, October 10",    "2023-10-10", "2024-04-04", 179]
 }
 
 # Webpage of today's top 50 skater by fpoints earned
 #daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311"
 #daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=singleScoringPeriod&scoringPeriodId=29"
+
+# https://fantasy.espn.com/hockey/leaders?leagueId=59311&seasonId=2019&statSplit=singleScoringPeriod&scoringPeriodId=1
+# leagueId = 59311
+# seasonId = 2019
+# statSplit = singleScoringPeriod
+# scoringPeriodId = 1
 
 
 if (position == "G"):
@@ -283,7 +297,7 @@ def check_database(name, date):
 def printFA(item):
     '''Print in Green if player is a Free Agent'''
     print(item[4])
-    if item[4] == 'FA':
+    if item[4] == free_agents:
         print(Fore.GREEN + str(item) + Style.RESET_ALL)
     elif item[4] == my_team:
         print(Fore.CYAN + str(item) + Style.RESET_ALL)
@@ -327,6 +341,43 @@ def wait_until_page_is_loaded(driver):
 
 
 def main():
+    parser = argparse.ArgumentParser(
+                    prog='Scrape_Daily_Totals.py',
+                    description='Scrapes Daily totals from ESPN Fantasy hockey team',
+                    epilog='Text at the bottom of help')
+    
+    parser.add_argument('-v', '--verbose', action='count', default=0, help="Used for debug prints at the moment")
+    parser.add_argument('-r', '--run', action='store_true', default=False, help="Used for testing purposes. Required to scrape.")
+    parser.add_argument('-s', '--startdate', default='today', help="Enter YYYY-MM-DD to manually select date. Defaults to today.")
+    parser.add_argument('-e', '--enddate', default='today', help="Enter YYYY-MM-DD to manually select last date of range. Defaults to today.")
+    parser.add_argument('-b', '--blueteam', default="NULL", help="Select team to highlight in blue")
+    parser.add_argument('-y', '--yellowteam', default="NULL", help="Select team to highlight in yellow")
+    parser.add_argument('-g', '--greenteam', default="NULL", help="Select team to highlight in green")
+    parser.add_argument('-G', '--goalie', action='store_true', default=False, help="Used to scrape Goalie stats instead of Skater stats.")
+    parser.add_argument('-Y', '--year', default="NUll", help="Provide the year that the season started in if using scoringId")
+    parser.add_argument('-S', '--startscoringperiod', default=0, help="Provide starting scoring period. Must also provide Year with -Y")
+    parser.add_argument('-E', '--endscoringperiod', default=0, help="Provide ending scoring period. Must also provide Year with -Y")
+
+
+    args = parser.parse_args()
+    
+    if (args.verbose > 0):
+        print("Run: " + str(args.run))
+        print("Verbosity: " + str(args.verbose))
+        print("Start Date: " + str(args.startdate))
+        print("End Date: " + str(args.enddate))
+        print("Blue Team: " + str(args.blueteam))
+        print("Yellow Team: " + str(args.yellowteam))
+        print("Green Team: " + str(args.greenteam))
+        print("Goalie scraping? " + str(args.goalie))
+
+    # Early exit for testing purposes
+    if (args.run == False):
+        return(False)
+    else:
+        pass
+
+
     colorama.init()
     # try to load today's top 50 skaters by fpoints earned
     try:
