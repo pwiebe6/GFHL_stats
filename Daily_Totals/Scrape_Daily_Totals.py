@@ -14,6 +14,7 @@ from colorama import Fore
 from colorama import Style
 import traceback
 import datetime
+from datetime import datetime
 import argparse
 
 stub = True
@@ -235,8 +236,25 @@ def go_to_page(page):
     else:
         print("go_to_page function not written yet")
 
-def date_to_scoring_period():
-    print("temp")
+def date_to_scoring_period(date):
+    year = int(date[0:4])
+    month = int(date[5:7])
+    print(year)
+    print(month)
+    print("d1 = " + str(starting_dates[year+1][1]))
+    print("d2 = " + str(date))
+    if (month >=10):
+        year = year + 1
+    return(year, days_between(starting_dates[year][1], date)+1)
+
+def days_between(d1, d2):
+    date_format = "%Y-%m-%d"
+    a = datetime.strptime(d1, date_format)
+    b = datetime.strptime(d2, date_format)
+    print(a)
+    print(b)
+    delta = b - a
+    return(delta.days)
 
 def scoring_period_to_date(year, scoringPeriodId):
     days_offset = scoringPeriodId - 1
@@ -363,7 +381,7 @@ def main():
     parser.add_argument('-e', '--enddate', default='NULL', help="Enter YYYY-MM-DD to manually select last date of range. Defaults to today.")
     parser.add_argument('-b', '--blueteam', default="NULL", help="Select team to highlight in blue")
     parser.add_argument('-y', '--yellowteam', default="NULL", help="Select team to highlight in yellow")
-    parser.add_argument('-g', '--greenteam', default="NULL", help="Select team to highlight in green")
+    parser.add_argument('-g', '--greenteam', default="FA", help="Select team to highlight in green")
     parser.add_argument('-G', '--goalie', action='store_true', default=False, help="Used to scrape Goalie stats instead of Skater stats.")
     parser.add_argument('-Y', '--year', type=int, default=2019, help="Provide the year that the season started in if using scoringId")
     parser.add_argument('-S', '--startscoringperiod', type=int, default=0, help="Provide starting scoring period. Must also provide Year with -Y")
@@ -390,6 +408,9 @@ def main():
         print("Start Scoring Period: " + str(args.startscoringperiod))
         print("End Scoring Period: " + str(args.endscoringperiod))
         print("Max Page: " + str(args.maxpage))
+
+        print("Start Date: " + str(args.startdate))
+        print("In scoringId format: " +  str(date_to_scoring_period(args.startdate)))
 
 
 
