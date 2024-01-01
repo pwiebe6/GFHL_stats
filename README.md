@@ -8,3 +8,7 @@ Add command line arguments for:
  -date range
  -NHL team specific
  -GFHL team specific
+
+ Add better logging to script
+
+ Add script to convert csv to html and add links

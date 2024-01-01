@@ -40,11 +40,11 @@ scoringPeriodIdMax = 179 # 201 or maybe 203
 
 # create dictionary with season and starting dates
 starting_dates = {
-    #        [First Date on stats page | Start date  | End date    ]
-    "2020" : ["Wednesday, January 13",  "2021-01-13", "2021-05-19"],
-    "2021" : ["Tuesday, October 12",    "2021-10-12", "2022-04-29"],
-    "2022" : ["Tuesday, October 7",     "2022-10-07", "2023-04-02"],
-    "2023" : ["Tuesday, October 10",    "2023-10-10", "2023-04-04"]
+    #        [First Date on stats page | Start date  | End date    |scoring period Max]
+    "2020" : ["Wednesday, January 13",  "2021-01-13", "2021-05-19", 179],
+    "2021" : ["Tuesday, October 12",    "2021-10-12", "2022-04-29", 179],
+    "2022" : ["Tuesday, October 7",     "2022-10-07", "2023-04-02", 179],
+    "2023" : ["Tuesday, October 10",    "2023-10-10", "2023-04-04", 179]
 }
 
 # Webpage of today's top 50 skater by fpoints earned
