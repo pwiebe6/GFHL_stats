@@ -46,13 +46,13 @@ scoringPeriodIdMax = 179 # 201 or maybe 203
 
 # create dictionary with season and starting dates
 starting_dates = {
-    #        [First Date on stats page | Start date  | End date    |scoring period Max]
-    "2019" : ["Wednesday, October 3",   "2018-10-03", "2019-04-06", 186],
-    "2020" : ["Wednesday, October 2",   "2019-10-02", "2020-06-21", 264], #Shortened year
-    "2021" : ["Wednesday, January 13",  "2021-01-13", "2021-05-19", 110], #Shortened year
-    "2022" : ["Tuesday, October 12",    "2021-10-12", "2022-04-29", 200],
-    "2023" : ["Tuesday, October 7",     "2022-10-07", "2023-04-02", 178],
-    "2024" : ["Tuesday, October 10",    "2023-10-10", "2024-04-04", 179]
+    #       [First Date on stats page | Start date  | End date    |scoring period Max]
+    2019 : ["Wednesday, October 3",   "2018-10-03", "2019-04-06", 186],
+    2020 : ["Wednesday, October 2",   "2019-10-02", "2020-06-21", 264], #Shortened year
+    2021 : ["Wednesday, January 13",  "2021-01-13", "2021-05-19", 110], #Shortened year
+    2022 : ["Tuesday, October 12",    "2021-10-12", "2022-04-29", 200],
+    2023 : ["Tuesday, October 7",     "2022-10-07", "2023-04-02", 178],
+    2024 : ["Tuesday, October 10",    "2023-10-10", "2024-04-04", 179]
 }
 
 GFHL_teams = ["FA", "DINK", "BOWS", "LKR", "OXP", "NBUS", "CLB", "HERB", "SALT", "ME", "BBS", "SLC"]
@@ -62,7 +62,7 @@ GFHL_teams = ["FA", "DINK", "BOWS", "LKR", "OXP", "NBUS", "CLB", "HERB", "SALT",
 #daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=singleScoringPeriod&scoringPeriodId=29"
 
 # https://fantasy.espn.com/hockey/leaders?leagueId=59311&seasonId=2019&statSplit=singleScoringPeriod&scoringPeriodId=1
-url = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&seasonId=2024&statSplit=singleScoringPeriod"
+url = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=singleScoringPeriod"
 # leagueId = 59311
 # seasonId = 2019
 # statSplit = singleScoringPeriod
@@ -365,13 +365,17 @@ def main():
     parser.add_argument('-y', '--yellowteam', default="NULL", help="Select team to highlight in yellow")
     parser.add_argument('-g', '--greenteam', default="NULL", help="Select team to highlight in green")
     parser.add_argument('-G', '--goalie', action='store_true', default=False, help="Used to scrape Goalie stats instead of Skater stats.")
-    parser.add_argument('-Y', '--year', default="NUll", help="Provide the year that the season started in if using scoringId")
+    parser.add_argument('-Y', '--year', type=int, default=2019, help="Provide the year that the season started in if using scoringId")
     parser.add_argument('-S', '--startscoringperiod', type=int, default=0, help="Provide starting scoring period. Must also provide Year with -Y")
     parser.add_argument('-E', '--endscoringperiod', type=int, default=0, help="Provide ending scoring period. Must also provide Year with -Y")
     parser.add_argument('-M', '--maxpage', type=int, default=5, help="Provide number of pages to scrape per day. Default 5")
 
 
     args = parser.parse_args()
+
+    #Think about doing some checks here
+    # For example the args.year variable shouldn't be less than 2019
+    # If endscoringid is zero, maybe set it to startscoringid + 1 to just capture at startscoringid
     
     if (args.verbose > -1):
         print("Run: " + str(args.run))
@@ -387,6 +391,8 @@ def main():
         print("End Scoring Period: " + str(args.endscoringperiod))
         print("Max Page: " + str(args.maxpage))
 
+
+
     # Early exit for testing purposes
     if (args.run == False):
         return(False)
@@ -398,12 +404,11 @@ def main():
     # try to load today's top 50 skaters by fpoints earned
     try:
         driver = setup()
-        print("ASDKF:DA")
 
         for scoringPeriodId in range(args.startscoringperiod, args.endscoringperiod):
             print("scoring Period = " + str(scoringPeriodId))
             # Open the browser
-            driver.get(url + "&scoringPeriodId=" + str(scoringPeriodId))
+            driver.get(url + "&scoringPeriodId=" + str(scoringPeriodId) + "&seasonId=" + str(args.year))
 
             # Wait for page to load 
 #            time.sleep(3)
