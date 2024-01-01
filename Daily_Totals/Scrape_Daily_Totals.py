@@ -14,7 +14,8 @@ from colorama import Fore
 from colorama import Style
 import traceback
 import datetime
-from datetime import datetime
+#from datetime import datetime
+#from datetime import timedelta
 import argparse
 
 stub = True
@@ -239,20 +240,14 @@ def go_to_page(page):
 def date_to_scoring_period(date):
     year = int(date[0:4])
     month = int(date[5:7])
-    print(year)
-    print(month)
-    print("d1 = " + str(starting_dates[year+1][1]))
-    print("d2 = " + str(date))
     if (month >=10):
         year = year + 1
     return(year, days_between(starting_dates[year][1], date)+1)
 
 def days_between(d1, d2):
     date_format = "%Y-%m-%d"
-    a = datetime.strptime(d1, date_format)
-    b = datetime.strptime(d2, date_format)
-    print(a)
-    print(b)
+    a = datetime.datetime.strptime(d1, date_format)
+    b = datetime.datetime.strptime(d2, date_format)
     delta = b - a
     return(delta.days)
 
@@ -262,7 +257,6 @@ def scoring_period_to_date(year, scoringPeriodId):
     date_string = starting_dates[year][1]
     date = datetime.datetime.strptime(date_string, "%Y-%m-%d")
     new_date = date + datetime.timedelta(days=days_offset)
-
     format_code = "%Y-%m-%d"
     return(new_date.strftime(format_code))
 
@@ -386,6 +380,7 @@ def main():
     parser.add_argument('-Y', '--year', type=int, default=2019, help="Provide the year that the season started in if using scoringId")
     parser.add_argument('-S', '--startscoringperiod', type=int, default=0, help="Provide starting scoring period. Must also provide Year with -Y")
     parser.add_argument('-E', '--endscoringperiod', type=int, default=0, help="Provide ending scoring period. Must also provide Year with -Y")
+    parser.add_argument('-N', '--numdates', type=int, default=1, help="Provide number of dates to check. Default is 1")
     parser.add_argument('-M', '--maxpage', type=int, default=5, help="Provide number of pages to scrape per day. Default 5")
 
 
@@ -395,11 +390,16 @@ def main():
     # For example the args.year variable shouldn't be less than 2019
     # If endscoringid is zero, maybe set it to startscoringid + 1 to just capture at startscoringid
     
+    
     if (args.verbose > -1):
         print("Run: " + str(args.run))
         print("Verbosity: " + str(args.verbose))
         print("Start Date: " + str(args.startdate))
+        if args.startdate != "NULL":
+            print("\tIn scoringId format: " +  str(date_to_scoring_period(args.startdate)))
         print("End Date: " + str(args.enddate))
+        if args.enddate != "NULL":
+            print("\tIn scoringId format: " +  str(date_to_scoring_period(args.enddate)))
         print("Blue Team: " + str(args.blueteam))
         print("Yellow Team: " + str(args.yellowteam))
         print("Green Team: " + str(args.greenteam))
@@ -407,11 +407,28 @@ def main():
         print("Year: " + str(args.year))
         print("Start Scoring Period: " + str(args.startscoringperiod))
         print("End Scoring Period: " + str(args.endscoringperiod))
+        print("Number of dates: " + str(args.numdates))
         print("Max Page: " + str(args.maxpage))
 
-        print("Start Date: " + str(args.startdate))
-        print("In scoringId format: " +  str(date_to_scoring_period(args.startdate)))
-
+    
+    if args.startdate != "NULL":
+        year, scoringPeriodIdStart = date_to_scoring_period(args.startdate)
+        if args.enddate != "NULL":
+            null, scoringPeriodIdEnd = date_to_scoring_period(args.enddate)
+        else:
+            scoringPeriodIdEnd = scoringPeriodIdStart + args.numdates
+    elif args.startscoringperiod != 0:
+        year = args.year
+        scoringPeriodIdStart = args.startscoringperiod
+        if args.endscoringperiod != 0:
+            scoringPeriodIdEnd = args.endscoringperiod
+        else:
+            scoringPeriodIdEnd = scoringPeriodIdStart + args.numdates
+    # if no dates or scoringId is given then maybe just get today somehow
+    else:
+        year = args.year
+        scoringPeriodIdStart = 1
+        scoringPeriodIdEnd = 2
 
 
     # Early exit for testing purposes
@@ -426,7 +443,7 @@ def main():
     try:
         driver = setup()
 
-        for scoringPeriodId in range(args.startscoringperiod, args.endscoringperiod):
+        for scoringPeriodId in range(scoringPeriodIdStart, scoringPeriodIdEnd):
             print("scoring Period = " + str(scoringPeriodId))
             # Open the browser
             driver.get(url + "&scoringPeriodId=" + str(scoringPeriodId) + "&seasonId=" + str(args.year))
