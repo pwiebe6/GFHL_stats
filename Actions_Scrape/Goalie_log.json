@@ -339,7 +339,7 @@
         },
         "stats": [
           {
-            "appliedTotal": 1,
+            "appliedTotal": 0.8000000000000003,
             "externalId": "401559847",
             "id": "05401559847",
             "proTeamId": 24,
@@ -351,19 +351,19 @@
               "0": 1,
               "1": 0,
               "2": 0,
-              "3": 22,
+              "3": 26,
               "35": 0,
-              "4": 2,
+              "4": 3,
               "36": 0,
               "37": 0,
-              "6": 20,
+              "6": 23,
               "38": 0,
               "7": 0,
               "39": 0,
-              "8": 1836,
+              "8": 2044,
               "9": 0,
-              "10": 3.9215686274509802,
-              "11": 0.909,
+              "10": 5.283757338551859,
+              "11": 0.885,
               "12": 0,
               "30": 1
             }
@@ -429,7 +429,7 @@
         "injuryStatus": "ACTIVE",
         "jersey": "37",
         "lastName": "Hellebuyck",
-        "lastNewsDate": 1704437693000,
+        "lastNewsDate": 1704671014000,
         "lastVideoDate": 1704434303000,
         "ownership": {
           "activityLevel": null,
@@ -482,7 +482,7 @@
         },
         "stats": [
           {
-            "appliedTotal": 0.10000000000000009,
+            "appliedTotal": 0.20000000000000007,
             "externalId": "401559847",
             "id": "05401559847",
             "proTeamId": 28,
@@ -494,19 +494,19 @@
               "0": 1,
               "1": 0,
               "2": 0,
-              "3": 7,
+              "3": 8,
               "35": 0,
               "4": 1,
               "36": 0,
               "37": 0,
-              "6": 6,
+              "6": 7,
               "38": 0,
               "7": 0,
               "39": 0,
-              "8": 1836,
+              "8": 2011,
               "9": 0,
-              "10": 1.9607843137254901,
-              "11": 0.857,
+              "10": 1.790154152163103,
+              "11": 0.875,
               "12": 0,
               "30": 1
             }
@@ -533,6 +533,123 @@
           "positionalRanking": 2,
           "totalRanking": 26,
           "totalRating": 44.4
+        }
+      },
+      "rosterLocked": false,
+      "status": "ONTEAM",
+      "tradeLocked": false
+    },
+    {
+      "draftAuctionValue": 0,
+      "id": 3654006,
+      "keeperValue": 0,
+      "keeperValueFuture": 0,
+      "lineupLocked": false,
+      "onTeamId": 7,
+      "player": {
+        "active": true,
+        "defaultPositionId": 5,
+        "droppable": true,
+        "eligibleSlots": [
+          5,
+          7,
+          8
+        ],
+        "firstName": "Alex",
+        "fullName": "Alex Lyon",
+        "id": 3654006,
+        "injured": false,
+        "injuryStatus": "ACTIVE",
+        "jersey": "34",
+        "lastName": "Lyon",
+        "lastNewsDate": 1704575781000,
+        "lastVideoDate": 1704255679000,
+        "ownership": {
+          "activityLevel": null,
+          "auctionValueAverage": 0,
+          "auctionValueAverageChange": 0,
+          "averageDraftPosition": 229.65879017013233,
+          "averageDraftPositionPercentChange": -0.06152989615972615,
+          "date": 1704636353466,
+          "leagueType": 0,
+          "percentChange": 5.542366268953478,
+          "percentOwned": 15.240071637717827,
+          "percentStarted": 12.17699064729795
+        },
+        "proTeamId": 5,
+        "starterStatusByProGame": {
+          "401559260": "NOTSTARTING",
+          "401559326": "NOTSTARTING",
+          "401555905": "CONFIRMED",
+          "401559508": "CONFIRMED",
+          "401559545": "CONFIRMED",
+          "401559572": "CONFIRMED",
+          "401559609": "CONFIRMED",
+          "401559642": "CONFIRMED",
+          "401559694": "CONFIRMED",
+          "401559725": "NOTSTARTING",
+          "401559765": "NOTSTARTING",
+          "401559776": "CONFIRMED",
+          "401559814": "CONFIRMED",
+          "401559828": "CONFIRMED",
+          "401559794": "CONFIRMED",
+          "401559848": "CONFIRMED",
+          "401559868": "EXPECTED",
+          "401559887": "EXPECTED"
+        },
+        "stats": [
+          {
+            "appliedTotal": 0.20000000000000007,
+            "externalId": "401559848",
+            "id": "05401559848",
+            "proTeamId": 5,
+            "scoringPeriodId": 90,
+            "seasonId": 2024,
+            "statSourceId": 0,
+            "statSplitTypeId": 5,
+            "stats": {
+              "0": 1,
+              "1": 0,
+              "2": 0,
+              "3": 8,
+              "35": 0,
+              "4": 1,
+              "36": 0,
+              "37": 0,
+              "6": 7,
+              "38": 0,
+              "7": 0,
+              "39": 0,
+              "8": 528,
+              "9": 0,
+              "10": 6.818181818181818,
+              "11": 0.875,
+              "12": 0,
+              "30": 1
+            }
+          }
+        ]
+      },
+      "ratings": {
+        "0": {
+          "positionalRanking": 41,
+          "totalRanking": 461,
+          "totalRating": 42.4
+        },
+        "1": {
+          "positionalRanking": 14,
+          "totalRanking": 85,
+          "totalRating": 10.8
+        },
+        "2": {
+          "positionalRanking": 11,
+          "totalRanking": 112,
+          "totalRating": 16.1
+        },
+        "3": {
+          "positionalRanking": 32,
+          "totalRanking": 431,
+          "totalRating": 15.200001
         }
       },
       "rosterLocked": false,
@@ -1153,7 +1270,7 @@
         "injuryStatus": "OUT",
         "jersey": "36",
         "lastName": "Gibson",
-        "lastNewsDate": 1704522673000,
+        "lastNewsDate": 1704674870000,
         "lastVideoDate": 1704075897000,
         "ownership": {
           "activityLevel": null,
@@ -1271,7 +1388,7 @@
         "injuryStatus": "ACTIVE",
         "jersey": "1",
         "lastName": "Dostal",
-        "lastNewsDate": 1704349451000,
+        "lastNewsDate": 1704674061000,
         "lastVideoDate": 1704344673000,
         "ownership": {
           "activityLevel": null,
@@ -1326,7 +1443,7 @@
               "38": 0,
               "7": 0,
               "39": 0,
-              "8": 357,
+              "8": 528,
               "9": 0,
               "10": 0,
               "11": 0,
@@ -3850,123 +3967,6 @@
       },
       "rosterLocked": false,
       "status": "FREEAGENT",
-      "tradeLocked": false
-    },
-    {
-      "draftAuctionValue": 0,
-      "id": 3654006,
-      "keeperValue": 0,
-      "keeperValueFuture": 0,
-      "lineupLocked": false,
-      "onTeamId": 7,
-      "player": {
-        "active": true,
-        "defaultPositionId": 5,
-        "droppable": true,
-        "eligibleSlots": [
-          5,
-          7,
-          8
-        ],
-        "firstName": "Alex",
-        "fullName": "Alex Lyon",
-        "id": 3654006,
-        "injured": false,
-        "injuryStatus": "ACTIVE",
-        "jersey": "34",
-        "lastName": "Lyon",
-        "lastNewsDate": 1704575781000,
-        "lastVideoDate": 1704255679000,
-        "ownership": {
-          "activityLevel": null,
-          "auctionValueAverage": 0,
-          "auctionValueAverageChange": 0,
-          "averageDraftPosition": 229.65879017013233,
-          "averageDraftPositionPercentChange": -0.06152989615972615,
-          "date": 1704636353466,
-          "leagueType": 0,
-          "percentChange": 5.542366268953478,
-          "percentOwned": 15.240071637717827,
-          "percentStarted": 12.17699064729795
-        },
-        "proTeamId": 5,
-        "starterStatusByProGame": {
-          "401559260": "NOTSTARTING",
-          "401559326": "NOTSTARTING",
-          "401555905": "CONFIRMED",
-          "401559508": "CONFIRMED",
-          "401559545": "CONFIRMED",
-          "401559572": "CONFIRMED",
-          "401559609": "CONFIRMED",
-          "401559642": "CONFIRMED",
-          "401559694": "CONFIRMED",
-          "401559725": "NOTSTARTING",
-          "401559765": "NOTSTARTING",
-          "401559776": "CONFIRMED",
-          "401559814": "CONFIRMED",
-          "401559828": "CONFIRMED",
-          "401559794": "CONFIRMED",
-          "401559848": "CONFIRMED",
-          "401559868": "EXPECTED",
-          "401559887": "EXPECTED"
-        },
-        "stats": [
-          {
-            "appliedTotal": -0.09999999999999998,
-            "externalId": "401559848",
-            "id": "05401559848",
-            "proTeamId": 5,
-            "scoringPeriodId": 90,
-            "seasonId": 2024,
-            "statSourceId": 0,
-            "statSplitTypeId": 5,
-            "stats": {
-              "0": 1,
-              "1": 0,
-              "2": 0,
-              "3": 5,
-              "35": 0,
-              "4": 1,
-              "36": 0,
-              "37": 0,
-              "6": 4,
-              "38": 0,
-              "7": 0,
-              "39": 0,
-              "8": 357,
-              "9": 0,
-              "10": 10.084033613445378,
-              "11": 0.8,
-              "12": 0,
-              "30": 1
-            }
-          }
-        ]
-      },
-      "ratings": {
-        "0": {
-          "positionalRanking": 41,
-          "totalRanking": 461,
-          "totalRating": 42.4
-        },
-        "1": {
-          "positionalRanking": 14,
-          "totalRanking": 85,
-          "totalRating": 10.8
-        },
-        "2": {
-          "positionalRanking": 11,
-          "totalRanking": 112,
-          "totalRating": 16.1
-        },
-        "3": {
-          "positionalRanking": 32,
-          "totalRanking": 431,
-          "totalRating": 15.200001
-        }
-      },
-      "rosterLocked": false,
-      "status": "ONTEAM",
       "tradeLocked": false
     },
     {
