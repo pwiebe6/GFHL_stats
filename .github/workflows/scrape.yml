@@ -3,7 +3,8 @@ name: Scrape latest data
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '50 23 * * *'
+  # cron job for 7:50am to coincide with 11:50pm Vancouver time
+    - cron:  '50 7 * * *'
 
 jobs:
   scheduled:
@@ -22,6 +23,6 @@ jobs:
         git config user.name "Automated"
         git config user.email "actions@users.noreply.github.com"
         git add -A
-        timestamp=$(date -u)
+        timestamp=$(TZ=":America/Vancouver" date)
         git commit -m "Latest data: ${timestamp}" || exit 0
         git push
