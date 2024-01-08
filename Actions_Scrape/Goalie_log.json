@@ -134,6 +134,123 @@
     },
     {
       "draftAuctionValue": 0,
+      "id": 3654006,
+      "keeperValue": 0,
+      "keeperValueFuture": 0,
+      "lineupLocked": true,
+      "onTeamId": 7,
+      "player": {
+        "active": true,
+        "defaultPositionId": 5,
+        "droppable": true,
+        "eligibleSlots": [
+          5,
+          7,
+          8
+        ],
+        "firstName": "Alex",
+        "fullName": "Alex Lyon",
+        "id": 3654006,
+        "injured": false,
+        "injuryStatus": "ACTIVE",
+        "jersey": "34",
+        "lastName": "Lyon",
+        "lastNewsDate": 1704691743000,
+        "lastVideoDate": 1704686158000,
+        "ownership": {
+          "activityLevel": null,
+          "auctionValueAverage": 0,
+          "auctionValueAverageChange": 0,
+          "averageDraftPosition": 229.65879017013233,
+          "averageDraftPositionPercentChange": -0.06152989615972615,
+          "date": 1704636353466,
+          "leagueType": 0,
+          "percentChange": 5.542366268953478,
+          "percentOwned": 15.240071637717827,
+          "percentStarted": 12.17699064729795
+        },
+        "proTeamId": 5,
+        "starterStatusByProGame": {
+          "401559260": "NOTSTARTING",
+          "401559326": "NOTSTARTING",
+          "401555905": "CONFIRMED",
+          "401559508": "CONFIRMED",
+          "401559545": "CONFIRMED",
+          "401559572": "CONFIRMED",
+          "401559609": "CONFIRMED",
+          "401559642": "CONFIRMED",
+          "401559694": "CONFIRMED",
+          "401559725": "NOTSTARTING",
+          "401559765": "NOTSTARTING",
+          "401559776": "CONFIRMED",
+          "401559814": "CONFIRMED",
+          "401559828": "CONFIRMED",
+          "401559794": "CONFIRMED",
+          "401559848": "CONFIRMED",
+          "401559868": "EXPECTED",
+          "401559887": "EXPECTED"
+        },
+        "stats": [
+          {
+            "appliedTotal": 5.9,
+            "externalId": "401559848",
+            "id": "05401559848",
+            "proTeamId": 5,
+            "scoringPeriodId": 90,
+            "seasonId": 2024,
+            "statSourceId": 0,
+            "statSplitTypeId": 5,
+            "stats": {
+              "0": 1,
+              "1": 1,
+              "2": 0,
+              "3": 31,
+              "35": 0,
+              "4": 2,
+              "36": 0,
+              "37": 0,
+              "6": 29,
+              "38": 0,
+              "7": 0,
+              "39": 0,
+              "8": 3600,
+              "9": 0,
+              "10": 2,
+              "11": 0.935,
+              "12": 1,
+              "30": 1
+            }
+          }
+        ]
+      },
+      "ratings": {
+        "0": {
+          "positionalRanking": 41,
+          "totalRanking": 461,
+          "totalRating": 42.4
+        },
+        "1": {
+          "positionalRanking": 14,
+          "totalRanking": 85,
+          "totalRating": 10.8
+        },
+        "2": {
+          "positionalRanking": 11,
+          "totalRanking": 112,
+          "totalRating": 16.1
+        },
+        "3": {
+          "positionalRanking": 32,
+          "totalRanking": 431,
+          "totalRating": 15.200001
+        }
+      },
+      "rosterLocked": true,
+      "status": "ONTEAM",
+      "tradeLocked": false
+    },
+    {
+      "draftAuctionValue": 0,
       "id": 5619,
       "keeperValue": 0,
       "keeperValueFuture": 0,
@@ -271,133 +388,6 @@
     },
     {
       "draftAuctionValue": 0,
-      "id": 3942065,
-      "keeperValue": 0,
-      "keeperValueFuture": 0,
-      "lineupLocked": true,
-      "onTeamId": 0,
-      "player": {
-        "active": true,
-        "defaultPositionId": 5,
-        "draftRanksByRankType": {
-          "STANDARD": {
-            "auctionValue": 0,
-            "published": false,
-            "rank": 413,
-            "rankSourceId": 0,
-            "rankType": "STANDARD",
-            "slotId": 0
-          }
-        },
-        "droppable": true,
-        "eligibleSlots": [
-          5,
-          7,
-          8
-        ],
-        "firstName": "Karel",
-        "fullName": "Karel Vejmelka",
-        "id": 3942065,
-        "injured": false,
-        "injuryStatus": "ACTIVE",
-        "jersey": "70",
-        "lastName": "Vejmelka",
-        "lastNewsDate": 1704568499000,
-        "ownership": {
-          "activityLevel": null,
-          "auctionValueAverage": 0.025,
-          "auctionValueAverageChange": 0.025,
-          "averageDraftPosition": 229.61342155009453,
-          "averageDraftPositionPercentChange": -0.2832845637931598,
-          "date": 1704636354187,
-          "leagueType": 0,
-          "percentChange": 1.2827935321002055,
-          "percentOwned": 6.575973389057102,
-          "percentStarted": 4.796224430323965
-        },
-        "proTeamId": 24,
-        "seasonOutlook": "It's next to impossible to play any fantasy goaltender on a team as bad as Arizona, and that held true for Vejmelka in 2022-23. He appeared in at least 50 games for a second straight year, but his record was predictably terrible (18-24-6) and his supporting statistics (3.34 GAA, .899 save percentage) were even worse. Of course, that's not entirely Vejmelka's fault. The Coyotes are slowly trying to creep back toward respectability, but that doesn't mean you should use Vejmelka, who seems likely to split time with Connor Ingram in 2023-24, in your lineup. Look elsewhere on draft day.",
-        "starterStatusByProGame": {
-          "401559253": "CONFIRMED",
-          "401559301": "CONFIRMED",
-          "401559278": "CONFIRMED",
-          "401559351": "CONFIRMED",
-          "401559378": "CONFIRMED",
-          "401559394": "EXPECTED",
-          "401559432": "CONFIRMED",
-          "401559468": "CONFIRMED",
-          "401559491": "CONFIRMED",
-          "401559517": "CONFIRMED",
-          "401559543": "NOTSTARTING",
-          "401559657": "CONFIRMED",
-          "401559699": "CONFIRMED",
-          "401559738": "CONFIRMED",
-          "401559754": "NOTSTARTING",
-          "401559811": "CONFIRMED",
-          "401559767": "CONFIRMED",
-          "401559847": "CONFIRMED"
-        },
-        "stats": [
-          {
-            "appliedTotal": 1,
-            "externalId": "401559847",
-            "id": "05401559847",
-            "proTeamId": 24,
-            "scoringPeriodId": 90,
-            "seasonId": 2024,
-            "statSourceId": 0,
-            "statSplitTypeId": 5,
-            "stats": {
-              "0": 1,
-              "1": 0,
-              "2": 0,
-              "3": 28,
-              "35": 0,
-              "4": 3,
-              "36": 0,
-              "37": 0,
-              "6": 25,
-              "38": 0,
-              "7": 0,
-              "39": 0,
-              "8": 2618,
-              "9": 0,
-              "10": 4.125286478227655,
-              "11": 0.893,
-              "12": 0,
-              "30": 1
-            }
-          }
-        ]
-      },
-      "ratings": {
-        "0": {
-          "positionalRanking": 46,
-          "totalRanking": 502,
-          "totalRating": 38.8
-        },
-        "1": {
-          "positionalRanking": 41,
-          "totalRanking": 569,
-          "totalRating": 0.9000001
-        },
-        "2": {
-          "positionalRanking": 46,
-          "totalRanking": 522,
-          "totalRating": 4.9
-        },
-        "3": {
-          "positionalRanking": 20,
-          "totalRanking": 197,
-          "totalRating": 25.5
-        }
-      },
-      "rosterLocked": true,
-      "status": "FREEAGENT",
-      "tradeLocked": false
-    },
-    {
-      "draftAuctionValue": 0,
       "id": 3020225,
       "keeperValue": 7,
       "keeperValueFuture": 0,
@@ -429,7 +419,7 @@
         "injuryStatus": "ACTIVE",
         "jersey": "37",
         "lastName": "Hellebuyck",
-        "lastNewsDate": 1704671014000,
+        "lastNewsDate": 1704437693000,
         "lastVideoDate": 1704434303000,
         "ownership": {
           "activityLevel": null,
@@ -482,7 +472,7 @@
         },
         "stats": [
           {
-            "appliedTotal": 0.6000000000000001,
+            "appliedTotal": 4.5,
             "externalId": "401559847",
             "id": "05401559847",
             "proTeamId": 28,
@@ -492,22 +482,22 @@
             "statSplitTypeId": 5,
             "stats": {
               "0": 1,
-              "1": 0,
+              "1": 1,
               "2": 0,
-              "3": 12,
+              "3": 17,
               "35": 0,
-              "4": 1,
+              "4": 2,
               "36": 0,
               "37": 0,
-              "6": 11,
+              "6": 15,
               "38": 0,
               "7": 0,
               "39": 0,
-              "8": 2585,
+              "8": 3551,
               "9": 0,
-              "10": 1.3926499032882012,
-              "11": 0.917,
-              "12": 0,
+              "10": 2.027597859757815,
+              "11": 0.882,
+              "12": 1,
               "30": 1
             }
           }
@@ -537,247 +527,6 @@
       },
       "rosterLocked": true,
       "status": "ONTEAM",
-      "tradeLocked": false
-    },
-    {
-      "draftAuctionValue": 0,
-      "id": 3654006,
-      "keeperValue": 0,
-      "keeperValueFuture": 0,
-      "lineupLocked": true,
-      "onTeamId": 7,
-      "player": {
-        "active": true,
-        "defaultPositionId": 5,
-        "droppable": true,
-        "eligibleSlots": [
-          5,
-          7,
-          8
-        ],
-        "firstName": "Alex",
-        "fullName": "Alex Lyon",
-        "id": 3654006,
-        "injured": false,
-        "injuryStatus": "ACTIVE",
-        "jersey": "34",
-        "lastName": "Lyon",
-        "lastNewsDate": 1704575781000,
-        "lastVideoDate": 1704255679000,
-        "ownership": {
-          "activityLevel": null,
-          "auctionValueAverage": 0,
-          "auctionValueAverageChange": 0,
-          "averageDraftPosition": 229.65879017013233,
-          "averageDraftPositionPercentChange": -0.06152989615972615,
-          "date": 1704636353466,
-          "leagueType": 0,
-          "percentChange": 5.542366268953478,
-          "percentOwned": 15.240071637717827,
-          "percentStarted": 12.17699064729795
-        },
-        "proTeamId": 5,
-        "starterStatusByProGame": {
-          "401559260": "NOTSTARTING",
-          "401559326": "NOTSTARTING",
-          "401555905": "CONFIRMED",
-          "401559508": "CONFIRMED",
-          "401559545": "CONFIRMED",
-          "401559572": "CONFIRMED",
-          "401559609": "CONFIRMED",
-          "401559642": "CONFIRMED",
-          "401559694": "CONFIRMED",
-          "401559725": "NOTSTARTING",
-          "401559765": "NOTSTARTING",
-          "401559776": "CONFIRMED",
-          "401559814": "CONFIRMED",
-          "401559828": "CONFIRMED",
-          "401559794": "CONFIRMED",
-          "401559848": "CONFIRMED",
-          "401559868": "EXPECTED",
-          "401559887": "EXPECTED"
-        },
-        "stats": [
-          {
-            "appliedTotal": 0.30000000000000004,
-            "externalId": "401559848",
-            "id": "05401559848",
-            "proTeamId": 5,
-            "scoringPeriodId": 90,
-            "seasonId": 2024,
-            "statSourceId": 0,
-            "statSplitTypeId": 5,
-            "stats": {
-              "0": 1,
-              "1": 0,
-              "2": 0,
-              "3": 9,
-              "35": 0,
-              "4": 1,
-              "36": 0,
-              "37": 0,
-              "6": 8,
-              "38": 0,
-              "7": 0,
-              "39": 0,
-              "8": 1200,
-              "9": 0,
-              "10": 3,
-              "11": 0.889,
-              "12": 0,
-              "30": 1
-            }
-          }
-        ]
-      },
-      "ratings": {
-        "0": {
-          "positionalRanking": 41,
-          "totalRanking": 461,
-          "totalRating": 42.4
-        },
-        "1": {
-          "positionalRanking": 14,
-          "totalRanking": 85,
-          "totalRating": 10.8
-        },
-        "2": {
-          "positionalRanking": 11,
-          "totalRanking": 112,
-          "totalRating": 16.1
-        },
-        "3": {
-          "positionalRanking": 32,
-          "totalRanking": 431,
-          "totalRating": 15.200001
-        }
-      },
-      "rosterLocked": true,
-      "status": "ONTEAM",
-      "tradeLocked": false
-    },
-    {
-      "draftAuctionValue": 0,
-      "id": 4588165,
-      "keeperValue": 0,
-      "keeperValueFuture": 0,
-      "lineupLocked": true,
-      "onTeamId": 0,
-      "player": {
-        "active": true,
-        "defaultPositionId": 5,
-        "draftRanksByRankType": {
-          "STANDARD": {
-            "auctionValue": 0,
-            "published": false,
-            "rank": 529,
-            "rankSourceId": 0,
-            "rankType": "STANDARD",
-            "slotId": 0
-          }
-        },
-        "droppable": true,
-        "eligibleSlots": [
-          5,
-          7,
-          8
-        ],
-        "firstName": "Lukas",
-        "fullName": "Lukas Dostal",
-        "id": 4588165,
-        "injured": false,
-        "injuryStatus": "ACTIVE",
-        "jersey": "1",
-        "lastName": "Dostal",
-        "lastNewsDate": 1704674061000,
-        "lastVideoDate": 1704344673000,
-        "ownership": {
-          "activityLevel": null,
-          "auctionValueAverage": 0,
-          "auctionValueAverageChange": 0,
-          "averageDraftPosition": 229.48960302457468,
-          "averageDraftPositionPercentChange": 0.40217779734314263,
-          "date": 1704636359050,
-          "leagueType": 0,
-          "percentChange": -0.005420572702762527,
-          "percentOwned": 4.4891750892006765,
-          "percentStarted": 2.966722106131036
-        },
-        "proTeamId": 25,
-        "starterStatusByProGame": {
-          "401559269": "CONFIRMED",
-          "401559301": "CONFIRMED",
-          "401559319": "CONFIRMED",
-          "401559352": "CONFIRMED",
-          "401559378": "CONFIRMED",
-          "401559473": "CONFIRMED",
-          "401559442": "CONFIRMED",
-          "401559549": "CONFIRMED",
-          "401559628": "CONFIRMED",
-          "401559708": "EXPECTED",
-          "401559684": "CONFIRMED",
-          "401559737": "CONFIRMED",
-          "401559753": "CONFIRMED",
-          "401559816": "CONFIRMED",
-          "401559848": "CONFIRMED"
-        },
-        "stats": [
-          {
-            "appliedTotal": 0.20000000000000007,
-            "externalId": "401559848",
-            "id": "05401559848",
-            "proTeamId": 25,
-            "scoringPeriodId": 90,
-            "seasonId": 2024,
-            "statSourceId": 0,
-            "statSplitTypeId": 5,
-            "stats": {
-              "0": 1,
-              "1": 0,
-              "2": 0,
-              "3": 8,
-              "35": 0,
-              "4": 1,
-              "36": 0,
-              "37": 0,
-              "6": 7,
-              "38": 0,
-              "7": 0,
-              "39": 0,
-              "8": 1200,
-              "9": 0,
-              "10": 3,
-              "11": 0.875,
-              "12": 0,
-              "30": 1
-            }
-          }
-        ]
-      },
-      "ratings": {
-        "0": {
-          "positionalRanking": 48,
-          "totalRanking": 522,
-          "totalRating": 37
-        },
-        "1": {
-          "positionalRanking": 32,
-          "totalRanking": 341,
-          "totalRating": 4.5
-        },
-        "2": {
-          "positionalRanking": 50,
-          "totalRanking": 570,
-          "totalRating": 3.9
-        },
-        "3": {
-          "positionalRanking": 41,
-          "totalRanking": 504,
-          "totalRating": 12.299999
-        }
-      },
-      "rosterLocked": true,
-      "status": "FREEAGENT",
       "tradeLocked": false
     },
     {
@@ -813,7 +562,7 @@
         "injuryStatus": "ACTIVE",
         "jersey": "39",
         "lastName": "Talbot",
-        "lastNewsDate": 1704656092000,
+        "lastNewsDate": 1703399265000,
         "lastVideoDate": 1701324887000,
         "ownership": {
           "activityLevel": null,
@@ -983,7 +732,6 @@
           "401559825": "CONFIRMED",
           "401559811": "NOTSTARTING",
           "401559862": "EXPECTED",
-          "401559877": "EXPECTED",
           "401559895": "EXPECTED"
         },
         "stats": [
@@ -1287,7 +1035,7 @@
         "injuryStatus": "INJURY_RESERVE",
         "jersey": "79",
         "lastName": "Lindgren",
-        "lastNewsDate": 1704318331000,
+        "lastNewsDate": 1704130103000,
         "lastVideoDate": 1703386921000,
         "ownership": {
           "activityLevel": null,
@@ -1473,6 +1221,130 @@
           "positionalRanking": 45,
           "totalRanking": 530,
           "totalRating": 11.200001
+        }
+      },
+      "rosterLocked": true,
+      "status": "FREEAGENT",
+      "tradeLocked": false
+    },
+    {
+      "draftAuctionValue": 0,
+      "id": 4588165,
+      "keeperValue": 0,
+      "keeperValueFuture": 0,
+      "lineupLocked": true,
+      "onTeamId": 0,
+      "player": {
+        "active": true,
+        "defaultPositionId": 5,
+        "draftRanksByRankType": {
+          "STANDARD": {
+            "auctionValue": 0,
+            "published": false,
+            "rank": 529,
+            "rankSourceId": 0,
+            "rankType": "STANDARD",
+            "slotId": 0
+          }
+        },
+        "droppable": true,
+        "eligibleSlots": [
+          5,
+          7,
+          8
+        ],
+        "firstName": "Lukas",
+        "fullName": "Lukas Dostal",
+        "id": 4588165,
+        "injured": false,
+        "injuryStatus": "ACTIVE",
+        "jersey": "1",
+        "lastName": "Dostal",
+        "lastNewsDate": 1704674061000,
+        "lastVideoDate": 1704686158000,
+        "ownership": {
+          "activityLevel": null,
+          "auctionValueAverage": 0,
+          "auctionValueAverageChange": 0,
+          "averageDraftPosition": 229.48960302457468,
+          "averageDraftPositionPercentChange": 0.40217779734314263,
+          "date": 1704636359050,
+          "leagueType": 0,
+          "percentChange": -0.005420572702762527,
+          "percentOwned": 4.4891750892006765,
+          "percentStarted": 2.966722106131036
+        },
+        "proTeamId": 25,
+        "starterStatusByProGame": {
+          "401559269": "CONFIRMED",
+          "401559301": "CONFIRMED",
+          "401559319": "CONFIRMED",
+          "401559352": "CONFIRMED",
+          "401559378": "CONFIRMED",
+          "401559473": "CONFIRMED",
+          "401559442": "CONFIRMED",
+          "401559549": "CONFIRMED",
+          "401559628": "CONFIRMED",
+          "401559708": "EXPECTED",
+          "401559684": "CONFIRMED",
+          "401559737": "CONFIRMED",
+          "401559753": "CONFIRMED",
+          "401559816": "CONFIRMED",
+          "401559848": "CONFIRMED"
+        },
+        "stats": [
+          {
+            "appliedTotal": 0,
+            "externalId": "401559848",
+            "id": "05401559848",
+            "proTeamId": 25,
+            "scoringPeriodId": 90,
+            "seasonId": 2024,
+            "statSourceId": 0,
+            "statSplitTypeId": 5,
+            "stats": {
+              "0": 1,
+              "1": 0,
+              "2": 1,
+              "3": 28,
+              "35": 0,
+              "4": 3,
+              "36": 0,
+              "37": 0,
+              "6": 25,
+              "38": 0,
+              "7": 0,
+              "39": 0,
+              "8": 3546,
+              "9": 0,
+              "10": 3.045685279187817,
+              "11": 0.893,
+              "12": 0,
+              "30": 1
+            }
+          }
+        ]
+      },
+      "ratings": {
+        "0": {
+          "positionalRanking": 48,
+          "totalRanking": 522,
+          "totalRating": 37
+        },
+        "1": {
+          "positionalRanking": 32,
+          "totalRanking": 341,
+          "totalRating": 4.5
+        },
+        "2": {
+          "positionalRanking": 50,
+          "totalRanking": 570,
+          "totalRating": 3.9
+        },
+        "3": {
+          "positionalRanking": 41,
+          "totalRanking": 504,
+          "totalRating": 12.299999
         }
       },
       "rosterLocked": true,
@@ -1817,7 +1689,7 @@
         "injuryStatus": "ACTIVE",
         "jersey": "32",
         "lastName": "Wolf",
-        "lastNewsDate": 1702834916000,
+        "lastNewsDate": 1702451401000,
         "lastVideoDate": 1695870764000,
         "ownership": {
           "activityLevel": null,
@@ -2097,7 +1969,6 @@
         "jersey": "31",
         "lastName": "Shepard",
         "lastNewsDate": 1704383984000,
-        "lastVideoDate": 1703987376000,
         "ownership": {
           "activityLevel": null,
           "auctionValueAverage": 0,
@@ -2688,8 +2559,7 @@
         "injuryStatus": "ACTIVE",
         "jersey": "32",
         "lastName": "Stalock",
-        "lastNewsDate": 1703197001000,
-        "lastVideoDate": 1680836926000,
+        "lastNewsDate": 1704674981000,
         "ownership": {
           "activityLevel": null,
           "auctionValueAverage": 0,
@@ -3971,6 +3841,134 @@
     },
     {
       "draftAuctionValue": 0,
+      "id": 3942065,
+      "keeperValue": 0,
+      "keeperValueFuture": 0,
+      "lineupLocked": true,
+      "onTeamId": 0,
+      "player": {
+        "active": true,
+        "defaultPositionId": 5,
+        "draftRanksByRankType": {
+          "STANDARD": {
+            "auctionValue": 0,
+            "published": false,
+            "rank": 413,
+            "rankSourceId": 0,
+            "rankType": "STANDARD",
+            "slotId": 0
+          }
+        },
+        "droppable": true,
+        "eligibleSlots": [
+          5,
+          7,
+          8
+        ],
+        "firstName": "Karel",
+        "fullName": "Karel Vejmelka",
+        "id": 3942065,
+        "injured": false,
+        "injuryStatus": "ACTIVE",
+        "jersey": "70",
+        "lastName": "Vejmelka",
+        "lastNewsDate": 1704690324000,
+        "ownership": {
+          "activityLevel": null,
+          "auctionValueAverage": 0.025,
+          "auctionValueAverageChange": 0.025,
+          "averageDraftPosition": 229.61342155009453,
+          "averageDraftPositionPercentChange": -0.2832845637931598,
+          "date": 1704636354187,
+          "leagueType": 0,
+          "percentChange": 1.2827935321002055,
+          "percentOwned": 6.575973389057102,
+          "percentStarted": 4.796224430323965
+        },
+        "proTeamId": 24,
+        "seasonOutlook": "It's next to impossible to play any fantasy goaltender on a team as bad as Arizona, and that held true for Vejmelka in 2022-23. He appeared in at least 50 games for a second straight year, but his record was predictably terrible (18-24-6) and his supporting statistics (3.34 GAA, .899 save percentage) were even worse. Of course, that's not entirely Vejmelka's fault. The Coyotes are slowly trying to creep back toward respectability, but that doesn't mean you should use Vejmelka, who seems likely to split time with Connor Ingram in 2023-24, in your lineup. Look elsewhere on draft day.",
+        "starterStatusByProGame": {
+          "401559253": "CONFIRMED",
+          "401559301": "CONFIRMED",
+          "401559278": "CONFIRMED",
+          "401559351": "CONFIRMED",
+          "401559378": "CONFIRMED",
+          "401559394": "EXPECTED",
+          "401559432": "CONFIRMED",
+          "401559468": "CONFIRMED",
+          "401559491": "CONFIRMED",
+          "401559517": "CONFIRMED",
+          "401559543": "NOTSTARTING",
+          "401559657": "CONFIRMED",
+          "401559699": "CONFIRMED",
+          "401559738": "CONFIRMED",
+          "401559754": "NOTSTARTING",
+          "401559811": "CONFIRMED",
+          "401559767": "CONFIRMED",
+          "401559847": "CONFIRMED",
+          "401559877": "EXPECTED"
+        },
+        "stats": [
+          {
+            "appliedTotal": -0.5,
+            "externalId": "401559847",
+            "id": "05401559847",
+            "proTeamId": 24,
+            "scoringPeriodId": 90,
+            "seasonId": 2024,
+            "statSourceId": 0,
+            "statSplitTypeId": 5,
+            "stats": {
+              "0": 1,
+              "1": 0,
+              "2": 1,
+              "3": 35,
+              "35": 0,
+              "4": 5,
+              "36": 0,
+              "37": 0,
+              "6": 31,
+              "38": 0,
+              "7": 0,
+              "39": 0,
+              "8": 3569,
+              "9": 0,
+              "10": 5.043429532081816,
+              "11": 0.886,
+              "12": 0,
+              "30": 1
+            }
+          }
+        ]
+      },
+      "ratings": {
+        "0": {
+          "positionalRanking": 46,
+          "totalRanking": 502,
+          "totalRating": 38.8
+        },
+        "1": {
+          "positionalRanking": 41,
+          "totalRanking": 569,
+          "totalRating": 0.9000001
+        },
+        "2": {
+          "positionalRanking": 46,
+          "totalRanking": 522,
+          "totalRating": 4.9
+        },
+        "3": {
+          "positionalRanking": 20,
+          "totalRanking": 197,
+          "totalRating": 25.5
+        }
+      },
+      "rosterLocked": true,
+      "status": "FREEAGENT",
+      "tradeLocked": false
+    },
+    {
+      "draftAuctionValue": 0,
       "id": 3942459,
       "keeperValue": 0,
       "keeperValueFuture": 0,
@@ -4124,7 +4122,7 @@
         "injuryStatus": "ACTIVE",
         "jersey": "31",
         "lastName": "Shesterkin",
-        "lastNewsDate": 1704469646000,
+        "lastNewsDate": 1704384100000,
         "lastVideoDate": 1704241570000,
         "ownership": {
           "activityLevel": null,
@@ -4669,7 +4667,7 @@
         "injuryStatus": "ACTIVE",
         "jersey": "88",
         "lastName": "Vasilevskiy",
-        "lastNewsDate": 1704600097000,
+        "lastNewsDate": 1704584047000,
         "lastVideoDate": 1704253109000,
         "ownership": {
           "activityLevel": null,
@@ -4870,7 +4868,7 @@
         "injuryStatus": "OUT",
         "jersey": "29",
         "lastName": "Oettinger",
-        "lastNewsDate": 1704561191000,
+        "lastNewsDate": 1704040704000,
         "lastVideoDate": 1698718123000,
         "ownership": {
           "activityLevel": null,
@@ -5612,8 +5610,8 @@
         "injuryStatus": "ACTIVE",
         "jersey": "41",
         "lastName": "Vanecek",
-        "lastNewsDate": 1704550759000,
-        "lastVideoDate": 1702524157000,
+        "lastNewsDate": 1704001215000,
+        "lastVideoDate": 1701834440000,
         "ownership": {
           "activityLevel": null,
           "auctionValueAverage": 4.525,
@@ -7262,7 +7260,7 @@
         "injuryStatus": "ACTIVE",
         "jersey": "29",
         "lastName": "Fleury",
-        "lastNewsDate": 1704654278000,
+        "lastNewsDate": 1704640853000,
         "lastVideoDate": 1704596797000,
         "ownership": {
           "activityLevel": null,
@@ -7361,8 +7359,8 @@
         "injuryStatus": "ACTIVE",
         "jersey": "90",
         "lastName": "Merzlikins",
-        "lastNewsDate": 1704131707000,
-        "lastVideoDate": 1703725862000,
+        "lastNewsDate": 1703867795000,
+        "lastVideoDate": 1699148627000,
         "ownership": {
           "activityLevel": null,
           "auctionValueAverage": 0,
@@ -7751,7 +7749,7 @@
         "injuryStatus": "ACTIVE",
         "jersey": "29",
         "lastName": "DeSmith",
-        "lastNewsDate": 1703860387000,
+        "lastNewsDate": 1703014292000,
         "lastVideoDate": 1700196548000,
         "ownership": {
           "activityLevel": null,
@@ -8034,7 +8032,7 @@
         "injuryStatus": "ACTIVE",
         "jersey": "32",
         "lastName": "Raanta",
-        "lastNewsDate": 1704610749000,
+        "lastNewsDate": 1703821962000,
         "lastVideoDate": 1704599011000,
         "ownership": {
           "activityLevel": null,
@@ -8220,7 +8218,7 @@
         "injuryStatus": "ACTIVE",
         "jersey": "30",
         "lastName": "Hofer",
-        "lastNewsDate": 1704006550000,
+        "lastNewsDate": 1703739744000,
         "ownership": {
           "activityLevel": null,
           "auctionValueAverage": 0,
@@ -8562,7 +8560,7 @@
         "injuryStatus": "ACTIVE",
         "jersey": "29",
         "lastName": "Blackwood",
-        "lastNewsDate": 1704602852000,
+        "lastNewsDate": 1704416898000,
         "lastVideoDate": 1704434303000,
         "ownership": {
           "activityLevel": null,
@@ -8997,7 +8995,7 @@
         "injuryStatus": "ACTIVE",
         "jersey": "50",
         "lastName": "Prosvetov",
-        "lastNewsDate": 1704639607000,
+        "lastNewsDate": 1704573513000,
         "lastVideoDate": 1702182538000,
         "ownership": {
           "activityLevel": null,
@@ -9653,7 +9651,7 @@
         "injuryStatus": "ACTIVE",
         "jersey": "30",
         "lastName": "Wallstedt",
-        "lastNewsDate": 1700512868000,
+        "lastNewsDate": 1704670130000,
         "ownership": {
           "activityLevel": null,
           "auctionValueAverage": 0,
@@ -9907,7 +9905,7 @@
         "injuryStatus": "INJURY_RESERVE",
         "jersey": "31",
         "lastName": "Price",
-        "lastNewsDate": 1694558087000,
+        "lastNewsDate": 1654017658000,
         "ownership": {
           "activityLevel": null,
           "auctionValueAverage": 0,
@@ -9986,8 +9984,8 @@
         "injuryStatus": "ACTIVE",
         "jersey": "30",
         "lastName": "Primeau",
-        "lastNewsDate": 1703820842000,
-        "lastVideoDate": 1703818272000,
+        "lastNewsDate": 1703714237000,
+        "lastVideoDate": 1703297828000,
         "ownership": {
           "activityLevel": null,
           "auctionValueAverage": 0,
@@ -10941,7 +10939,7 @@
         "injuryStatus": "ACTIVE",
         "jersey": "45",
         "lastName": "Hellberg",
-        "lastNewsDate": 1700427728000,
+        "lastNewsDate": 1699559850000,
         "ownership": {
           "activityLevel": null,
           "auctionValueAverage": 0,
@@ -13841,7 +13839,7 @@
         "injuryStatus": "ACTIVE",
         "jersey": "30",
         "lastName": "Chrona",
-        "lastNewsDate": 1703958576000,
+        "lastNewsDate": 1703707824000,
         "ownership": {
           "activityLevel": null,
           "auctionValueAverage": 0,
