@@ -18,7 +18,8 @@ jobs:
       run: |-
         today=$(date +"%Y-%m-%d")
         echo "Today is $today"
-        year,scoringId=$(python -c "from Daily_Totals.get_date import *;date_to_scoring_period('$today')")
+        year=$(python -c "from Daily_Totals.get_date import *;date_to_year('$today')")
+        scoringId=$(python -c "from Daily_Totals.get_date import *;date_to_scoringId('$today')")
         echo "Year is %year and scoringId is $scoringId"
         curl 'https://lm-api-reads.fantasy.espn.com/apis/v3/games/fhl/seasons/$year/segments/0/leagues/59311?view=kona_player_info' -H 'X-Fantasy-Filter: {"players":{"filterSlotIds":{"value":[0,6,1,2,4]},"filterStatsForCurrentSeasonScoringPeriodId":{"value":[$scoringId]},"sortAppliedStatTotal":null,"sortAppliedStatTotalForScoringPeriodId":{"sortAsc":false,"sortPriority":2,"value":90},"sortStatId":null,"sortStatIdForScoringPeriodId":null,"sortPercOwned":{"sortPriority":3,"sortAsc":false},"limit":9950}}'| jq . > Actions_Scrape/Skater_log.json
         curl 'https://lm-api-reads.fantasy.espn.com/apis/v3/games/fhl/seasons/$year/segments/0/leagues/59311?view=kona_player_info' -H 'X-Fantasy-Filter: {"players":{"filterSlotIds":{"value":[5]},"filterStatsForCurrentSeasonScoringPeriodId":{"value":[$scoringId]},"sortPercOwned":{"sortPriority":3,"sortAsc":false},"limit":1000,"offset":0,"sortAppliedStatTotalForScoringPeriodId":{"sortAsc":false,"sortPriority":1,"value":90},"filterRanksForScoringPeriodIds":{"value":[90]},"filterRanksForRankTypes":{"value":["STANDARD"]}}}' | jq . > Actions_Scrape/Goalie_log.json

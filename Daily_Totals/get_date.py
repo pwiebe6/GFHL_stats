@@ -17,6 +17,20 @@ starting_dates = {
     2024 : ["Tuesday, October 10",    "2023-10-10", "2024-04-04", 179]
 }
 
+def date_to_year(date):
+    year = int(date[0:4])
+    month = int(date[5:7])
+    if (month >=10):
+        year = year + 1
+    return(year)
+
+def date_to_scoringId(date):
+    year = int(date[0:4])
+    month = int(date[5:7])
+    if (month >=10):
+        year = year + 1
+    return(days_between(starting_dates[year][1], date)+1)
+
 def date_to_scoring_period(date):
     year = int(date[0:4])
     month = int(date[5:7])
