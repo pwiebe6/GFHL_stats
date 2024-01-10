@@ -30,8 +30,8 @@ def date_to_scoringId(date):
     month = int(date[5:7])
     if (month >=10):
         year = year + 1
-    print(days_between(starting_dates[year][1], date))
-    return(days_between(starting_dates[year][1], date))
+    print(days_between(starting_dates[year][1], date)+1)
+    return(days_between(starting_dates[year][1], date)+1)
 
 def date_to_scoring_period(date):
     year = int(date[0:4])
