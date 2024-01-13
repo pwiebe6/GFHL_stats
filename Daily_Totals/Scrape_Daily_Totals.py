@@ -84,13 +84,7 @@ else:
     # scoring: GP, G, A,   +/-, PIM,  PPG, PPA,  SHG, SHA,  GWG, FOW, FOL,  HAT, SOG, HIT, BLK
     scoring = [ 0, 2, 1.5, 0.5, -0.1, 0.5, 0.25, 1  , 0.75, 1,   0.1, -0.1, 2,   0.1, 0.3, 0.5]
     csvHeader = "Name, Health, NHL Team, Position, GFHL Team, Opponent, Score, GP, G, A, +/-, PIM, PPG, PPA, SHG, SHA, GWG, FOW, FOL, HAT, SOG, HIT, BLK, FPTS"
-    MAX_PAGE = 28
-
-#  force for now
-#daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=currSeason&scoringPeriodId=0"
-#scoringPeriodIdMin = 1
-#scoringPeriodIdMax = 2
-#MAX_PAGE = 5
+    MAX_PAGE = 29
 
 #Set up colour class
 class bcolors:
