@@ -381,40 +381,19 @@ def main():
     parser.add_argument('-S', '--startscoringperiod', type=int, default=0, help="Provide starting scoring period. Must also provide Year with -Y")
     parser.add_argument('-E', '--endscoringperiod', type=int, default=0, help="Provide ending scoring period. Must also provide Year with -Y")
     parser.add_argument('-N', '--numdates', type=int, default=1, help="Provide number of dates to check. Default is 1")
-    parser.add_argument('-M', '--maxpage', type=int, default=5, help="Provide number of pages to scrape per day. Default 5")
+    parser.add_argument('-M', '--maxpage', type=int, default=3, help="Provide number of pages to scrape per day. Default 5")
 
 
     args = parser.parse_args()
 
-    #Think about doing some checks here
+    # Do some checks here
     # For example the args.year variable shouldn't be less than 2019
-    # If endscoringid is zero, maybe set it to startscoringid + 1 to just capture at startscoringid
-    
-    
-    if (args.verbose > -1):
-        print("Run: " + str(args.run))
-        print("Verbosity: " + str(args.verbose))
-        print("Start Date: " + str(args.startdate))
-        if args.startdate != "NULL":
-            print("\tIn scoringId format: " +  str(date_to_scoring_period(args.startdate)))
-        print("End Date: " + str(args.enddate))
-        if args.enddate != "NULL":
-            print("\tIn scoringId format: " +  str(date_to_scoring_period(args.enddate)))
-        print("Blue Team: " + str(args.blueteam))
-        print("Yellow Team: " + str(args.yellowteam))
-        print("Green Team: " + str(args.greenteam))
-        print("Goalie scraping? " + str(args.goalie))
-        print("Year: " + str(args.year))
-        print("Start Scoring Period: " + str(args.startscoringperiod))
-        print("End Scoring Period: " + str(args.endscoringperiod))
-        print("Number of dates: " + str(args.numdates))
-        print("Max Page: " + str(args.maxpage))
-
-    
+    # If endscoringid is zero, to startscoringid + 1 to just capture at startscoringid
     if args.startdate != "NULL":
         year, scoringPeriodIdStart = date_to_scoring_period(args.startdate)
         if args.enddate != "NULL":
-            null, scoringPeriodIdEnd = date_to_scoring_period(args.enddate)
+            null, temp = date_to_scoring_period(args.enddate)
+            scoringPeriodIdEnd = temp + 1
         else:
             scoringPeriodIdEnd = scoringPeriodIdStart + args.numdates
     elif args.startscoringperiod != 0:
@@ -429,6 +408,31 @@ def main():
         year = args.year
         scoringPeriodIdStart = 1
         scoringPeriodIdEnd = 2
+
+
+    if year < min(list(starting_dates.keys())):
+        print("Year " + year + " invalid. Changing to" + min(list(starting_dates.keys())))
+        year = min(list(starting_dates.keys()))
+
+
+    if (args.verbose > -1):
+        print("Run: " + str(args.run))
+        print("Verbosity: " + str(args.verbose))
+        print("Start Date: " + str(args.startdate))
+        if args.startdate != "NULL":
+            print("\tIn scoringId format: " +  str(date_to_scoring_period(args.startdate)))
+        print("End Date: " + str(args.enddate))
+        if args.enddate != "NULL":
+            print("\tIn scoringId format: " +  str(date_to_scoring_period(args.enddate)))
+        print("Blue Team: " + str(args.blueteam))
+        print("Yellow Team: " + str(args.yellowteam))
+        print("Green Team: " + str(args.greenteam))
+        print("Goalie scraping? " + str(args.goalie))
+        print("Year: " + str(year))
+        print("Start Scoring Period: " + str(args.startscoringperiod))
+        print("End Scoring Period: " + str(args.endscoringperiod))
+        print("Number of dates: " + str(args.numdates))
+        print("Max Page: " + str(args.maxpage))
 
 
     # Early exit for testing purposes
@@ -446,7 +450,7 @@ def main():
         for scoringPeriodId in range(scoringPeriodIdStart, scoringPeriodIdEnd):
             print("scoring Period = " + str(scoringPeriodId))
             # Open the browser
-            driver.get(url + "&scoringPeriodId=" + str(scoringPeriodId) + "&seasonId=" + str(args.year))
+            driver.get(url + "&scoringPeriodId=" + str(scoringPeriodId) + "&seasonId=" + str(year))
 
             # Wait for page to load 
 #            time.sleep(3)
@@ -457,9 +461,9 @@ def main():
 
             if (position == "G"):
 #                selectGoalies(driver)
-                fileName = "temp//Goalies-" + str(scoring_period_to_date(args.year, scoringPeriodId)) + ".csv"
+                fileName = "temp//Goalies-" + str(scoring_period_to_date(year, scoringPeriodId)) + ".csv"
             else:
-                fileName = "temp//Skaters-" + str(scoring_period_to_date(args.year, scoringPeriodId)) + ".csv"
+                fileName = "temp//Skaters-" + str(scoring_period_to_date(year, scoringPeriodId)) + ".csv"
 
             try:
                 with open(fileName, "a") as file:
@@ -479,11 +483,11 @@ def main():
             stop_scrape = False
             # Get all stats for all playing players
             print("MAX_PAGE: " + str(MAX_PAGE))
-            for i in range(1, min(MAX_PAGE,args.maxpage)):
+            for i in range(1, min(MAX_PAGE,args.maxpage)+1):
                 # Get all stats for page
-                list = scrape_page(driver, position)
+                stats_list = scrape_page(driver, position)
                 # Iterate through list from page
-                for item in list:
+                for item in stats_list:
                     # If the player has played today, print the stats. Otherwise, stop scraping.
                     if check_if_played_today(item):
                         # if the calculated fpts does not match the value given by ESPN print discrepancy, and correct the error
@@ -507,14 +511,11 @@ def main():
                 print("End of Page: "+ str(current_page))
                 if stop_scrape == True:
                     break
-
-                # Go to next page
-                go_to_next_page(driver)
-                wait_until_page_is_loaded(driver)
-
                 
                 # If we are not on the final page
-                if ((i+1) != min(MAX_PAGE, args.maxpage)):
+                if ((i+1) < min(MAX_PAGE, args.maxpage)+1):
+                    go_to_next_page(driver)
+                    wait_until_page_is_loaded(driver)
                     # Get updated page number and print the start of page message
                     current_page = get_page_number(driver)
                     print("Start of Page: "+ str(current_page))
