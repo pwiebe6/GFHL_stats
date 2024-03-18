@@ -3,8 +3,8 @@ name: Scrape latest data
 on:
   workflow_dispatch:
   schedule:
-  # cron job for 7:50am to coincide with 11:50pm Vancouver time
-    - cron:  '50 7 * * *'
+  # cron job for 6:50am to coincide with 11:50pm PDT or 10:50pm PST Vancouver time
+    - cron:  '50 6 * * *'
 
 jobs:
   scheduled:
