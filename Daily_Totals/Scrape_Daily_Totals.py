@@ -101,7 +101,7 @@ def setup():
     '''Does setup.
     Returns browser driver.'''
     # Locate the Chrome drive used to launch the web scraper
-    service = Service(r'C:\Users\pcw12\Downloads\Selenium\chromedriver_win32\chromedriver.exe')
+    service = Service(r'C:\Users\pcw12\Downloads\Selenium\chromedriver-win32\chromedriver-win32\chromedriver.exe')
     options = webdriver.ChromeOptions()
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
     time.sleep(3)
