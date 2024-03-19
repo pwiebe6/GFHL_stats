@@ -37,12 +37,12 @@ free_agents = "FA"
 # skip showing opponents in Green
 # free_agents = "NULL"
 
-position = "S" # "S" for Skater or "G" for Goalies
+#position = "S" # "S" for Skater or "G" for Goalies
 
-starting_year = "2023"  # Only 2021 is selectable for now. Need to implement scraping from other years
+#starting_year = "2023"  # Only 2021 is selectable for now. Need to implement scraping from other years
 
-scoringPeriodIdMin = 1
-scoringPeriodIdMax = 179 # 201 or maybe 203
+#scoringPeriodIdMin = 1
+#scoringPeriodIdMax = 179 # 201 or maybe 203
 
 ############################# END EDIT ME ##################################
 
@@ -64,7 +64,7 @@ GFHL_teams = ["FA", "DINK", "BOWS", "LKR", "OXP", "NBUS", "CLB", "HERB", "SALT",
 #daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=singleScoringPeriod&scoringPeriodId=29"
 
 # https://fantasy.espn.com/hockey/leaders?leagueId=59311&seasonId=2019&statSplit=singleScoringPeriod&scoringPeriodId=1
-url = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=singleScoringPeriod"
+#url = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=singleScoringPeriod"
 # leagueId = 59311
 # seasonId = 2019
 # statSplit = singleScoringPeriod
@@ -73,18 +73,7 @@ url = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=singleSc
 # lineupSlot = 5
 
 
-if (position == "G"):
-    url = url + "&lineupSlot=5"
-    # scoring: GS, W,  L,   GA, SV, SO
-    scoring = [ 0, 4, -1, -0.5, 0.1, 2]
-    csvHeader = "Name, Health, NHL Team, Position, GFHL Team, Opponent, Score, GS, W, L, GA, SV, SO, FPTS"
-    MAX_PAGE = 4
 
-else:
-    # scoring: GP, G, A,   +/-, PIM,  PPG, PPA,  SHG, SHA,  GWG, FOW, FOL,  HAT, SOG, HIT, BLK
-    scoring = [ 0, 2, 1.5, 0.5, -0.1, 0.5, 0.25, 1  , 0.75, 1,   0.1, -0.1, 2,   0.1, 0.3, 0.5]
-    csvHeader = "Name, Health, NHL Team, Position, GFHL Team, Opponent, Score, GP, G, A, +/-, PIM, PPG, PPA, SHG, SHA, GWG, FOW, FOL, HAT, SOG, HIT, BLK, FPTS"
-    MAX_PAGE = 29
 
 #Set up colour class
 class bcolors:
@@ -107,7 +96,7 @@ def setup():
     time.sleep(3)
     return(Chrome(options=options, service=service))
 
-def scrape_page(driver, position):
+def scrape_page(driver, isGoalie):
     '''Scrapes the current page. Returns List of Lists'''
     # Grab all the tbody elements named "Table__TBODY". First three entries within that list are:
     # 1. player names (+teams, position, owner, opponent, game score),
@@ -120,7 +109,7 @@ def scrape_page(driver, position):
     stats = tbody[1].text # 16 for players, 6 for goalies
     fpts  = tbody[2].text # 1
 
-    if(position == "G"):
+    if(isGoalie):
         num_stats = 6
     else:
         num_stats = 16
@@ -196,10 +185,10 @@ def scrape_page(driver, position):
     #print("PRINTING FPTS LIST" + str(fpts_list))
 
     combined = []
-    #print("PRINTPRINTPRINT")
-    #print(len(names_list))
-    #print(len(stats_list))
-    #print(len(fpts_list))
+    print("PRINTPRINTPRINT")
+    print(len(names_list))
+    print(len(stats_list))
+    print(len(fpts_list))
     for i in range(len(names_list)):
         #print(names_list[i] + stats_list[i] + fpts_list[i])
         combined.append(names_list[i] + stats_list[i] + fpts_list[i])             
@@ -349,7 +338,7 @@ def selectGoalies(driver):
 
 
 def wait_until_page_is_loaded(driver):
-    time.sleep(3)
+    time.sleep(5)
     try:
         checkElement = expected_conditions.presence_of_element_located(By.XPATH, "//li[@class='Pagination__list__item pointer inline-flex justify-center items-center Pagination__list__item--active']")
         WebDriverWait(driver, 3).until(checkElement)      
@@ -408,6 +397,20 @@ def main():
         print("Year " + year + " invalid. Changing to" + min(list(starting_dates.keys())))
         year = min(list(starting_dates.keys()))
 
+    url = "https://fantasy.espn.com/hockey/leaders?leagueId=59311&statSplit=singleScoringPeriod"
+
+    if args.goalie == 1:
+        positionString = "5" # &lineupSlot=5 for goalies
+        # scoring: GS, W,  L,   GA, SV, SO
+        scoring = [ 0, 4, -1, -0.5, 0.1, 2]
+        csvHeader = "Name, Health, NHL Team, Position, GFHL Team, Opponent, Score, GS, W, L, GA, SV, SO, FPTS"
+        MAX_PAGE = 4
+    else:
+        positionString = "0%2C1%2C2%2C3%2C4%2C6" # &lineupSlot=0%2C1%2C2%2C3%2C4%2C6 for al skaters
+        # scoring: GP, G, A,   +/-, PIM,  PPG, PPA,  SHG, SHA,  GWG, FOW, FOL,  HAT, SOG, HIT, BLK
+        scoring = [ 0, 2, 1.5, 0.5, -0.1, 0.5, 0.25, 1  , 0.75, 1,   0.1, -0.1, 2,   0.1, 0.3, 0.5]
+        csvHeader = "Name, Health, NHL Team, Position, GFHL Team, Opponent, Score, GP, G, A, +/-, PIM, PPG, PPA, SHG, SHA, GWG, FOW, FOL, HAT, SOG, HIT, BLK, FPTS"
+        MAX_PAGE = 29
 
     if (args.verbose > -1):
         print("Run: " + str(args.run))
@@ -427,6 +430,7 @@ def main():
         print("End Scoring Period: " + str(args.endscoringperiod))
         print("Number of dates: " + str(args.numdates))
         print("Max Page: " + str(args.maxpage))
+        print("URL: " + str(url + "&scoringPeriodId=" + str(scoringPeriodIdStart) + "&seasonId=" + str(year) + "&lineupSlot=" + positionString))
 
 
     # Early exit for testing purposes
@@ -444,7 +448,7 @@ def main():
         for scoringPeriodId in range(scoringPeriodIdStart, scoringPeriodIdEnd):
             print("scoring Period = " + str(scoringPeriodId))
             # Open the browser
-            driver.get(url + "&scoringPeriodId=" + str(scoringPeriodId) + "&seasonId=" + str(year))
+            driver.get(url + "&scoringPeriodId=" + str(scoringPeriodId) + "&seasonId=" + str(year) + "&lineupSlot=" + positionString)
 
             # Wait for page to load 
 #            time.sleep(3)
@@ -453,7 +457,7 @@ def main():
 
 #            time.sleep(1)
 
-            if (position == "G"):
+            if (args.goalie == 1):
 #                selectGoalies(driver)
                 fileName = "temp//Goalies-" + str(scoring_period_to_date(year, scoringPeriodId)) + ".csv"
             else:
@@ -476,10 +480,10 @@ def main():
             # Define stop_scrape to False so that every player is scraped
             stop_scrape = False
             # Get all stats for all playing players
-            print("MAX_PAGE: " + str(MAX_PAGE))
+            print("MAX_PAGE: " + str(min(MAX_PAGE,args.maxpage)+1))
             for i in range(1, min(MAX_PAGE,args.maxpage)+1):
                 # Get all stats for page
-                stats_list = scrape_page(driver, position)
+                stats_list = scrape_page(driver, args.goalie)
                 # Iterate through list from page
                 for item in stats_list:
                     # If the player has played today, print the stats. Otherwise, stop scraping.

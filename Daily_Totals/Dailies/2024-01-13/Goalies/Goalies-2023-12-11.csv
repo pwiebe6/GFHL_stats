@@ -1,0 +1,169 @@
+Name, Health, NHL Team, Position, GFHL Team, Opponent, Score, GS, W, L, GA, SV, SO, FPTS
+Ilya Sorokin, Healthy, NYI, G, CLB, Tor, W 4-3, 1, 1, 0, 3, 37, 0, 6.2
+Jake Oettinger, Healthy, Dal, G, LKR, Det, W 6-3, 1, 1, 0, 3, 27, 0, 5.2
+Devon Levi, Healthy, Buf, G, SALT, Ari, W 5-2, 1, 1, 0, 2, 21, 0, 5.1
+Ivan Prosvetov, Healthy, Col, G, FA, Cgy, W 6-5, 0, 1, 0, 0, 11, 0, 5.1
+Ilya Samsonov, Healthy, Tor, G, HERB, @NYI, L 3-4, 1, 0, 0, 4, 25, 0, 0.5
+Karel Vejmelka, Healthy, Ari, G, FA, @Buf, L 2-5, 1, 0, 1, 4, 33, 0, 0.3
+Jacob Markstrom, DTD, Cgy, G, BBS, @Col, L 5-6, --, --, --, --, --, --, --
+Ukko-Pekka Luukkonen, Healthy, Buf, G, CLB, Ari, W 5-2, --, --, --, --, --, --, --
+Connor Ingram, Healthy, Ari, G, OXP, @Buf, L 2-5, --, --, --, --, --, --, --
+Alex Lyon, Healthy, Det, G, SALT, @Dal, L 3-6, --, --, --, --, --, --, --
+Joseph Woll, Healthy, Tor, G, BBS, @NYI, L 3-4, --, --, --, --, --, --, --
+Ville Husso, O, Det, G, OXP, @Dal, L 3-6, --, --, --, --, --, --, --
+Semyon Varlamov, Healthy, NYI, G, FA, Tor, W 4-3, --, --, --, --, --, --, --
+Martin Jones, Healthy, Tor, G, FA, @NYI, L 3-4, --, --, --, --, --, --, --
+Scott Wedgewood, Healthy, Dal, G, FA, Det, W 6-3, --, --, --, --, --, --, --
+Dustin Wolf, Healthy, Cgy, G, SLC, @Col, L 5-6, --, --, --, --, --, --, --
+Justus Annunen, Healthy, Col, G, FA, Cgy, W 6-5, --, --, --, --, --, --, --
+Matt Murray, IR, Tor, G, FA, @NYI, L 3-4, --, --, --, --, --, --, --
+Matt Murray, Healthy, Dal, G, FA, Det, W 6-3, --, --, --, --, --, --, --
+Pavel Francouz, IR, Col, G, FA, Cgy, W 6-5, --, --, --, --, --, --, --
+Eric Comrie, Healthy, Buf, G, FA, Ari, W 5-2, --, --, --, --, --, --, --
+Braden Holtby, Healthy, Dal, G, FA, Det, W 6-3, --, --, --, --, --, --, --
+Sebastian Cossa, Healthy, Det, G, FA, @Dal, L 3-6, --, --, --, --, --, --, --
+Artyom Zagidulin, Healthy, Cgy, G, FA, @Col, L 5-6, --, --, --, --, --, --, --
+Craig Anderson, Healthy, Buf, G, FA, Ari, W 5-2, --, --, --, --, --, --, --
+Dylan Wells, Healthy, Dal, G, FA, Det, W 6-3, --, --, --, --, --, --, --
+Trey Augustine, Healthy, Det, G, FA, @Dal, L 3-6, --, --, --, --, --, --, --
+Michael Hrabal, Healthy, Ari, G, FA, @Buf, L 2-5, --, --, --, --, --, --, --
+Hunter Miska, Healthy, Col, G, FA, Cgy, W 6-5, --, --, --, --, --, --, --
+Cory Schneider, Healthy, NYI, G, FA, Tor, W 4-3, --, --, --, --, --, --, --
+Kenneth Appleby, Healthy, NYI, G, FA, Tor, W 4-3, --, --, --, --, --, --, --
+Jett Alexander, Healthy, Tor, G, FA, @NYI, L 3-4, --, --, --, --, --, --, --
+Michael Hutchinson, Healthy, Det, G, FA, @Dal, L 3-6, --, --, --, --, --, --, --
+Landon Bow, Healthy, Dal, G, FA, Det, W 6-3, --, --, --, --, --, --, --
+Keith Petruzzelli, Healthy, Tor, G, FA, @NYI, L 3-4, --, --, --, --, --, --, --
+Harri Sateri, Healthy, Ari, G, FA, @Buf, L 2-5, --, --, --, --, --, --, --
+Jared Coreau, Healthy, NYI, G, FA, Tor, W 4-3, --, --, --, --, --, --, --
+Dustin Tokarski, Healthy, Buf, G, FA, Ari, W 5-2, --, --, --, --, --, --, --
+Kevin Boyle, Healthy, Det, G, FA, @Dal, L 3-6, --, --, --, --, --, --, --
+Josef Korenar, Healthy, Ari, G, FA, @Buf, L 2-5, --, --, --, --, --, --, --
+Michael Houser, Healthy, Buf, G, FA, Ari, W 5-2, --, --, --, --, --, --, --
+Kaden Fulcher, Healthy, Det, G, FA, @Dal, L 3-6, --, --, --, --, --, --, --
+Carter Hutton, Healthy, Tor, G, FA, @NYI, L 3-4, --, --, --, --, --, --, --
+James Reimer, Healthy, Det, G, FA, @Dal, L 3-6, 1, 0, 1, 5, 29, 0, -0.6
+Dan Vladar, Healthy, Cgy, G, FA, @Col, L 5-6, 1, 0, 1, 6, 32, 0, -0.8
+Alexandar Georgiev, Healthy, Col, G, SLC, Cgy, W 6-5, 1, 0, 0, 5, 16, 0, -0.9
+Connor Hellebuyck, Healthy, Wpg, G, HERB, --, --, --, --, --, --, --, --, --
+Igor Shesterkin, Healthy, NYR, G, DINK, --, --, --, --, --, --, --, --, --
+Jeremy Swayman, Healthy, Bos, G, SALT, --, --, --, --, --, --, --, --, --
+Thatcher Demko, O, Van, G, BOWS, --, --, --, --, --, --, --, --, --
+Andrei Vasilevskiy, Healthy, TB, G, LKR, --, --, --, --, --, --, --, --, --
+Linus Ullmark, Healthy, Bos, G, LKR, --, --, --, --, --, --, --, --, --
+Sergei Bobrovsky, Healthy, Fla, G, ME, --, --, --, --, --, --, --, --, --
+Juuse Saros, Healthy, Nsh, G, SALT, --, --, --, --, --, --, --, --, --
+Adin Hill, Healthy, Vgk, G, DINK, --, --, --, --, --, --, --, --, --
+Stuart Skinner, Healthy, Edm, G, ME, --, --, --, --, --, --, --, --, --
+Tristan Jarry, Healthy, Pit, G, SLC, --, --, --, --, --, --, --, --, --
+Cam Talbot, Healthy, LA, G, BOWS, --, --, --, --, --, --, --, --, --
+Logan Thompson, Healthy, Vgk, G, DINK, --, --, --, --, --, --, --, --, --
+Frederik Andersen, Healthy, Car, G, BBS, --, --, --, --, --, --, --, --, --
+Filip Gustavsson, Healthy, Min, G, BOWS, --, --, --, --, --, --, --, --, --
+Jordan Binnington, Healthy, StL, G, ME, --, --, --, --, --, --, --, --, --
+Joey Daccord, Healthy, Sea, G, FA, --, --, --, --, --, --, --, --, --
+Vitek Vanecek, IR, SJ, G, BOWS, --, --, --, --, --, --, --, --, --
+Carter Hart, IR, Phi, G, FA, --, --, --, --, --, --, --, --, --
+Pyotr Kochetkov, Healthy, Car, G, BBS, --, --, --, --, --, --, --, --, --
+Jonathan Quick, Healthy, NYR, G, OXP, --, --, --, --, --, --, --, --, --
+Spencer Knight, Healthy, Fla, G, FA, --, --, --, --, --, --, --, --, --
+Charlie Lindgren, Healthy, Wsh, G, FA, --, --, --, --, --, --, --, --, --
+Joonas Korpisalo, Healthy, Ott, G, FA, --, --, --, --, --, --, --, --, --
+Marc-Andre Fleury, Healthy, Min, G, FA, --, --, --, --, --, --, --, --, --
+Samuel Ersson, Healthy, Phi, G, BBS, --, --, --, --, --, --, --, --, --
+Darcy Kuemper, Healthy, Wsh, G, CLB, --, --, --, --, --, --, --, --, --
+Jonas Johansson, Healthy, TB, G, OXP, --, --, --, --, --, --, --, --, --
+Petr Mrazek, Healthy, Chi, G, FA, --, --, --, --, --, --, --, --, --
+John Gibson, Healthy, Ana, G, FA, --, --, --, --, --, --, --, --, --
+Casey DeSmith, Healthy, Van, G, FA, --, --, --, --, --, --, --, --, --
+Philipp Grubauer, Healthy, Sea, G, FA, --, --, --, --, --, --, --, --, --
+Laurent Brossoit, Healthy, Wpg, G, FA, --, --, --, --, --, --, --, --, --
+Elvis Merzlikins, Healthy, Cls, G, FA, --, --, --, --, --, --, --, --, --
+Sam Montembeault, Healthy, Mon, G, BOWS, --, --, --, --, --, --, --, --, --
+Joel Hofer, Healthy, StL, G, FA, --, --, --, --, --, --, --, --, --
+Anthony Stolarz, Healthy, Fla, G, FA, --, --, --, --, --, --, --, --, --
+Jake Allen, Healthy, NJ, G, FA, --, --, --, --, --, --, --, --, --
+Alex Nedeljkovic, Healthy, Pit, G, FA, --, --, --, --, --, --, --, --, --
+David Rittich, Healthy, LA, G, HERB, --, --, --, --, --, --, --, --, --
+Lukas Dostal, Healthy, Ana, G, FA, --, --, --, --, --, --, --, --, --
+Antti Raanta, Healthy, Car, G, FA, --, --, --, --, --, --, --, --, --
+Calvin Pickard, Healthy, Edm, G, FA, --, --, --, --, --, --, --, --, --
+Nico Daws, Healthy, NJ, G, FA, --, --, --, --, --, --, --, --, --
+Pheonix Copley, IR, LA, G, FA, --, --, --, --, --, --, --, --, --
+Jack Campbell, Healthy, Edm, G, FA, --, --, --, --, --, --, --, --, --
+Anton Forsberg, Healthy, Ott, G, FA, --, --, --, --, --, --, --, --, --
+Mackenzie Blackwood, IR, SJ, G, FA, --, --, --, --, --, --, --, --, --
+Akira Schmid, Healthy, NJ, G, FA, --, --, --, --, --, --, --, --, --
+Daniil Tarasov, Healthy, Cls, G, FA, --, --, --, --, --, --, --, --, --
+Robin Lehner, IR, Vgk, G, FA, --, --, --, --, --, --, --, --, --
+Kaapo Kahkonen, Healthy, NJ, G, FA, --, --, --, --, --, --, --, --, --
+Arvid Soderblom, Healthy, Chi, G, FA, --, --, --, --, --, --, --, --, --
+Yaroslav Askarov, Healthy, Nsh, G, FA, --, --, --, --, --, --, --, --, --
+Mads Sogaard, Healthy, Ott, G, FA, --, --, --, --, --, --, --, --, --
+Kevin Lankinen, Healthy, Nsh, G, FA, --, --, --, --, --, --, --, --, --
+Louis Domingue, Healthy, NYR, G, FA, --, --, --, --, --, --, --, --, --
+Jesper Wallstedt, Healthy, Min, G, FA, --, --, --, --, --, --, --, --, --
+Cayden Primeau, Healthy, Mon, G, FA, --, --, --, --, --, --, --, --, --
+Carey Price, IR, Mon, G, FA, --, --, --, --, --, --, --, --, --
+Chris Driedger, Healthy, Sea, G, FA, --, --, --, --, --, --, --, --, --
+Spencer Martin, Healthy, Car, G, FA, --, --, --, --, --, --, --, --, --
+Tuukka Rask, Healthy, Bos, G, FA, --, --, --, --, --, --, --, --, --
+Malcolm Subban, Healthy, StL, G, FA, --, --, --, --, --, --, --, --, --
+Magnus Chrona, Healthy, SJ, G, FA, --, --, --, --, --, --, --, --, --
+Jet Greaves, Healthy, Cls, G, FA, --, --, --, --, --, --, --, --, --
+Jiri Patera, Healthy, Vgk, G, FA, --, --, --, --, --, --, --, --, --
+Cal Petersen, Healthy, Phi, G, FA, --, --, --, --, --, --, --, --, --
+Jaroslav Halak, Healthy, NYR, G, FA, --, --, --, --, --, --, --, --, --
+Felix Sandstrom, Healthy, Phi, G, FA, --, --, --, --, --, --, --, --, --
+Hunter Shepard, Healthy, Wsh, G, FA, --, --, --, --, --, --, --, --, --
+Arturs Silovs, Healthy, Van, G, FA, --, --, --, --, --, --, --, --, --
+Magnus Hellberg, Healthy, Fla, G, FA, --, --, --, --, --, --, --, --, --
+Mike Smith, Healthy, Edm, G, FA, --, --, --, --, --, --, --, --, --
+Brian Elliott, Healthy, TB, G, FA, --, --, --, --, --, --, --, --, --
+Drew Commesso, Healthy, Chi, G, FA, --, --, --, --, --, --, --, --, --
+Michael DiPietro, Healthy, Bos, G, FA, --, --, --, --, --, --, --, --, --
+Anton Khudobin, Healthy, Chi, G, FA, --, --, --, --, --, --, --, --, --
+Matt Tomkins, Healthy, TB, G, FA, --, --, --, --, --, --, --, --, --
+Adam Gajan, Healthy, Chi, G, FA, --, --, --, --, --, --, --, --, --
+Thomas Greiss, Healthy, StL, G, FA, --, --, --, --, --, --, --, --, --
+Collin Delia, Healthy, Wpg, G, FA, --, --, --, --, --, --, --, --, --
+Eetu Makiniemi, Healthy, SJ, G, FA, --, --, --, --, --, --, --, --, --
+Alex Stalock, Healthy, Ana, G, FA, --, --, --, --, --, --, --, --, --
+Jaxson Stauber, Healthy, Chi, G, FA, --, --, --, --, --, --, --, --, --
+Jonathan Bernier, Healthy, NJ, G, FA, --, --, --, --, --, --, --, --, --
+Niklas Svedberg, Healthy, Min, G, FA, --, --, --, --, --, --, --, --, --
+Hugo Alnefelt, Healthy, TB, G, FA, --, --, --, --, --, --, --, --, --
+Jack LaFontaine, Healthy, TB, G, FA, --, --, --, --, --, --, --, --, --
+Mikko Koskinen, Healthy, Edm, G, FA, --, --, --, --, --, --, --, --, --
+Antti Niemi, Healthy, Mon, G, FA, --, --, --, --, --, --, --, --, --
+Leevi Merilainen, Healthy, Ott, G, FA, --, --, --, --, --, --, --, --, --
+Dennis Hildeby, Healthy, Tor, G, FA, @NYI, L 3-4, --, --, --, --, --, --, --
+Olle Eriksson Ek, Healthy, Ana, G, FA, --, --, --, --, --, --, --, --, --
+Jeff Glass, Healthy, Chi, G, FA, --, --, --, --, --, --, --, --, --
+Carson Bjarnason, Healthy, Phi, G, FA, --, --, --, --, --, --, --, --, --
+Kasimir Kaskisuo, Healthy, Nsh, G, FA, --, --, --, --, --, --, --, --, --
+Alexei Melnichuk, Healthy, TB, G, FA, --, --, --, --, --, --, --, --, --
+Zach Fucale, Healthy, Wsh, G, FA, --, --, --, --, --, --, --, --, --
+Mike Condon, Healthy, TB, G, FA, --, --, --, --, --, --, --, --, --
+Aaron Dell, Healthy, Cls, G, FA, --, --, --, --, --, --, --, --, --
+Dylan Ferguson, Healthy, Ott, G, FA, --, --, --, --, --, --, --, --, --
+Danny Taylor, Healthy, Ott, G, FA, --, --, --, --, --, --, --, --, --
+Andrew Hammond, Healthy, NJ, G, FA, --, --, --, --, --, --, --, --, --
+Garret Sparks, Healthy, LA, G, FA, --, --, --, --, --, --, --, --, --
+Keith Kinkaid, Healthy, NJ, G, FA, --, --, --, --, --, --, --, --, --
+Erik Kallgren, Healthy, NJ, G, FA, --, --, --, --, --, --, --, --, --
+Damian Clara, Healthy, Ana, G, FA, --, --, --, --, --, --, --, --, --
+Matthew Berlin, Healthy, Edm, G, FA, --, --, --, --, --, --, --, --, --
+Shane Starrett, Healthy, Edm, G, FA, --, --, --, --, --, --, --, --, --
+Adam Huska, Healthy, NYR, G, FA, --, --, --, --, --, --, --, --, --
+Michael McNiven, Healthy, Ott, G, FA, --, --, --, --, --, --, --, --, --
+Troy Grosenick, Healthy, Nsh, G, FA, --, --, --, --, --, --, --, --, --
+Jon Gillies, O, Cls, G, FA, --, --, --, --, --, --, --, --, --
+Kevin Mandolese, Healthy, Ott, G, FA, --, --, --, --, --, --, --, --, --
+Maxime Lagace, Healthy, TB, G, FA, --, --, --, --, --, --, --, --, --
+Eddie Lack, Healthy, NJ, G, FA, --, --, --, --, --, --, --, --, --
+Yaniv Perets, Healthy, Car, G, FA, --, --, --, --, --, --, --, --, --
+Zach Sawchenko, Healthy, Van, G, FA, --, --, --, --, --, --, --, --, --
+Tom Hodges, Healthy, Ana, G, FA, --, --, --, --, --, --, --, --, --
+Jean-Francois Berube, Healthy, LA, G, FA, --, --, --, --, --, --, --, --, --
+Matt Villalta, Healthy, Ari, G, FA, @Buf, L 2-5, --, --, --, --, --, --, --
