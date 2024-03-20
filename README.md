@@ -14,17 +14,23 @@ Two methods exist:
       - currently commits daily data overtop of yesterdays results - still need to clean up and save as easier to access files (csv)
 
 # Future Plans
-Utilize the fact the scraping script can work with different days to scrape previous days data. This will allow late data to trickle in.
+1. Utilize the fact the scraping script can work with different days to scrape previous days data. This will allow late data to trickle in.
 
-Create script to convert json to csv so a more visible set of data can be left in the repo.
+2. Create script to convert json to csv so a more visible set of data can be left in the repo.
 
-Add script to convert csv to html and automatically add 
+3. Cleanup script to convert csv to html and automatically add links
+   - Still need to add links to the all the html pages
+   - Need to update the names of some files to keep things cleaner. Eg. https://www.gfhl.ca/dailies/2024/skaters/Skaters-2023-12-29.html doesn't need "skaters/Skaters"
+     - Remove the second "Skaters", or remove both "skaters" and merge the skater and goalie stats together
+   - Need to cleanup the html output
+     - no need for the numbers on the left
+     - look into sortable/filterable tables?
+   - Is this a good method? These HTML files are 5 times the size of the csv files they're made from. Can this be done in a more sensible way?
 
-Add command line arguments for:
- -Skaters/Goalies
- -year
- -date range
- -NHL team specific
- -GFHL team specific
-
- Add better logging to script
+4. Add command line arguments to the selenium scraper for:
+   - COMPLETE: Skaters/Goalies
+   - COMPLETE: year
+   - COMPLETE: date range
+   - NHL team specific
+   - GFHL team specific
+   - Add better logging to script
