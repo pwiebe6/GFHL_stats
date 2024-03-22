@@ -1,17 +1,17 @@
 {
-    [
-    { name: 'Alice', age: 30 },
-    { name: 'Bob', age: 25 },
-    { name: 'Chuck', age: 20 },
-    { name: 'Doug', age: 65 },
-    { name: 'Emil', age: 60 },
-    { name: 'Fran', age: 55 },
-    { name: 'Greg', age: 50 },
-    { name: 'Hans', age: 45 },
-    { name: 'Iris', age: 40 },
-    { name: 'Jay', age: 35 },
-    { name: 'Kiwi', age: 62 },
-    { name: 'Lyle', age: 64 },
-    { name: 'Morp', age: 66 }
-  ];
+    "people": [
+    { "name": "Alli", "age": 30 },
+    { "name": "Bart", "age": 25 },
+    { "name": "Cara", "age": 20 },
+    { "name": "Doug", "age": 65 },
+    { "name": "Emil", "age": 60 },
+    { "name": "Fran", "age": 55 },
+    { "name": "Greg", "age": 50 },
+    { "name": "Hans", "age": 45 },
+    { "name": "Iris", "age": 40 },
+    { "name": "Jaye", "age": 35 },
+    { "name": "Kiwi", "age": 62 },
+    { "name": "Lyle", "age": 64 },
+    { "name": "Morp", "age": 66 }
+  ]
 }
