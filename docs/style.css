@@ -31,3 +31,12 @@ h1{
 .navbar{
     align-items: center;
 }
+.title-container {
+    display: flex;
+    align-items: center; /* Vertically center the image and text */
+    justify-content: center;
+}
+.image {
+    margin-right: 20px;
+    margin-left: 20px;
+}
