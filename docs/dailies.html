@@ -23,7 +23,99 @@
     <main>
         <h3>This is the Dailies page</h3>
         <p>Dailies stuff to go here... WIP</p>
+        <table id="data-table">
+            <thead>
+                <tr>
+                    <th><button onclick="sortTable(0)">draftAuctionValue</button></th>
+                    <th><button onclick="sortTable(1)">id</button></th>
+                    <th><button onclick="sortTable(2)">keeperValue</button></th>
+                    <th><button onclick="sortTable(3)">keeperValueFuture</button></th>
+                    <th><button onclick="sortTable(4)">lineupLocked</button></th>
+                    <th><button onclick="sortTable(5)">onTeamId</button></th>
+                    <th><button onclick="sortTable(6)">fullName</button></th>
+                    <th><button onclick="sortTable(7)">rosterLocked</button></th>
+                    <th><button onclick="sortTable(8)">status</button></th>
+                    <th><button onclick="sortTable(9)">tradeLocked</button></th>
+                    <!-- Add more columns as needed -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be populated dynamically using JavaScript -->
+            </tbody>
+        </table>
     </main>
+    <script>
+        async function fetchData() {
+            try {
+                const response = await fetch('https://www.gfhl.ca/dailies/goalies/Goalie_log.json'); // Replace with your JSON file URL
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        fetchData().then((jsonData) => {
+            const tableBody = document.querySelector('#data-table tbody');
+            console.log(jsonData);
+            const keys = Object.keys(jsonData);
+            console.log(keys);
+            keys.forEach((key) => {
+              const value = jsonData[key];
+              console.log(`Print Key: ${key}, Print Value: ${value}`);
+            });
+
+            jsonData["players"].forEach((item) => {
+                console.log(`PRINTING item: ${item}`)
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.draftAuctionValue}</td>
+                    <td>${item.id}</td>
+                    <td>${item.keeperValue}</td>
+                    <td>${item.keeperValueFuture}</td>
+                    <td>${item.lineupLocked}</td>
+                    <td>${item.onTeamId}</td>
+                    <td>${item.fullName}</td>
+                    <td>${item.rosterLocked}</td>
+                    <td>${item.status}</td>
+                    <td>${item.tradeLocked}</td>
+
+                    <!-- Add more cells for other properties -->
+                `;
+                tableBody.appendChild(row);
+            });
+        });
+    </script>
+    <script>
+      $(function sortAge(){
+        $('#data-table').dataTable()
+      })
+      function sortTable(columnIndex) {
+        var table = document.getElementById("data-table");
+        var rows = table.rows;
+        var switching = true;
+
+        while (switching) {
+            switching = false;
+
+            for (var i = 1; i < rows.length - 1; i++) {
+                var shouldSwitch = false;
+                var x = rows[i].getElementsByTagName("TD")[columnIndex];
+                var y = rows[i + 1].getElementsByTagName("TD")[columnIndex];
+
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+            }
+        }
+    }
+    </script>
 
 </body>
 
