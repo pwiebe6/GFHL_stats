@@ -31,39 +31,6 @@
         <p>Dailies stuff to go here... WIP</p>
         <table id="data-table">
             <thead>
-                <th><button onclick="sortTable(0)">ID</button></th>
-                <th><button onclick="sortTable(1)">Name</button></th>
-                <th><button onclick="sortTable(2)">NHL Team</button></th>
-                <th><button onclick="sortTable(3)">Position</button></th>
-                <th><button onclick="sortTable(4)">Health</button></th>
-                <th><button onclick="sortTable(5)">GFHL Team</button></th>
-                <th><button onclick="sortTable(6)">Opp</button></th>
-                <th><button onclick="sortTable(7)">Status</button></th>
-                <th><button onclick="sortTable(8)">GS</button></th>
-                <th><button onclick="sortTable(9)">W</button></th>   
-                <th><button onclick="sortTable(10)">L</button></th>  
-                <th><button onclick="sortTable(11)">GA</button></th>
-                <th><button onclick="sortTable(12)">SV</button></th>
-                <th><button onclick="sortTable(13)">SO</button></th>
-                <th><button onclick="sortTable(14)">FPTS</button></th>
-                <!--<th><button onclick="sortTable(9)">G</button></th>      -->
-                <!--<th><button onclick="sortTable(10)">A</button></th>     -->
-                <!--<th><button onclick="sortTable(11)">+/-</button></th>   -->
-                <!--<th><button onclick="sortTable(12)">PIM</button></th>   -->
-                <!--<th><button onclick="sortTable(13)">PPG</button></th>   -->
-                <!--<th><button onclick="sortTable(14)">PPA</button></th>   -->
-                <!--<th><button onclick="sortTable(15)">SHG</button></th>   -->
-                <!--<th><button onclick="sortTable(16)">SHA</button></th>   -->
-                <!--<th><button onclick="sortTable(17)">GWG</button></th>   -->
-                <!--<th><button onclick="sortTable(18)">FOW</button></th>   -->
-                <!--<th><button onclick="sortTable(19)">FOL</button></th>   -->
-                <!--<th><button onclick="sortTable(20)">HAT</button></th>   -->
-                <!--<th><button onclick="sortTable(21)">SOG</button></th>   -->
-                <!--<th><button onclick="sortTable(22)">HIT</button></th>   -->
-                <!--<th><button onclick="sortTable(23)">BLK</button></th>   -->
-                <!--<th><button onclick="sortTable(24)">FPTS</button></th>  -->
-                <!--<th><button onclick="sortTable(25)">AVG</button></th>   -->
-
                 <!-- Table Header will be populated dynamically using JavaScript -->
             </thead>
             <tbody>
@@ -147,7 +114,7 @@
             headerString += `<th><button onclick="sortTable(${48})">temp:</button></th>\n`
             const headerRow = document.createElement('tr');
             headerRow.innerHTML = headerString;
-            //tableHead.appendChild(headerRow);
+            tableHead.appendChild(headerRow);
 
 
             const tableBody = document.querySelector('#data-table tbody');
@@ -185,30 +152,6 @@
                         });  
                     }
                 });
-                // Just going to hijack from here...
-                rowString = ""
-                rowString += `<td>${item["id"]}</td>`
-                rowString += `<td>${item["player"]["fullName"]}</td>`
-                rowString += `<td>${item["player"]["proTeamId"]}</td>`
-                rowString += `<td>${item["player"]["defaultPositionId"]}</td>`
-                rowString += `<td>${item["player"]["injuryStatus"]}</td>`
-                rowString += `<td>${item["onTeamId"]}</td>`
-                rowString += `<td>!Opponent!</td>`
-                rowString += `<td>!Status!</td>`
-                rowString += `<td>${item["player"]["stats"][0]["stats"][0]}</td>` // GS
-                rowString += `<td>${item["player"]["stats"][0]["stats"][1]}</td>` // W
-                rowString += `<td>${item["player"]["stats"][0]["stats"][9]}</td>` // L
-                rowString += `<td>${item["player"]["stats"][0]["stats"][4]}</td>` // GA
-                rowString += `<td>${item["player"]["stats"][0]["stats"][6]}</td>` // SV
-                rowString += `<td>${item["player"]["stats"][0]["stats"][7]}</td>` // SO
-                rowString += `<td>${item["player"]["stats"][0]["appliedTotal"]}</td>` // FPTS
-
-
-
-
-
-
-
                 //console.log('rowString is: %s', rowString);
                 const row = document.createElement('tr');
                 row.innerHTML = rowString;
