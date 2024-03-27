@@ -186,6 +186,23 @@
                     }
                 });
                 // Just going to hijack from here...
+                stat = [];
+                try{stat.GS   = item["player"]["stats"][0]["stats"][0];}     catch{stat.GS   = '--';}
+                try{stat.W    = item["player"]["stats"][0]["stats"][1];}     catch{stat.W    = '--';}
+                try{stat.L    = item["player"]["stats"][0]["stats"][9];}     catch{stat.L    = '--';}
+                try{stat.GA   = item["player"]["stats"][0]["stats"][4];}     catch{stat.GA   = '--';}
+                try{stat.SV   = item["player"]["stats"][0]["stats"][6];}     catch{stat.SV   = '--';}
+                try{stat.SO   = item["player"]["stats"][0]["stats"][7];}     catch{stat.SO   = '--';}
+                try{stat.FPTS = item["player"]["stats"][0]["appliedTotal"];} catch{stat.FPTS = '--';}
+
+                if(stat.GS   == undefined) {stat.GS   = '--';}
+                if(stat.W    == undefined) {stat.W    = '--';}
+                if(stat.L    == undefined) {stat.L    = '--';}
+                if(stat.GA   == undefined) {stat.GA   = '--';}
+                if(stat.SV   == undefined) {stat.SV   = '--';}
+                if(stat.SO   == undefined) {stat.SO   = '--';}
+                if(stat.FPTS == undefined) {stat.FPTS = '--';}
+
                 rowString = ""
                 rowString += `<td>${item["id"]}</td>`
                 rowString += `<td>${item["player"]["fullName"]}</td>`
@@ -195,13 +212,13 @@
                 rowString += `<td>${item["onTeamId"]}</td>`
                 rowString += `<td>!Opponent!</td>`
                 rowString += `<td>!Status!</td>`
-                rowString += `<td>${item["player"]["stats"][0]["stats"][0]}</td>` // GS
-                rowString += `<td>${item["player"]["stats"][0]["stats"][1]}</td>` // W
-                rowString += `<td>${item["player"]["stats"][0]["stats"][9]}</td>` // L
-                rowString += `<td>${item["player"]["stats"][0]["stats"][4]}</td>` // GA
-                rowString += `<td>${item["player"]["stats"][0]["stats"][6]}</td>` // SV
-                rowString += `<td>${item["player"]["stats"][0]["stats"][7]}</td>` // SO
-                rowString += `<td>${item["player"]["stats"][0]["appliedTotal"]}</td>` // FPTS
+                rowString += `<td>${stat.GS}</td>` // GS
+                rowString += `<td>${stat.W}</td>` // W
+                rowString += `<td>${stat.L}</td>` // L
+                rowString += `<td>${stat.GA}</td>` // GA
+                rowString += `<td>${stat.SV}</td>` // SV
+                rowString += `<td>${stat.SO}</td>` // SO
+                rowString += `<td>${stat.FPTS}</td>` // FPTS
 
 
 
