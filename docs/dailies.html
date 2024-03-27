@@ -186,22 +186,23 @@
                     }
                 });
                 // Just going to hijack from here...
+                // Sorting works if you use '00' instead of '--'. Need to sort that out so '--' works as expected
                 stat = [];
-                try{stat.GS   = item["player"]["stats"][0]["stats"][0];}     catch{stat.GS   = '--';}
-                try{stat.W    = item["player"]["stats"][0]["stats"][1];}     catch{stat.W    = '--';}
-                try{stat.L    = item["player"]["stats"][0]["stats"][9];}     catch{stat.L    = '--';}
-                try{stat.GA   = item["player"]["stats"][0]["stats"][4];}     catch{stat.GA   = '--';}
-                try{stat.SV   = item["player"]["stats"][0]["stats"][6];}     catch{stat.SV   = '--';}
-                try{stat.SO   = item["player"]["stats"][0]["stats"][7];}     catch{stat.SO   = '--';}
-                try{stat.FPTS = item["player"]["stats"][0]["appliedTotal"];} catch{stat.FPTS = '--';}
+                try{stat.GS   = item["player"]["stats"][0]["stats"][0];}     catch{stat.GS   = '00';}
+                try{stat.W    = item["player"]["stats"][0]["stats"][1];}     catch{stat.W    = '00';}
+                try{stat.L    = item["player"]["stats"][0]["stats"][9];}     catch{stat.L    = '00';}
+                try{stat.GA   = item["player"]["stats"][0]["stats"][4];}     catch{stat.GA   = '00';}
+                try{stat.SV   = item["player"]["stats"][0]["stats"][6];}     catch{stat.SV   = '00';}
+                try{stat.SO   = item["player"]["stats"][0]["stats"][7];}     catch{stat.SO   = '00';}
+                try{stat.FPTS = item["player"]["stats"][0]["appliedTotal"];} catch{stat.FPTS = '00';}
 
-                if(stat.GS   == undefined) {stat.GS   = '--';}
-                if(stat.W    == undefined) {stat.W    = '--';}
-                if(stat.L    == undefined) {stat.L    = '--';}
-                if(stat.GA   == undefined) {stat.GA   = '--';}
-                if(stat.SV   == undefined) {stat.SV   = '--';}
-                if(stat.SO   == undefined) {stat.SO   = '--';}
-                if(stat.FPTS == undefined) {stat.FPTS = '--';}
+                if(stat.GS   == undefined) {stat.GS   = '00';}
+                if(stat.W    == undefined) {stat.W    = '00';}
+                if(stat.L    == undefined) {stat.L    = '00';}
+                if(stat.GA   == undefined) {stat.GA   = '00';}
+                if(stat.SV   == undefined) {stat.SV   = '00';}
+                if(stat.SO   == undefined) {stat.SO   = '00';}
+                if(stat.FPTS == undefined) {stat.FPTS = '00';}
 
                 rowString = ""
                 rowString += `<td>${item["id"]}</td>`
