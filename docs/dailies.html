@@ -206,10 +206,10 @@
                 rowString = ""
                 rowString += `<td>${item["id"]}</td>`
                 rowString += `<td>${item["player"]["fullName"]}</td>`
-                rowString += `<td>${item["player"]["proTeamId"]}</td>`
+                rowString += `<td>${id2NHL(item["player"]["proTeamId"])}</td>`
                 rowString += `<td>${item["player"]["defaultPositionId"]}</td>`
                 rowString += `<td>${item["player"]["injuryStatus"]}</td>`
-                rowString += `<td>${item["onTeamId"]}</td>`
+                rowString += `<td>${id2GFHL(item["onTeamId"])}</td>`
                 rowString += `<td>!Opponent!</td>`
                 rowString += `<td>!Status!</td>`
                 rowString += `<td>${stat.GS}</td>` // GS
@@ -219,12 +219,6 @@
                 rowString += `<td>${stat.SV}</td>` // SV
                 rowString += `<td>${stat.SO}</td>` // SO
                 rowString += `<td>${stat.FPTS}</td>` // FPTS
-
-
-
-
-
-
 
                 //console.log('rowString is: %s', rowString);
                 const row = document.createElement('tr');
@@ -236,6 +230,46 @@
 
         var isNumeric = function(num){
             return (typeof(num) === 'number' || typeof(num) === "string" && num.trim() !== '') && !isNaN(num);  
+        }
+
+        function id2NHL(id) {
+            NHL_TEAMS = {"1":  "BOS", "2":  "BUF", "3":  "CGY", "4":  "CHI", "5":  "DET",
+                         "6":  "EDM", "7":  "CAR", "8":  "LA",  "9":  "DAL", "10": "MTL",
+                         "11": "NJ",  "12": "NYI", "13": "NYR", "14": "OTT", "15": "PHI",
+                         "16": "PIT", "17": "COL", "18": "NJ",  "19": "STL", "20": "TBL",
+                         "21": "TOR", "22": "VAN", "23": "WSH", "24": "ARI", "25": "ANA",
+                         "26": "FLA", "27": "NSH", "28": "WPG", "29": "CLS", "30": "MIN",
+                         "37": "VGK", "124292": "SEA"};
+            return NHL_TEAMS[id];
+        }
+
+        function id2GFHL(id) {
+            switch(id) {
+                case 0:
+                return ("FA"); break;
+                case 1:
+                return ("DINK"); break;
+                case 2:
+                return ("BOWS"); break;
+                case 3:
+                return ("LKR"); break;
+                case 4:
+                return ("OXP"); break;
+                case 5:
+                return ("SLC"); break;
+                case 6:
+                return ("CLB"); break;
+                case 7:
+                return ("SALT"); break;
+                case 8:
+                return ("HERB"); break;
+                case 9:
+                return ("ME"); break;
+                case 10:
+                return ("BBS"); break;
+                default:
+                return ("Unknown");
+            }
         }
 
         function sortTable(columnIndex) {
