@@ -1,0 +1,112 @@
+{
+  "players": [
+    {
+      "draftAuctionValue": 0,
+      "id": 0,
+      "keeperValue": 0,
+      "keeperValueFuture": 0,
+      "lineupLocked": false,
+      "onTeamId": 0,
+      "player": {
+        "active": false,
+        "defaultPositionId": 0,
+        "draftRanksByRankType": {
+          "STANDARD": {
+            "auctionValue": 0,
+            "published": false,
+            "rank": 0,
+            "rankSourceId": 0,
+            "rankType": "STANDARD",
+            "slotId": 0
+          }
+        },
+        "droppable": false,
+        "eligibleSlots": [
+          0
+        ],
+        "firstName": "",
+        "fullName": "",
+        "id": 0,
+        "injured": false,
+        "injuryStatus": "",
+        "jersey": "",
+        "lastName": "",
+        "lastNewsDate": 0,
+        "lastVideoDate": 0,
+        "ownership": {
+          "activityLevel": null,
+          "auctionValueAverage": 0,
+          "auctionValueAverageChange": 0,
+          "averageDraftPosition": 0,
+          "averageDraftPositionPercentChange": 0,
+          "date": 0,
+          "leagueType": 0,
+          "percentChange": 0,
+          "percentOwned": 0,
+          "percentStarted": 0
+        },
+        "proTeamId": 0,
+        "starterStatusByProGame": {
+          "0": 0
+        },
+        "stats": [
+          {
+            "appliedTotal": 0,
+            "externalId": "0",
+            "id": "0",
+            "proTeamId": 0,
+            "scoringPeriodId": 0,
+            "seasonId": 0,
+            "statSourceId": 0,
+            "statSplitTypeId": 0,
+            "stats": {
+              "0": 0,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "35": 0,
+              "4": 0,
+              "36": 0,
+              "37": 0,
+              "6": 0,
+              "38": 0,
+              "7": 0,
+              "39": 0,
+              "8": 0,
+              "9": 0,
+              "10": 0,
+              "11": 0,
+              "12": 1,
+              "30": 1
+            }
+          }
+        ]
+      },
+      "ratings": {
+        "0": {
+          "positionalRanking": 0,
+          "totalRanking": 0,
+          "totalRating": 0
+        },
+        "1": {
+          "positionalRanking": 0,
+          "totalRanking": 0,
+          "totalRating": 0
+        },
+        "2": {
+          "positionalRanking": 0,
+          "totalRanking": 0,
+          "totalRating": 0
+        },
+        "3": {
+          "positionalRanking": 0,
+          "totalRanking": 0,
+          "totalRating": 0
+        }
+      },
+      "rosterLocked": false,
+      "status": "",
+      "tradeLocked": false
+    }
+  ]
+}
