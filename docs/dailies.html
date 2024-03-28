@@ -28,165 +28,101 @@
 
     <main>
         <h3>This is the Dailies page</h3>
-        <p>Dailies stuff to go here... WIP</p>
-        <table id="data-table">
-            <thead>
-                <th><button onclick="sortTable(0)">ID</button></th>
-                <th><button onclick="sortTable(1)">Name</button></th>
-                <th><button onclick="sortTable(2)">NHL Team</button></th>
-                <th><button onclick="sortTable(3)">Position</button></th>
-                <th><button onclick="sortTable(4)">Health</button></th>
-                <th><button onclick="sortTable(5)">GFHL Team</button></th>
-                <th><button onclick="sortTable(6)">Opp</button></th>
-                <th><button onclick="sortTable(7)">Status</button></th>
-                <th><button onclick="sortTable(8)">GS</button></th>
-                <th><button onclick="sortTable(9)">W</button></th>   
-                <th><button onclick="sortTable(10)">L</button></th>  
-                <th><button onclick="sortTable(11)">GA</button></th>
-                <th><button onclick="sortTable(12)">SV</button></th>
-                <th><button onclick="sortTable(13)">SO</button></th>
-                <th><button onclick="sortTable(14)">FPTS</button></th>
-                <!--<th><button onclick="sortTable(9)">G</button></th>      -->
-                <!--<th><button onclick="sortTable(10)">A</button></th>     -->
-                <!--<th><button onclick="sortTable(11)">+/-</button></th>   -->
-                <!--<th><button onclick="sortTable(12)">PIM</button></th>   -->
-                <!--<th><button onclick="sortTable(13)">PPG</button></th>   -->
-                <!--<th><button onclick="sortTable(14)">PPA</button></th>   -->
-                <!--<th><button onclick="sortTable(15)">SHG</button></th>   -->
-                <!--<th><button onclick="sortTable(16)">SHA</button></th>   -->
-                <!--<th><button onclick="sortTable(17)">GWG</button></th>   -->
-                <!--<th><button onclick="sortTable(18)">FOW</button></th>   -->
-                <!--<th><button onclick="sortTable(19)">FOL</button></th>   -->
-                <!--<th><button onclick="sortTable(20)">HAT</button></th>   -->
-                <!--<th><button onclick="sortTable(21)">SOG</button></th>   -->
-                <!--<th><button onclick="sortTable(22)">HIT</button></th>   -->
-                <!--<th><button onclick="sortTable(23)">BLK</button></th>   -->
-                <!--<th><button onclick="sortTable(24)">FPTS</button></th>  -->
-                <!--<th><button onclick="sortTable(25)">AVG</button></th>   -->
+        <!-- Temporary buttons to fill with some goalie data -->
+        <button id="2024-03-25">2024-03-25</button>
+        <button id="2024-03-26">2024-03-26</button>
 
-                <!-- Table Header will be populated dynamically using JavaScript -->
+        <p>Daily stats are a work in progress. Check back soon for updates.</p>
+        <table id="data-table">
+            <thead id="data-table-head">
+                <!-- Table header will be populated dynamically using JavaScript -->
             </thead>
             <tbody>
                 <!-- Table rows will be populated dynamically using JavaScript -->
             </tbody>
+            <tfoot id="data-table-foot">
+                <!-- Table footer will be populated dynamically using JavaScript -->
+            </tfoot>
         </table>
     </main>
     
     <script>
-        async function fetchData() {
+        goalieHeaderFooter = `
+            <th><button onclick="sortTable(0)">ID</button></th>
+            <th><button onclick="sortTable(1)">Name</button></th>
+            <th><button onclick="sortTable(2)">NHL Team</button></th>
+            <th><button onclick="sortTable(3)">Position</button></th>
+            <th><button onclick="sortTable(4)">Health</button></th>
+            <th><button onclick="sortTable(5)">GFHL Team</button></th>
+            <th><button onclick="sortTable(6)">Opp</button></th>
+            <th><button onclick="sortTable(7)">Status</button></th>
+            <th><button onclick="sortTable(8)">GS</button></th>
+            <th><button onclick="sortTable(9)">W</button></th>   
+            <th><button onclick="sortTable(10)">L</button></th>  
+            <th><button onclick="sortTable(11)">GA</button></th>
+            <th><button onclick="sortTable(12)">SV</button></th>
+            <th><button onclick="sortTable(13)">SO</button></th>
+            <th><button onclick="sortTable(14)">SV%</button></th>
+            <th><button onclick="sortTable(15)">FPTS</button></th>
+            `;
+        skaterHeaderFooter = `
+            <th><button onclick="sortTable(0)">ID</button></th>
+            <th><button onclick="sortTable(1)">Name</button></th>
+            <th><button onclick="sortTable(2)">NHL Team</button></th>
+            <th><button onclick="sortTable(3)">Position</button></th>
+            <th><button onclick="sortTable(4)">Health</button></th>
+            <th><button onclick="sortTable(5)">GFHL Team</button></th>
+            <th><button onclick="sortTable(6)">Opp</button></th>
+            <th><button onclick="sortTable(7)">Status</button></th>
+            <th><button onclick="sortTable(8)">GP</button></th>
+            <th><button onclick="sortTable(9)">G</button></th>
+            <th><button onclick="sortTable(10)">A</button></th>
+            <th><button onclick="sortTable(11)">+/-</button></th>
+            <th><button onclick="sortTable(12)">PIM</button></th>
+            <th><button onclick="sortTable(13)">PPG</button></th>
+            <th><button onclick="sortTable(14)">PPA</button></th>
+            <th><button onclick="sortTable(15)">SHG</button></th>
+            <th><button onclick="sortTable(16)">SHA</button></th>
+            <th><button onclick="sortTable(17)">GWG</button></th>
+            <th><button onclick="sortTable(18)">FOW</button></th>
+            <th><button onclick="sortTable(19)">FOL</button></th>
+            <th><button onclick="sortTable(20)">HAT</button></th>
+            <th><button onclick="sortTable(21)">SOG</button></th>
+            <th><button onclick="sortTable(22)">HIT</button></th>
+            <th><button onclick="sortTable(23)">BLK</button></th>
+            <th><button onclick="sortTable(24)">FPTS</button></th>
+            <th><button onclick="sortTable(25)">AVG</button></th>
+            `;
+        document.getElementById('data-table-head').innerHTML = goalieHeaderFooter;
+        document.getElementById('data-table-foot').innerHTML = goalieHeaderFooter;
+  
+        document.getElementById('2024-03-25').addEventListener('click', () => {
+            fetchData('https://www.gfhl.ca/dailies/goalies/2024-03-25.json');
+        });
+
+        document.getElementById('2024-03-26').addEventListener('click', () => {
+            fetchData('https://www.gfhl.ca/dailies/goalies/2024-03-26.json');
+        });
+
+        async function fetchData(filePath) {
+            jsonData = "";
             try {
-                const response = await fetch('https://www.gfhl.ca/dailies/goalies/Goalie_log.json'); // Replace with your JSON file URL
-                const data = await response.json();
-                return data;
+                const response = await fetch(filePath); // Replace with your JSON file URL
+                jsonData = await response.json();
+//                return data;
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
-        }
-
-        fetchData().then((jsonData) => {
-            const tableHead = document.querySelector('#data-table thead');
-            
-            //console.log(jsonData);
-            //const keys = Object.keys(jsonData);
-            //console.log(keys);
-            //keys.forEach((key) => {
-            //  const value = jsonData[key];
-            //  console.log(`Print Key: ${key}, Print Value: ${value}`);
-            //});
-            const headers = Object.keys(jsonData["players"][0]);
-            headerString = "";
-            headers.forEach(function(header, i) {
-                //console.log('type: %s', typeof jsonData["players"][0][i]);
-                //console.log('size: %s', Object.keys(jsonData["players"][0][i]).length);
-                //console.log('size2: %s', Array.isArray(jsonData["players"][0][i]));
-                //console.log('golly: %s', jsonData["players"][0][i]);
-                if (typeof jsonData["players"][0][i] === "string") {
-                    headerString += `<th><button onclick="sortTable(${i})">${header}</button></th>\n`
-                }
-                else {
-                    headerString += `<th><button onclick="sortTable(${i})">${header}:</button></th>\n`
-                }
-            });
-            headerString += `<th><button onclick="sortTable(${11})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${12})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${13})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${14})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${15})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${16})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${17})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${18})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${19})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${20})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${21})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${22})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${23})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${24})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${25})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${26})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${27})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${28})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${29})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${30})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${31})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${32})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${33})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${34})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${35})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${36})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${37})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${38})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${39})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${40})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${41})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${42})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${43})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${44})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${45})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${46})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${47})">temp:</button></th>\n`
-            headerString += `<th><button onclick="sortTable(${48})">temp:</button></th>\n`
-            const headerRow = document.createElement('tr');
-            headerRow.innerHTML = headerString;
-            //tableHead.appendChild(headerRow);
-
+//        }
+//        fetchData().then((jsonData) => {
 
             const tableBody = document.querySelector('#data-table tbody');
-            jsonData["players"].forEach(function (item, j) {
-                const keys = Object.keys(item)
-                //console.log(`PRINTING item: ${item}`);
-                rowString = "";
-                keys.forEach((key) => {
-                    //console.log('%d: item[%s] = %s', j, key, item[key]);
-                    //console.log('type: %s', typeof item[key]);
-                    //console.log('size: %s', Object.keys(jsonData["players"][0][i]).length);
-                    //console.log('size2: %s', Array.isArray(item[key]));
-                    //console.log('golly: %s', item[key]);
-                    if (typeof item[key] === "boolean" || typeof item[key] === "string" || typeof item[key] === "number"){
-                        rowString += `<td>${item[key]}</td>`
-                    }
-                    else {
-                        const keys2 = Object.keys(item[key]);
-                        keys2.forEach((key2) => {
-                            //console.log('%d: item[%s][%s] = %s', j, key, key2, item[key][key2]);
-                            //console.log('type: %s', typeof item[key][key2]);
-                            if (key2 != "starterStatusByProGame" && key2 != "seasonOutlook") {
-                                if (typeof item[key][key2] === "boolean" || typeof item[key][key2] === "string" || typeof item[key][key2] === "number"){
-                                    rowString += `<td>${item[key][key2]}</td>`
-                                }
-                                else {
-                                    const keys3 = Object.keys(item[key][key2]);
-                                    keys3.forEach((key3) => {
-                                        //console.log('%d: item[%s][%s][%s] = %s', j, key, key2, key3, item[key][key2][key3]);
-                                        rowString += `<td>${item[key][key2][key3]}</td>`
-                                    });
 
-                                }
-                            }
-                        });  
-                    }
-                });
-                // Just going to hijack from here...
-                // Sorting works if you use '00' instead of '--'. Need to sort that out so '--' works as expected
+            // Clear any existing data in the table so we can get fresh data
+            tableBody.innerHTML = "";
+
+            jsonData["players"].forEach(function (item, j) {
+                // Sorting works if you use '00' instead of '--'. Need to figure that out so '--' works as expected
                 stat = [];
                 try{stat.GS   = item["player"]["stats"][0]["stats"][0];}     catch{stat.GS   = '00';}
                 try{stat.W    = item["player"]["stats"][0]["stats"][1];}     catch{stat.W    = '00';}
@@ -194,6 +130,7 @@
                 try{stat.GA   = item["player"]["stats"][0]["stats"][4];}     catch{stat.GA   = '00';}
                 try{stat.SV   = item["player"]["stats"][0]["stats"][6];}     catch{stat.SV   = '00';}
                 try{stat.SO   = item["player"]["stats"][0]["stats"][7];}     catch{stat.SO   = '00';}
+                try{stat.SVp  = item["player"]["stats"][0]["stats"][11];}    catch{stat.SVp  = '00';}
                 try{stat.FPTS = item["player"]["stats"][0]["appliedTotal"];} catch{stat.FPTS = '00';}
 
                 if(stat.GS   == undefined) {stat.GS   = '00';}
@@ -202,6 +139,7 @@
                 if(stat.GA   == undefined) {stat.GA   = '00';}
                 if(stat.SV   == undefined) {stat.SV   = '00';}
                 if(stat.SO   == undefined) {stat.SO   = '00';}
+                if(stat.SVp  == undefined) {stat.SVp  = '00';}
                 if(stat.FPTS == undefined) {stat.FPTS = '00';}
 
                 rowString = ""
@@ -219,15 +157,15 @@
                 rowString += `<td>${stat.GA}</td>` // GA
                 rowString += `<td>${stat.SV}</td>` // SV
                 rowString += `<td>${stat.SO}</td>` // SO
+                rowString += `<td>${stat.SVp}</td>` //SV percentage
                 rowString += `<td>${stat.FPTS}</td>` // FPTS
 
-                //console.log('rowString is: %s', rowString);
                 const row = document.createElement('tr');
                 row.innerHTML = rowString;
-                //console.log(row);
                 tableBody.appendChild(row);
+                
             });
-        });
+        };//);
 
         var isNumeric = function(num){
             return (typeof(num) === 'number' || typeof(num) === "string" && num.trim() !== '') && !isNaN(num);  
@@ -245,32 +183,19 @@
         }
 
         function id2GFHL(id) {
-            switch(id) {
-                case 0:
-                return ("FA"); break;
-                case 1:
-                return ("DINK"); break;
-                case 2:
-                return ("BOWS"); break;
-                case 3:
-                return ("LKR"); break;
-                case 4:
-                return ("OXP"); break;
-                case 5:
-                return ("SLC"); break;
-                case 6:
-                return ("CLB"); break;
-                case 7:
-                return ("SALT"); break;
-                case 8:
-                return ("HERB"); break;
-                case 9:
-                return ("ME"); break;
-                case 10:
-                return ("BBS"); break;
-                default:
-                return ("Unknown");
-            }
+            GFHL_TEAMS = {"0":  "FA",
+                          "1":  "DINK",
+                          "2":  "BOWS",
+                          "3":  "LKR",
+                          "4":  "OXP",
+                          "5":  "SLC",
+                          "6":  "CLB",
+                          "7":  "SALT",
+                          "8":  "HERB",
+                          "9":  "ME",
+                          "10": "BBS"
+                        }
+            return GFHL_TEAMS[id];
         }
 
         function sortTable(columnIndex) {
