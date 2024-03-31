@@ -5,6 +5,7 @@ import csv
 from pathlib import Path
 
 NUM_SIZE = 25
+ONLY_GOALIES = False
 
 def get_last_number_from_csv(csvfilename):
     last_numbers = []
@@ -33,6 +34,9 @@ else:
     for subdir, dirs, files in os.walk(dailies_path):
         for file in files:
          filename = os.path.join(subdir, file)
+
+         if (ONLY_GOALIES == True) and ('Skaters' in filename):
+             continue
 
          with open(filename, 'r', encoding='utf-8', errors='ignore') as csvfile:
             reader = csv.reader(csvfile)

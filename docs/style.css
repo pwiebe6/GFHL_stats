@@ -7,6 +7,11 @@ main {
 }
 h1{
     text-align: center;
+
+}
+.title-outer-container a{
+    color: black;
+    text-decoration: none;
 }
 .navbar ul{
     list-style-type: none;

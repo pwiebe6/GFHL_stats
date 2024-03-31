@@ -7,13 +7,14 @@
 </head>
 
 <body>
-
     <div class="title-outer-container">
-        <div class="title-container">
-            <img src="GFHL_Logo_small_alpha.png" width="70" height="70" alt="GFHL Logo" class="image">
-            <h1>GFHL</h1>
-            <img src="GFHL_Logo_small_alpha.png" width="70" height="70" alt="GFHL Logo" class="image">
-        </div>
+        <a href ="index.html">
+            <div class="title-container">
+                <img src="GFHL_Logo_small_alpha.png" width="70" height="70" alt="GFHL Logo" class="image">
+                <h1>GFHL</h1>
+                <img src="GFHL_Logo_small_alpha.png" width="70" height="70" alt="GFHL Logo" class="image">
+            </div>
+        </a>
     </div>
 
     <nav class="navbar">
@@ -28,7 +29,18 @@
 
     <main>
         <h3>This is the About page</h3>
-        <p><a href ="about.md">Old about page (markdown)</a></p>
+        
+        <p>This site was made using github Pages. Repo can be found at 
+        <a href ="https://github.com/pwiebe6/GFHL_stats">here</a>
+        <a>.</a></p>
+        <p>Data was scraped from the
+        <a href = "https://fantasy.espn.com/hockey/league?leagueId=59311">GFHL ESPN page</a></p>
+        <p>Scraping was based off of the following command:</p>
+        <pre>
+            <code>
+curl 'https://lm-api-reads.fantasy.espn.com/apis/v3/games/fhl/seasons/2024/segments/0/leagues/59311?view=kona_player_info'
+            </code>
+        </pre>
     </main>
 
 
