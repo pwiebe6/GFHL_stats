@@ -4,7 +4,7 @@ import csv
 
 from pathlib import Path
 
-NUM_SIZE = 10
+NUM_SIZE = 25
 
 def get_last_number_from_csv(csvfilename):
     last_numbers = []
@@ -42,11 +42,23 @@ else:
                       continue
                   last_number = float(row[-1])  # Assuming the last value is numeric
                   if last_number >= current_max[0][0]:
-                      print("file: " + filename + " Stat: " + str(row))
+                      #print("file: " + filename + " Stat: " + str(row))
                       current_max[0][0] = last_number
                       current_max[0][1] = filename
                       current_max[0][2] = str(row)
                       current_max.sort()
 
-    for i in range(len(current_max)):
-        print(NUM_SIZE-i, ": \n\t", str(current_max[i][1][-14:-5]), "\n\t", str(current_max[i][2]))                  
+    for i in range(len(current_max)-1, -1, -1):
+#        print(NUM_SIZE - i, ": \n\t", str(current_max[i][1][-14:-4]), "\n\t", str(current_max[i][2]))                  
+        print("                <tr><td>", end="")
+        print(NUM_SIZE - i, end="</td><td>")
+        print(current_max[i][1][-14:-4], end="</td><td>")
+        temp = str(current_max[i][2])
+        temp = temp.replace("' ", "'")
+        temp = temp.replace("', '", "</td><td>")
+        temp = temp.replace("'", "")
+        temp = temp.replace("[", "")
+        temp = temp.replace("]", "")
+        print(temp, end="</td></tr>\n")
+
+
