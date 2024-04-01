@@ -5,7 +5,10 @@ import csv
 from pathlib import Path
 
 NUM_SIZE = 25
-ONLY_GOALIES = False
+# Set SCAN_GOALIES to True in order to collect goalie stats. Otherwise collects skater stats only.
+SCAN_GOALIES = False
+ONLY_ONE_TEAM = False
+TEAM = "CLB"
 
 def get_last_number_from_csv(csvfilename):
     last_numbers = []
@@ -25,7 +28,7 @@ dailies_path = parent_path / "Daily_totals/Dailies"
 
 print(f"Parent directory (using pathlib): {parent_path}")
 
-current_max = [ [ 0 for y in range( 3 ) ] for x in range( NUM_SIZE ) ]
+current_max = [ [ float(-100.0) for y in range( 3 ) ] for x in range( NUM_SIZE ) ]
 
 # Validate if the directory exists
 if not os.path.exists(dailies_path):
@@ -35,7 +38,9 @@ else:
         for file in files:
          filename = os.path.join(subdir, file)
 
-         if (ONLY_GOALIES == True) and ('Skaters' in filename):
+         if (SCAN_GOALIES == True) and ('Skaters' in filename):
+             continue
+         elif (SCAN_GOALIES == False) and ('Goalies' in filename):
              continue
 
          with open(filename, 'r', encoding='utf-8', errors='ignore') as csvfile:
@@ -43,6 +48,8 @@ else:
             for row in reader:
                 if row:  # Avoid blank lines
                   if (row[-1] == " FPTS" or row[-1] == " --"):
+                      continue
+                  if (row[4] != (" "+TEAM)) and (ONLY_ONE_TEAM == True):
                       continue
                   last_number = float(row[-1])  # Assuming the last value is numeric
                   if last_number >= current_max[0][0]:

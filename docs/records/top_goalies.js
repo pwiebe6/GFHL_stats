@@ -1,0 +1,28 @@
+top_goalies_title = "Top 25 highest point earners for goalies between 2022 and 2024-02-29"
+top_goalies = `
+<tr><td>1</td><td>2022-04-21</td><td>Casey DeSmith</td><td>Healthy</td><td>Pit</td><td>G</td><td>FA</td><td>Bos</td><td>W 4-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>52</td><td>1</td><td>11.2</td></tr>
+<tr><td>2</td><td>2022-11-23</td><td>Ilya Sorokin</td><td>Healthy</td><td>NYI</td><td>G</td><td>CLB</td><td>Edm</td><td>W 3-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>49</td><td>1</td><td>10.9</td></tr>
+<tr><td>3</td><td>2023-02-15</td><td>Connor Ingram</td><td>Healthy</td><td>Ari</td><td>G</td><td>FA</td><td>TB</td><td>W 1-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>47</td><td>1</td><td>10.7</td></tr>
+<tr><td>4</td><td>2022-04-14</td><td>Alex Nedeljkovic</td><td>Healthy</td><td>Det</td><td>G</td><td>FA</td><td>@Car</td><td>W 3-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>46</td><td>1</td><td>10.6</td></tr>
+<tr><td>5</td><td>2022-03-13</td><td>Darcy Kuemper</td><td>Healthy</td><td>Col</td><td>G</td><td>SALT</td><td>Cgy</td><td>W 3-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>46</td><td>1</td><td>10.6</td></tr>
+<tr><td>6</td><td>2021-11-29</td><td>Karel Vejmelka</td><td>Healthy</td><td>Ari</td><td>G</td><td>FA</td><td>@Wpg</td><td>W 1-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>46</td><td>1</td><td>10.6</td></tr>
+<tr><td>7</td><td>2024-02-22</td><td>Pyotr Kochetkov</td><td>Healthy</td><td>Car</td><td>G</td><td>BBS</td><td>Fla</td><td>W 1-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>45</td><td>1</td><td>10.5</td></tr>
+<tr><td>8</td><td>2024-02-15</td><td>Anthony Stolarz</td><td>Healthy</td><td>Fla</td><td>G</td><td>FA</td><td>@Buf</td><td>W 4-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>45</td><td>1</td><td>10.5</td></tr>
+<tr><td>9</td><td>2023-02-25</td><td>Andrei Vasilevskiy</td><td>Healthy</td><td>TB</td><td>G</td><td>LKR</td><td>@Det</td><td>W 3-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>45</td><td>1</td><td>10.5</td></tr>
+<tr><td>10</td><td>2021-10-28</td><td>Jake Allen</td><td>O</td><td>Mon</td><td>G</td><td>FA</td><td>@SJ</td><td>W 4-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>45</td><td>1</td><td>10.5</td></tr>
+<tr><td>11</td><td>2021-10-28</td><td>Jacob Markstrom</td><td>Healthy</td><td>Cgy</td><td>G</td><td>DINK</td><td>@Pit</td><td>W 4-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>45</td><td>1</td><td>10.5</td></tr>
+<tr><td>12</td><td>2022-12-06</td><td>Matt Murray</td><td>DTD</td><td>Tor</td><td>G</td><td>BOWS</td><td>@Dal</td><td>W 4-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>44</td><td>1</td><td>10.4</td></tr>
+<tr><td>13</td><td>2022-04-15</td><td>Ilya Sorokin</td><td>Healthy</td><td>NYI</td><td>G</td><td>CLB</td><td>@Mon</td><td>W 3-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>44</td><td>1</td><td>10.4</td></tr>
+<tr><td>14</td><td>2022-03-20</td><td>Alexandar Georgiev</td><td>Healthy</td><td>NYR</td><td>G</td><td>NBUS</td><td>@Car</td><td>W 2-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>44</td><td>1</td><td>10.4</td></tr>
+<tr><td>15</td><td>2023-03-30</td><td>Stuart Skinner</td><td>Healthy</td><td>Edm</td><td>G</td><td>BBS</td><td>LA</td><td>W 2-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>43</td><td>1</td><td>10.3</td></tr>
+<tr><td>16</td><td>2022-03-17</td><td>Alex Nedeljkovic</td><td>Healthy</td><td>Det</td><td>G</td><td>FA</td><td>@Van</td><td>W 1-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>43</td><td>1</td><td>10.3</td></tr>
+<tr><td>17</td><td>2022-03-22</td><td>Connor Hellebuyck</td><td>Healthy</td><td>Wpg</td><td>G</td><td>ME</td><td>VGK</td><td>W 4-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>42</td><td>1</td><td>10.2</td></tr>
+<tr><td>18</td><td>2021-12-02</td><td>Jeremy Swayman</td><td>Healthy</td><td>Bos</td><td>G</td><td>BBS</td><td>@Nsh</td><td>W 2-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>42</td><td>1</td><td>10.2</td></tr>
+<tr><td>19</td><td>2021-11-11</td><td>Mackenzie Blackwood</td><td>Healthy</td><td>NJ</td><td>G</td><td>FA</td><td>NYI</td><td>W 4-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>42</td><td>1</td><td>10.2</td></tr>
+<tr><td>20</td><td>2021-10-24</td><td>Ilya Sorokin</td><td>Healthy</td><td>NYI</td><td>G</td><td>CLB</td><td>@VGK</td><td>W 2-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>42</td><td>1</td><td>10.2</td></tr>
+<tr><td>21</td><td>2023-11-04</td><td>Adin Hill</td><td>Healthy</td><td>Vgk</td><td>G</td><td>DINK</td><td>Col</td><td>W 7-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>41</td><td>1</td><td>10.1</td></tr>
+<tr><td>22</td><td>2023-10-12</td><td>Filip Gustavsson</td><td>Healthy</td><td>Min</td><td>G</td><td>BOWS</td><td>Fla</td><td>W 2-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>41</td><td>1</td><td>10.1</td></tr>
+<tr><td>23</td><td>2023-03-28</td><td>James Reimer</td><td>Healthy</td><td>SJ</td><td>G</td><td>FA</td><td>Wpg</td><td>W 3-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>41</td><td>1</td><td>10.1</td></tr>
+<tr><td>24</td><td>2022-10-26</td><td>Ilya Sorokin</td><td>Healthy</td><td>NYI</td><td>G</td><td>CLB</td><td>NYR</td><td>W 3-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>41</td><td>1</td><td>10.1</td></tr>
+<tr><td>25</td><td>2023-03-07</td><td>Jacob Markstrom</td><td>Healthy</td><td>Cgy</td><td>G</td><td>OXP</td><td>@Min</td><td>W 1-0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>40</td><td>1</td><td>10.0</td></tr>
+`
