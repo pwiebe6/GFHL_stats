@@ -5,6 +5,7 @@
     <title>GFHL</title>
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="headerFooter.js"></script>
+    <script type="text/javascript" src="functions.js"></script>
 </head>
 
 <body>
@@ -153,39 +154,6 @@
                         }
             return GFHL_TEAMS[id];
         }
-
-        function sortTable(columnIndex) {
-            var table = document.getElementById("data-table");
-            var rows = table.rows;
-            var switching = true;
-
-            while (switching) {
-                switching = false;
-
-                for (var i = 1; i < rows.length - 1; i++) {
-                    var shouldSwitch = false;
-                    var x = rows[i].getElementsByTagName("TD")[columnIndex];
-                    var y = rows[i + 1].getElementsByTagName("TD")[columnIndex];
-
-                    if (isNumeric(x.innerHTML)){
-                        if (Number(x.innerHTML) > Number(y.innerHTML)) {
-                            shouldSwitch = true;
-                            break;
-                        }
-                    }
-                    else{
-                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                            shouldSwitch = true;
-                            break;
-                        }
-                    }
-                }
-            if (shouldSwitch) {
-                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                switching = true;
-            }
-        }
-    }
     </script>
 </body>
 </html>

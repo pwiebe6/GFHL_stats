@@ -4,6 +4,7 @@
 <head>
     <title>GFHL</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="functions.js"></script>
     <script type="text/javascript" src="records/top_skaters.js"></script>
     <script type="text/javascript" src="records/top_goalies.js"></script>
     <script type="text/javascript" src="headerFooter.js"></script>
@@ -31,34 +32,33 @@
     </nav>
 
     <main>
-        <h3>This is the Records page</h3>
-        <h4 id="top_skaters_title"></h4>
-        <table>
+        <h4 id="top_skaters_title"><!-- Filled in with js --></h4>
+        <table id="top_skaters_table">
             <thead id="top_skaters_head">
-
+                <!-- Filled in with js -->
             </thead>
             <tbody id=top_skaters>
-  
+                <!-- Filled in with js -->
             </tbody>
         </table>
-        <h4 id="top_goalies_title"></h4>
-        <table>
+        <h4 id="top_goalies_title"><!-- Filled in with js --></h4>
+        <table id="top_goalies_table">
             <thead id="top_goalies_head">
-
+                <!-- Filled in with js -->
             </thead>
             <tbody id = top_goalies>
-            
+                <!-- Filled in with js -->
             </tbody>
         </table>
     </main>
 
     <script>
         document.getElementById('top_skaters_title').innerHTML = top_skaters_title;
-        document.getElementById('top_skaters_head').innerHTML = skaterHeaderFooter;
+        document.getElementById('top_skaters_head').innerHTML = skaterHeaderFooter_record;
         document.getElementById('top_skaters').innerHTML = top_skaters;
 
         document.getElementById('top_goalies_title').innerHTML = top_goalies_title;
-        document.getElementById('top_goalies_head').innerHTML = goalieHeaderFooter;
+        document.getElementById('top_goalies_head').innerHTML = goalieHeaderFooter_record;
         document.getElementById('top_goalies').innerHTML = top_goalies;
     </script>
 
