@@ -35,6 +35,27 @@
         <button id="2024-03-25">2024-03-25</button>
         <button id="2024-03-26">2024-03-26</button>
 
+        <!--Year selector-->
+        <select name="season" id="season">
+            <option value="select">Select Season</option>
+            <option value="2018">2017-18</option>
+            <option value="2019">2018-19</option>
+            <option value="2020">2019-20</option>
+            <option value="2021">2020-21</option>
+            <option value="2022">2021-22</option>
+            <option value="2023">2022-23</option>
+            <option value="2024">2023-24</option>
+          </select>
+
+        <!--Prev Day-->
+        <button id="prev-day"><<</button>
+        <!--Calendar-->
+        <label for="">Date:
+            <input id="calendar" type="date" min="2017-10-01" max="2024-04-10" name="" value="">
+        </label>
+        <!--Next Day-->
+        <button id="next-day">>></button>
+
         <p>Daily stats are a work in progress. Check back soon for updates.</p>
         <table id="data-table">
             <thead id="data-table-head">
@@ -50,6 +71,16 @@
     </main>
     
     <script>
+        dates = {
+        //    [First Date on stats page | Start date  | End date    |scoring period Max]
+        2018: ["someday, October 1",     "2017-10-01", "2018-04-30", 0],
+        2019: ["Wednesday, October 3",   "2018-10-03", "2019-04-06", 186],
+        2020: ["Wednesday, October 2",   "2019-10-02", "2020-06-21", 264], //Shortened year
+        2021: ["Wednesday, January 13",  "2021-01-13", "2021-05-19", 110], //Shortened year
+        2022: ["Tuesday, October 12",    "2021-10-12", "2022-04-29", 200],
+        2023: ["Tuesday, October 7",     "2022-10-07", "2023-04-02", 178],
+        2024: ["Tuesday, October 10",    "2023-10-10", "2024-04-15", 179]
+        }
         document.getElementById('data-table-head').innerHTML = goalieHeaderFooter;
         document.getElementById('data-table-foot').innerHTML = goalieHeaderFooter;
   
@@ -59,6 +90,23 @@
 
         document.getElementById('2024-03-26').addEventListener('click', () => {
             fetchData('https://www.gfhl.ca/dailies/goalies/2024-03-26.json');
+        });
+
+        document.getElementById('season').addEventListener('change', () => {
+            seasonId = document.getElementById('season').value;
+            console.log(dates[seasonId][1]);
+            document.getElementById('calendar').min = dates[seasonId][1];
+            document.getElementById('calendar').max = dates[seasonId][2];
+        });
+
+        document.getElementById('calendar').addEventListener('change', () => {
+            // Dummy for now - replace with button or something
+            position = "goalies";
+            dateSelection = document.getElementById('calendar').value;
+            seasonId = document.getElementById('season').value;
+            url = "https://www.gfhl.ca/dailies/" + seasonId + "/" + position + "/" + dateSelection + ".json";
+            console.log(url);
+            fetchData(url);
         });
 
         async function fetchData(filePath) {
