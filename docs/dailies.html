@@ -32,12 +32,15 @@
     <main>
         <h3>This is the Dailies page</h3>
         <!-- Temporary buttons to fill with some goalie data -->
-        <button id="2024-03-25">2024-03-25</button>
-        <button id="2024-03-26">2024-03-26</button>
+        <a>Current Position: </a>
+        <button id="positionSelect" value="skaters">Skaters</button> 
+        
+        <p></p>
 
         <!--Year selector-->
+        <a>Select Season: </a>
         <select name="season" id="season">
-            <option value="select">Select Season</option>
+            <option value="--">--</option>
             <option value="2018">2017-18</option>
             <option value="2019">2018-19</option>
             <option value="2020">2019-20</option>
@@ -45,18 +48,21 @@
             <option value="2022">2021-22</option>
             <option value="2023">2022-23</option>
             <option value="2024">2023-24</option>
-          </select>
+        </select>
+
+        <p></p>
 
         <!--Prev Day-->
-        <button id="prev-day"><<</button>
+        <!--<button id="prev-day"><<</button>-->
         <!--Calendar-->
         <label for="">Date:
             <input id="calendar" type="date" min="2017-10-01" max="2024-04-10" name="" value="">
         </label>
         <!--Next Day-->
-        <button id="next-day">>></button>
+        <!--<button id="next-day">>></button>-->
 
-        <p>Daily stats are a work in progress. Check back soon for updates.</p>
+        <p>Daily stats are a work in progress. Check back soon for updates. </p>
+        <p>Currently only works for Goalies after March 26th 2024. Proper Skater support and additional dates to be added in the future.</p>
         <table id="data-table">
             <thead id="data-table-head">
                 <!-- Table header will be populated dynamically using JavaScript -->
@@ -84,30 +90,42 @@
         document.getElementById('data-table-head').innerHTML = goalieHeaderFooter;
         document.getElementById('data-table-foot').innerHTML = goalieHeaderFooter;
   
-        document.getElementById('2024-03-25').addEventListener('click', () => {
-            fetchData('https://www.gfhl.ca/dailies/goalies/2024-03-25.json');
+        document.getElementById('positionSelect').addEventListener('click', () => {
+            position = document.getElementById('positionSelect').value;
+            if (position === "skaters") {
+                document.getElementById('positionSelect').innerHTML = "Goalies";
+                document.getElementById('positionSelect').value = "goalies";
+            }
+            else if (position === "goalies") {
+                document.getElementById('positionSelect').innerHTML = "Skaters";
+                document.getElementById('positionSelect').value = "skaters";
+            }
+            attemptFetch();
         });
 
-        document.getElementById('2024-03-26').addEventListener('click', () => {
-            fetchData('https://www.gfhl.ca/dailies/goalies/2024-03-26.json');
-        });
 
         document.getElementById('season').addEventListener('change', () => {
             seasonId = document.getElementById('season').value;
             console.log(dates[seasonId][1]);
             document.getElementById('calendar').min = dates[seasonId][1];
             document.getElementById('calendar').max = dates[seasonId][2];
+            attemptFetch();
         });
 
         document.getElementById('calendar').addEventListener('change', () => {
-            // Dummy for now - replace with button or something
-            position = "goalies";
+            attemptFetch();
+        });
+
+        function attemptFetch(){
+            position = document.getElementById('positionSelect').value;
             dateSelection = document.getElementById('calendar').value;
             seasonId = document.getElementById('season').value;
-            url = "https://www.gfhl.ca/dailies/" + seasonId + "/" + position + "/" + dateSelection + ".json";
-            console.log(url);
-            fetchData(url);
-        });
+            if (position != "" && dateSelection != "" && seasonId != ""){
+                url = "https://www.gfhl.ca/dailies/" + seasonId + "/" + position + "/" + dateSelection + ".json";
+                console.log(url);
+                fetchData(url);
+            }
+        }
 
         async function fetchData(filePath) {
             jsonData = "";
