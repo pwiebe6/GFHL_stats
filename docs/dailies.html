@@ -70,9 +70,9 @@
             <tbody>
                 <!-- Table rows will be populated dynamically using JavaScript -->
             </tbody>
-            <tfoot id="data-table-foot">
+            <!--<tfoot id="data-table-foot">-->
                 <!-- Table footer will be populated dynamically using JavaScript -->
-            </tfoot>
+            <!--</tfoot>-->
         </table>
     </main>
     
@@ -87,8 +87,9 @@
         2023: ["Tuesday, October 7",     "2022-10-07", "2023-04-02", 178],
         2024: ["Tuesday, October 10",    "2023-10-10", "2024-04-15", 179]
         }
+
         document.getElementById('data-table-head').innerHTML = goalieHeaderFooter;
-        document.getElementById('data-table-foot').innerHTML = goalieHeaderFooter;
+        //document.getElementById('data-table-foot').innerHTML = goalieHeaderFooter;
   
         document.getElementById('positionSelect').addEventListener('click', () => {
             position = document.getElementById('positionSelect').value;
@@ -124,6 +125,11 @@
                 url = "https://www.gfhl.ca/dailies/" + seasonId + "/" + position + "/" + dateSelection + ".json";
                 console.log(url);
                 fetchData(url);
+                if (position === "goalies"){
+                    document.getElementById('data-table-head').innerHTML = goalieHeaderFooter;
+                } else if (position === "skaters"){
+                    document.getElementById('data-table-head').innerHTML = skaterHeaderFooter;
+                }
             }
         }
 
