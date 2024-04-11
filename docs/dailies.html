@@ -151,6 +151,7 @@
             tableBody.innerHTML = "";
 
             jsonData["players"].forEach(function (item, j) {
+                skipAppend = 0;
                 // Sorting works if you use '00' instead of '--'. Need to figure that out so '--' works as expected
                 stat = [];
                 try{stat.GS   = item["player"]["stats"][0]["stats"][0];}     catch{stat.GS   = '00';}
@@ -160,7 +161,7 @@
                 try{stat.SV   = item["player"]["stats"][0]["stats"][6];}     catch{stat.SV   = '00';}
                 try{stat.SO   = item["player"]["stats"][0]["stats"][7];}     catch{stat.SO   = '00';}
                 try{stat.SVp  = item["player"]["stats"][0]["stats"][11];}    catch{stat.SVp  = '00';}
-                try{stat.FPTS = item["player"]["stats"][0]["appliedTotal"];} catch{stat.FPTS = '00';}
+                try{stat.FPTS = item["player"]["stats"][0]["appliedTotal"];} catch{stat.FPTS = '00'; skipAppend = 1;}
 
                 if(stat.GS   == undefined) {stat.GS   = '00';}
                 if(stat.W    == undefined) {stat.W    = '00';}
@@ -191,8 +192,9 @@
 
                 const row = document.createElement('tr');
                 row.innerHTML = rowString;
-                tableBody.appendChild(row);
-                
+                if (skipAppend == 0){
+                    tableBody.appendChild(row);
+                }
             });
         };//);
 
