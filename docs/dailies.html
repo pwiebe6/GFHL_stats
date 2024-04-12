@@ -152,6 +152,27 @@
 
             jsonData["players"].forEach(function (item, j) {
                 skipAppend = 0;
+
+                if (item["player"]["defaultPositionId"] === 5) {
+                    rowString = goalieRowString(item);
+                }
+                else {
+                    rowString = skaterRowString(item);
+                }
+
+                const row = document.createElement('tr');
+                row.innerHTML = rowString;
+                if (rowString != ""){
+                    tableBody.appendChild(row);
+                }
+            });
+        };//);
+
+        var isNumeric = function(num){
+            return (typeof(num) === 'number' || typeof(num) === "string" && num.trim() !== '') && !isNaN(num);  
+        }
+
+        function goalieRowString(item) {
                 // Sorting works if you use '00' instead of '--'. Need to figure that out so '--' works as expected
                 stat = [];
                 try{stat.GS   = item["player"]["stats"][0]["stats"][0];}     catch{stat.GS   = '00';}
@@ -161,7 +182,7 @@
                 try{stat.SV   = item["player"]["stats"][0]["stats"][6];}     catch{stat.SV   = '00';}
                 try{stat.SO   = item["player"]["stats"][0]["stats"][7];}     catch{stat.SO   = '00';}
                 try{stat.SVp  = item["player"]["stats"][0]["stats"][11];}    catch{stat.SVp  = '00';}
-                try{stat.FPTS = item["player"]["stats"][0]["appliedTotal"];} catch{stat.FPTS = '00'; skipAppend = 1;}
+                try{stat.FPTS = roundTo(Number(item["player"]["stats"][0]["appliedTotal"]),2);} catch{stat.FPTS = '00';}
 
                 if(stat.GS   == undefined) {stat.GS   = '00';}
                 if(stat.W    == undefined) {stat.W    = '00';}
@@ -172,6 +193,14 @@
                 if(stat.SVp  == undefined) {stat.SVp  = '00';}
                 if(stat.FPTS == undefined) {stat.FPTS = '00';}
 
+                displayRow = 0;
+                for (element in stat) {
+                    if (Number(stat[element]) != 0)
+                    {
+                        displayRow |= 1;
+                    }
+                }
+
                 rowString = ""
                 rowString += `<td>${item["id"]}</td>`
                 rowString += `<td>${item["player"]["fullName"]}</td>`
@@ -179,8 +208,8 @@
                 rowString += `<td>${item["player"]["defaultPositionId"]}</td>`
                 rowString += `<td>${item["player"]["injuryStatus"]}</td>`
                 rowString += `<td>${id2GFHL(item["onTeamId"])}</td>`
-                rowString += `<td>!Opponent!</td>`
-                rowString += `<td>!Status!</td>`
+                //rowString += `<td>!Opponent!</td>`
+                //rowString += `<td>!Status!</td>`
                 rowString += `<td>${stat.GS}</td>` // GS
                 rowString += `<td>${stat.W}</td>` // W
                 rowString += `<td>${stat.L}</td>` // L
@@ -190,17 +219,113 @@
                 rowString += `<td>${stat.SVp}</td>` //SV percentage
                 rowString += `<td>${stat.FPTS}</td>` // FPTS
 
-                const row = document.createElement('tr');
-                row.innerHTML = rowString;
-                if (skipAppend == 0){
-                    tableBody.appendChild(row);
+                if (displayRow){
+                    return(rowString);
                 }
-            });
-        };//);
-
-        var isNumeric = function(num){
-            return (typeof(num) === 'number' || typeof(num) === "string" && num.trim() !== '') && !isNaN(num);  
+                else {
+                    return("");
+                }
         }
+
+        function skaterRowString(item) {
+                // Sorting works if you use '00' instead of '--'. Need to figure that out so '--' works as expected
+                stat = [];
+                try{stat.GP   = item["player"]["stats"][0]["stats"][34];}    catch{stat.GP   = '00';}
+                try{stat.G    = item["player"]["stats"][0]["stats"][13];}    catch{stat.G    = '00';}
+                try{stat.A    = item["player"]["stats"][0]["stats"][14];}    catch{stat.A    = '00';}
+                try{stat.PM   = item["player"]["stats"][0]["stats"][15];}    catch{stat.PM   = '00';}
+                try{stat.PIM  = item["player"]["stats"][0]["stats"][17];}    catch{stat.PIM  = '00';}
+                try{stat.PPG  = item["player"]["stats"][0]["stats"][18];}    catch{stat.PPG  = '00';}
+                try{stat.PPA  = item["player"]["stats"][0]["stats"][19];}    catch{stat.PPA  = '00';}
+                try{stat.SHG  = item["player"]["stats"][0]["stats"][20];}    catch{stat.SHG  = '00';}
+                try{stat.SHA  = item["player"]["stats"][0]["stats"][21];}    catch{stat.SHA  = '00';}
+                try{stat.GWG  = item["player"]["stats"][0]["stats"][22];}    catch{stat.GWG  = '00';}
+                try{stat.FOW  = item["player"]["stats"][0]["stats"][23];}    catch{stat.FOW  = '00';}
+                try{stat.FOL  = item["player"]["stats"][0]["stats"][24];}    catch{stat.FOL  = '00';}
+                try{stat.HAT  = item["player"]["stats"][0]["stats"][28];}    catch{stat.HAT  = '0';}
+                try{stat.SOG  = item["player"]["stats"][0]["stats"][29];}    catch{stat.SOG  = '00';}
+                try{stat.HIT  = item["player"]["stats"][0]["stats"][31];}    catch{stat.HIT  = '00';}
+                try{stat.BLK  = item["player"]["stats"][0]["stats"][32];}    catch{stat.BLK  = '00';}
+                try{stat.FPTS = roundTo(Number(item["player"]["stats"][0]["appliedTotal"]),2);} catch{stat.FPTS = '00';}
+
+                if(stat.GP   == undefined) {stat.GP   = '00';}
+                if(stat.G    == undefined) {stat.G    = '00';}
+                if(stat.A    == undefined) {stat.A    = '00';}
+                if(stat.PM   == undefined) {stat.PM   = '00';}
+                if(stat.PIM  == undefined) {stat.PIM  = '00';}
+                if(stat.PPG  == undefined) {stat.PPG  = '00';}
+                if(stat.PPA  == undefined) {stat.PPA  = '00';}
+                if(stat.SHG  == undefined) {stat.SHG  = '00';}
+                if(stat.SHA  == undefined) {stat.SHA  = '00';}
+                if(stat.GWG  == undefined) {stat.GWG  = '00';}
+                if(stat.FOW  == undefined) {stat.FOW  = '00';}
+                if(stat.FOL  == undefined) {stat.FOL  = '00';}
+                if(stat.HAT  == undefined) {stat.HAT  = '0';}
+                if(stat.SOG  == undefined) {stat.SOG  = '00';}
+                if(stat.HIT  == undefined) {stat.HIT  = '00';}
+                if(stat.BLK  == undefined) {stat.BLK  = '00';}
+                if(stat.FPTS == undefined) {stat.FPTS = '00';}
+
+                displayRow = 0;
+                for (element in stat) {
+                    if (Number(stat[element]) != 0)
+                    {
+                        displayRow |= 1;
+                    }
+                }
+
+                rowString = ""
+                rowString += `<td>${item["id"]}</td>`
+                rowString += `<td>${item["player"]["fullName"]}</td>`
+                rowString += `<td>${id2NHL(item["player"]["proTeamId"])}</td>`
+                rowString += `<td>${item["player"]["defaultPositionId"]}</td>`
+                rowString += `<td>${item["player"]["injuryStatus"]}</td>`
+                rowString += `<td>${id2GFHL(item["onTeamId"])}</td>`
+                //rowString += `<td>!Opponent!</td>`
+                //rowString += `<td>!Status!</td>`
+                rowString += `<td>${stat.GP}</td>` // GP
+                rowString += `<td>${stat.G}</td>` // G
+                rowString += `<td>${stat.A}</td>` // A
+                rowString += `<td>${stat.PM}</td>` // PM
+                rowString += `<td>${stat.PIM}</td>` // PIM
+                rowString += `<td>${stat.PPG}</td>` // PPG
+                rowString += `<td>${stat.PPA}</td>` //PPA
+                rowString += `<td>${stat.SHG}</td>` //PPA
+                rowString += `<td>${stat.SHA}</td>` //PPA
+                rowString += `<td>${stat.GWG}</td>` //PPA
+                rowString += `<td>${stat.FOW}</td>` //PPA
+                rowString += `<td>${stat.FOL}</td>` //PPA
+                rowString += `<td>${stat.HAT}</td>` //PPA
+                rowString += `<td>${stat.SOG}</td>` //PPA
+                rowString += `<td>${stat.HIT}</td>` //PPA
+                rowString += `<td>${stat.BLK}</td>` //PPA
+                rowString += `<td>${stat.FPTS}</td>` // FPTS
+
+                if (displayRow){
+                    return(rowString);
+                }
+                else {
+                    return("");
+                }
+        }
+
+        function roundTo(n, digits) {
+        var negative = false;
+        if (digits === undefined) {
+            digits = 0;
+        }
+        if (n < 0) {
+            negative = true;
+            n = n * -1;
+        }
+        var multiplicator = Math.pow(10, digits);
+        n = parseFloat((n * multiplicator).toFixed(11));
+        n = (Math.round(n) / multiplicator).toFixed(digits);
+        if (negative) {
+            n = (n * -1).toFixed(digits);
+        }
+        return n;
+}
 
         function id2NHL(id) {
             NHL_TEAMS = {"1":  "BOS", "2":  "BUF", "3":  "CGY", "4":  "CHI", "5":  "DET",
