@@ -40,14 +40,13 @@
         <!--Year selector-->
         <a>Select Season: </a>
         <select name="season" id="season">
-            <option value="--">--</option>
-            <option value="2018">2017-18</option>
-            <option value="2019">2018-19</option>
-            <option value="2020">2019-20</option>
-            <option value="2021">2020-21</option>
-            <option value="2022">2021-22</option>
-            <option value="2023">2022-23</option>
             <option value="2024">2023-24</option>
+            <option value="2023">2022-23</option>
+            <option value="2022">2021-22</option>
+            <option value="2021">2020-21</option>
+            <option value="2020">2019-20</option>
+            <option value="2019">2018-19</option>
+            <option value="2018">2017-18</option>
         </select>
 
         <p></p>
@@ -56,13 +55,13 @@
         <!--<button id="prev-day"><<</button>-->
         <!--Calendar-->
         <label for="">Date:
-            <input id="calendar" type="date" min="2017-10-01" max="2024-04-10" name="" value="">
+            <input id="calendar" type="date" min="2017-10-01" max="2024-04-18" name="" value="">
         </label>
         <!--Next Day-->
         <!--<button id="next-day">>></button>-->
 
         <p>Daily stats are a work in progress. Check back soon for updates. </p>
-        <p>Currently only works for Goalies after March 26th 2024. Proper Skater support and additional dates to be added in the future.</p>
+        <p>Currently only works for after March 26th 2024. Additional dates to be added in the future.</p>
         <table id="data-table">
             <thead id="data-table-head">
                 <!-- Table header will be populated dynamically using JavaScript -->
@@ -177,7 +176,7 @@
                 stat = [];
                 try{stat.GS   = item["player"]["stats"][0]["stats"][0];}     catch{stat.GS   = '00';}
                 try{stat.W    = item["player"]["stats"][0]["stats"][1];}     catch{stat.W    = '00';}
-                try{stat.L    = item["player"]["stats"][0]["stats"][9];}     catch{stat.L    = '00';}
+                try{stat.L    = item["player"]["stats"][0]["stats"][2];}     catch{stat.L    = '00';}
                 try{stat.GA   = item["player"]["stats"][0]["stats"][4];}     catch{stat.GA   = '00';}
                 try{stat.SV   = item["player"]["stats"][0]["stats"][6];}     catch{stat.SV   = '00';}
                 try{stat.SO   = item["player"]["stats"][0]["stats"][7];}     catch{stat.SO   = '00';}
