@@ -1,4 +1,4 @@
-# GFHL_stats
+# GFHL_stats 
 Useful for scraping all player data for a fantasy hockey season on ESPN.
 Two methods exist:
  1. Selenium based website scraping
@@ -20,7 +20,7 @@ Two methods exist:
      - First iteration in place. Could use some cleanup, but it is functional. Would like to add "prev-day" and "next-day" buttons for ease of use.
    - Integreate filters to hide/show columns. Default should look similar to the layout in the app, but users should be able to add/remove colums
      - This idea is being scrapped. There's no reason to have this done dynamically for now. MUCH easier to manually define the columns and it's not difficult to update if required
-   - contunue effort to display skater stats on the dailies page. Most of it is hard coded for goalies so you'l need to do some massaging
+   - contunue effort to display skater stats on the dailies page. Most of it is hard coded for goalies so you'll need to do some massaging
      - once skaters are displayed reasonably well, fix the skipAppend implementation. Would like to skip if skaters GP=0. Unsure exactly how to implement for goalies but it might just be OR'ing all their stats to see if they played.
    - integrate options to show 25/50/100/all rows (maybe)
    - Continue effort with styling each page (low priority)

@@ -14,7 +14,7 @@ starting_dates = {
     2021 : ["Wednesday, January 13",  "2021-01-13", "2021-05-19", 110], #Shortened year
     2022 : ["Tuesday, October 12",    "2021-10-12", "2022-04-29", 200],
     2023 : ["Tuesday, October 7",     "2022-10-07", "2023-04-02", 178],
-    2024 : ["Tuesday, October 10",    "2023-10-10", "2024-04-04", 179]
+    2024 : ["Tuesday, October 10",    "2023-10-10", "2024-04-18", 192]
 }
 
 def date_to_year(date):
@@ -22,7 +22,7 @@ def date_to_year(date):
     month = int(date[5:7])
     if (month >=10):
         year = year + 1
-    print(year)
+    #print(year)
     return(year)
 
 def date_to_scoringId(date):
@@ -30,8 +30,18 @@ def date_to_scoringId(date):
     month = int(date[5:7])
     if (month >=10):
         year = year + 1
-    print(days_between(starting_dates[year][1], date)+1)
-    return(days_between(starting_dates[year][1], date)+1)
+    scoreId = days_between(starting_dates[year][1], date)+1
+    # If the scoreId is less than or equal to the scoring period Max value from that year, print and return it.
+    # Also, if the scoreId is equal to the scoring period Max value + 1, then we are in the first day of the
+    # offseason so it is permissible to scrape one extra day to get the total season stats.
+    if (scoreId <= starting_dates[date_to_year(date)][3] + 1):
+        #print(scoreId)
+        return(scoreId)
+    # Otherwise, if the scoreId is greater than scoring period Max then we are in the offseason and don't need 
+    # to keep scraping so return a scoringId of -1 so GitHub actions can see that.
+    else:
+        #print(-1)
+        return(-1)
 
 def date_to_scoring_period(date):
     year = int(date[0:4])
