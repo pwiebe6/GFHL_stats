@@ -14,7 +14,8 @@ starting_dates = {
     2021 : ["Wednesday, January 13",  "2021-01-13", "2021-05-19", 110], #Shortened year
     2022 : ["Tuesday, October 12",    "2021-10-12", "2022-04-29", 200],
     2023 : ["Tuesday, October 7",     "2022-10-07", "2023-04-02", 178],
-    2024 : ["Tuesday, October 10",    "2023-10-10", "2024-04-18", 192]
+    2024 : ["Tuesday, October 10",    "2023-10-10", "2024-04-04", 179],
+    2025 : ["Friday, October 4th",    "2024-10-04", "2025-04-17", 195]
 }
 
 def date_to_year(date):
