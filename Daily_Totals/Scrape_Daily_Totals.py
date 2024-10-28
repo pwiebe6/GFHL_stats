@@ -54,7 +54,8 @@ starting_dates = {
     2021 : ["Wednesday, January 13",  "2021-01-13", "2021-05-19", 110], #Shortened year
     2022 : ["Tuesday, October 12",    "2021-10-12", "2022-04-29", 200],
     2023 : ["Tuesday, October 7",     "2022-10-07", "2023-04-02", 178],
-    2024 : ["Tuesday, October 10",    "2023-10-10", "2024-04-04", 179]
+    2024 : ["Tuesday, October 10",    "2023-10-10", "2024-04-04", 179],
+    2025 : ["Friday, October 4th",    "2024-10-04", "2025-04-17", 195]
 }
 
 GFHL_teams = ["FA", "DINK", "BOWS", "LKR", "OXP", "NBUS", "CLB", "HERB", "SALT", "ME", "BBS", "SLC"]
@@ -410,7 +411,7 @@ def main():
         # scoring: GP, G, A,   +/-, PIM,  PPG, PPA,  SHG, SHA,  GWG, FOW, FOL,  HAT, SOG, HIT, BLK
         scoring = [ 0, 2, 1.5, 0.5, -0.1, 0.5, 0.25, 1  , 0.75, 1,   0.1, -0.1, 2,   0.1, 0.3, 0.5]
         csvHeader = "Name, Health, NHL Team, Position, GFHL Team, Opponent, Score, GP, G, A, +/-, PIM, PPG, PPA, SHG, SHA, GWG, FOW, FOL, HAT, SOG, HIT, BLK, FPTS"
-        MAX_PAGE = 29
+        MAX_PAGE = 30
 
     if (args.verbose > -1):
         print("Run: " + str(args.run))
