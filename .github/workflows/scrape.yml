@@ -6,6 +6,7 @@ on:
   # cron job for 9:50am to coincide with 2:50am PDT or 1:50pm PST Vancouver time
     - cron:  '50 9 * * *'
 
+
 jobs:
   scheduled:
     permissions:
