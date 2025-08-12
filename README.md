@@ -1,5 +1,5 @@
 # GFHL_stats 
-Useful for scraping all player data for a fantasy hockey season on ESPN.
+Useful for scraping all player data for a fantasy hockey season on ESPN. 
 Two methods exist:
  1. Selenium based website scraping
     - Pros:
