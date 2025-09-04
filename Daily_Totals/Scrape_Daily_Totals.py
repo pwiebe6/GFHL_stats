@@ -111,6 +111,10 @@ def scrape_page(driver, isGoalie):
     stats = tbody[1].text # 16 for players, 6 for goalies
     fpts  = tbody[2].text # 1
 
+    name_stats = 7
+    fpts_stats = 2
+
+
     if(isGoalie):
         num_stats = 6
     else:
@@ -123,21 +127,21 @@ def scrape_page(driver, isGoalie):
     i = 0
     for name in names:
         # if the game opponent column indicates '--', add  '--' for the gametime/score
-        if ((i%7 - 4) == 0):
+        if ((i%name_stats - 4) == 0):
             if ((name not in GFHL_teams)):
                 temp_list.append('--')
                 #
                 i = i + 1
 
         # if there is no mention of 'DTD'/'IR'/'O'/'SSPD' in the health column, add 'Healthy'
-        if ((i%7 - 1) == 0):
+        if ((i%name_stats - 1) == 0):
             if ((name != 'DTD') and (name != 'IR') and (name != 'O') and (name != 'SSPD')):
                 temp_list.append('Healthy')
                 #
                 i = i + 1
 
         # if the game opponent column indicates '--', add  '--' for the gametime/score
-        if ((i%7 - 5) == 0):
+        if ((i%name_stats - 5) == 0):
             if ((name == '--')):
                 temp_list.append('--')
                 #
@@ -145,7 +149,7 @@ def scrape_page(driver, isGoalie):
 
         temp_list.append(name)
         i = i + 1
-        if (i%7 == 0):
+        if (i%name_stats == 0):
             #push append the temp_list to the names_list and clear the temp list
             names_list.append(temp_list)
             temp_list = []
@@ -156,12 +160,14 @@ def scrape_page(driver, isGoalie):
     stats_list = []
     temp_list = []
 
+    #print("PRINTING JUST STATS: " + str(stats))
+
     i = 0
     for stat in stats:
         if stat == '--':
             temp_list.append(stat)
         else:
-            temp_list.append(int(stat))
+            temp_list.append(float(stat))
         i = i + 1
         if (i%num_stats == 0):
             #push appended the temp_list to the stat_list and clear the temp list
@@ -174,15 +180,19 @@ def scrape_page(driver, isGoalie):
     fpts_list = []
     temp_list = []
 
+    #print("PRINTING JUST FPTS:" + str(fpts) )
+
+    i = 0
     for fpt in fpts:
         if fpt == '--':
             temp_list.append(fpt)
         else:
             temp_list.append(float(fpt))
-
-        #push appended the temp_list to the stat_list and clear the temp list
-        fpts_list.append(temp_list)
-        temp_list = []
+        i = i + 1
+        if (i%fpts_stats == 0):
+            #push appended the temp_list to the stat_list and clear the temp list
+            fpts_list.append(temp_list)
+            temp_list = []
 
     #print("PRINTING FPTS LIST" + str(fpts_list))
 
@@ -453,7 +463,10 @@ def main():
         for scoringPeriodId in range(scoringPeriodIdStart, scoringPeriodIdEnd):
             print("scoring Period = " + str(scoringPeriodId))
             # Open the browser
-            driver.get(url + "&scoringPeriodId=" + str(scoringPeriodId) + "&seasonId=" + str(year) + "&lineupSlot=" + positionString)
+            if args.force_url == "NULL":
+                driver.get(url + "&scoringPeriodId=" + str(scoringPeriodId) + "&seasonId=" + str(year) + "&lineupSlot=" + positionString)
+            else:
+                driver.get(args.force_url)
 
             # Wait for page to load 
 #            time.sleep(3)
