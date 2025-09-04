@@ -55,10 +55,11 @@ starting_dates = {
     2022 : ["Tuesday, October 12",    "2021-10-12", "2022-04-29", 200],
     2023 : ["Tuesday, October 7",     "2022-10-07", "2023-04-02", 178],
     2024 : ["Tuesday, October 10",    "2023-10-10", "2024-04-04", 179],
-    2025 : ["Friday, October 4th",    "2024-10-04", "2025-04-17", 195]
+    2025 : ["Friday, October 4",      "2024-10-04", "2025-04-17", 195],
+    2026 : ["Tuesday, October 7",     "2025-10-07", "2025-04-16", 191]
 }
 
-GFHL_teams = ["FA", "DINK", "BOWS", "LKR", "OXP", "NBUS", "CLB", "HERB", "SALT", "ME", "BBS", "SLC"]
+GFHL_teams = ["FA", "DINK", "BOWS", "LKR", "OXP", "NBUS", "CLB", "HERB", "SALT", "ME", "BBS", "SLC", "HYD"]
 
 # Webpage of today's top 50 skater by fpoints earned
 #daily_leader = "https://fantasy.espn.com/hockey/leaders?leagueId=59311"
@@ -366,6 +367,7 @@ def main():
     parser.add_argument('-E', '--endscoringperiod', type=int, default=0, help="Provide ending scoring period. Must also provide Year with -Y")
     parser.add_argument('-N', '--numdates', type=int, default=1, help="Provide number of dates to check. Default is 1")
     parser.add_argument('-M', '--maxpage', type=int, default=3, help="Provide number of pages to scrape per day. Default 5")
+    parser.add_argument('-F', '--force_url', default="NULL", help="Provide a URL to start scraping from")
 
 
     args = parser.parse_args()
@@ -431,8 +433,10 @@ def main():
         print("End Scoring Period: " + str(args.endscoringperiod))
         print("Number of dates: " + str(args.numdates))
         print("Max Page: " + str(args.maxpage))
-        print("URL: " + str(url + "&scoringPeriodId=" + str(scoringPeriodIdStart) + "&seasonId=" + str(year) + "&lineupSlot=" + positionString))
-
+        if args.force_url == "NULL":
+            print("URL: " + str(url + "&scoringPeriodId=" + str(scoringPeriodIdStart) + "&seasonId=" + str(year) + "&lineupSlot=" + positionString))
+        else:
+            print("Forced URL: " + args.force_url)
 
     # Early exit for testing purposes
     if (args.run == False):
